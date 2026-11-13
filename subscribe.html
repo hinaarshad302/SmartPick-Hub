@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your SmartPick Hub account and profile.">
+    <title>Subscribe | SmartPick Hub</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --profile-green: #102D27;
+            --profile-green-light: #1D493D;
+            --profile-gold: #D6AD55;
+            --profile-cream: #F7F5EF;
+            --profile-muted: #68736d;
+            --profile-border: #e8e5dc;
+        }
+
+        body {
+            background: var(--profile-cream);
+            font-family: "DM Sans", sans-serif;
+            color: #202824;
+        }
+
+        .account-hero {
+            background: linear-gradient(120deg, #102D27, #1D493D);
+            color: white;
+            padding: 55px 24px 85px;
+        }
+
+        .account-hero-inner,
+        .account-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .account-eyebrow {
+            color: var(--profile-gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .account-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(32px, 5vw, 46px);
+            margin: 0 0 12px;
+            color: white;
+        }
+
+        .account-hero p {
+            color: #e1e9e4;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .account-container {
+            padding: 0 24px 70px;
+            margin-top: -48px;
+        }
+
+        .profile-summary {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding: 27px 30px;
+            background: white;
+            border: 1px solid var(--profile-border);
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(16, 45, 39, .09);
+            margin-bottom: 30px;
+        }
+
+        .large-avatar {
+            width: 76px;
+            height: 76px;
+            flex: 0 0 76px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--profile-green);
+            color: var(--profile-gold);
+            border: 3px solid #ead9ad;
+            font-size: 29px;
+            font-weight: 700;
+        }
+
+        .summary-info {
+            min-width: 0;
+        }
+
+        .summary-info h2 {
+            margin: 0 0 5px;
+            color: var(--profile-green);
+            font-size: 22px;
+            overflow-wrap: anywhere;
+        }
+
+        .summary-info p {
+            margin: 0 0 10px;
+            color: var(--profile-muted);
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        .account-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 6px 11px;
+            background: #eaf4ed;
+            color: #27633b;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .account-status::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            background: #319653;
+            border-radius: 50%;
+        }
+
+        .section-heading {
+            margin: 35px 0 17px;
+        }
+
+        .section-heading h2 {
+            color: var(--profile-green);
+            font-size: 21px;
+            margin: 0 0 6px;
+        }
+
+        .section-heading p {
+            color: var(--profile-muted);
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .account-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .account-card {
+            background: white;
+            border: 1px solid var(--profile-border);
+            border-radius: 13px;
+            padding: 23px;
+            box-shadow: 0 5px 18px rgba(16, 45, 39, .035);
+        }
+
+        .card-label {
+            color: var(--profile-muted);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .7px;
+            margin-bottom: 10px;
+        }
+
+        .card-value {
+            color: var(--profile-green);
+            font-size: 16px;
+            font-weight: 700;
+            overflow-wrap: anywhere;
+        }
+
+        .card-description {
+            color: var(--profile-muted);
+            font-size: 12px;
+            margin-top: 7px;
+            line-height: 1.6;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .quick-link {
+            display: block;
+            padding: 22px;
+            border: 1px solid var(--profile-border);
+            border-radius: 13px;
+            background: white;
+            text-decoration: none;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .quick-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(16, 45, 39, .09);
+        }
+
+        .quick-link-icon {
+            width: 39px;
+            height: 39px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: #f4ecd9;
+            color: var(--profile-green);
+            font-size: 19px;
+            margin-bottom: 13px;
+        }
+
+        .quick-link strong {
+            display: block;
+            color: var(--profile-green);
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .quick-link span:last-child {
+            color: var(--profile-muted);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .account-note {
+            margin-top: 28px;
+            padding: 20px 22px;
+            border-left: 4px solid var(--profile-gold);
+            border-radius: 7px;
+            background: #fff;
+            color: var(--profile-muted);
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .account-note strong {
+            color: var(--profile-green);
+        }
+
+        .account-error {
+            display: none;
+            max-width: 700px;
+            margin: 35px auto;
+            padding: 20px;
+            background: #fff0ee;
+            border: 1px solid #e7b8b2;
+            border-radius: 10px;
+            color: #963b32;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .account-hero {
+                padding: 40px 20px 75px;
+            }
+
+            .account-container {
+                padding: 0 16px 45px;
+            }
+
+            .profile-summary {
+                padding: 20px;
+                gap: 14px;
+            }
+
+            .large-avatar {
+                width: 60px;
+                height: 60px;
+                flex-basis: 60px;
+                font-size: 23px;
+            }
+
+            .summary-info h2 {
+                font-size: 18px;
+            }
+
+            .account-grid,
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="navbar">
+        <a class="logo" href="index.html">
+            <span class="logo-mark">SH</span>
+            <span class="logo-text">
+                <strong>SmartPick Hub</strong>
+                <small>SMART CHOICES. BETTER LIVING.</small>
+            </span>
+        </a>
+
+        <button class="menu-toggle" id="menu-toggle"
+                type="button" aria-label="Open navigation menu"
+                aria-expanded="false">
+            <span class="menu-icon">☰</span>
+        </button>
+
+        <nav id="site-nav">
+            <a href="index.html">Home</a>
+            <a href="technology.html">Technology</a>
+            <a href="featured.html">Featured</a>
+            <a href="guides.html">Buying Guides</a>
+            <a href="about.html">About</a>
+            <a href="auth.html" id="login-nav-link">Login / Sign Up</a>
+            <a href="subscribe.html">Subscribe</a>
+
+            <div class="profile-menu" id="profile-menu" hidden>
+                <button type="button" class="profile-trigger"
+                        id="profile-trigger" aria-expanded="false"
+                        aria-controls="profile-dropdown">
+                    <span class="profile-avatar" id="profile-avatar">U</span>
+                    <span class="profile-trigger-name" id="profile-name">Account</span>
+                    <span class="profile-chevron">⌄</span>
+                </button>
+
+                <div class="profile-dropdown" id="profile-dropdown" hidden>
+                    <div class="profile-dropdown-user">
+                        <strong id="profile-dropdown-name">Account</strong>
+                        <small id="profile-dropdown-email"></small>
+                    </div>
+                    <a href="profile.html">My Account</a>
+                    <button type="button" id="logout-nav-button">Logout</button>
+                </div>
+            </div>
+
+            <a class="nav-cta" href="featured.html">Explore Picks →</a>
+        </nav>
+    </div>
+</header>
+
+<main class="subscribe-page">
+    <section class="subscribe-content">
+        <p class="subscribe-label">SMARTPICK HUB NEWSLETTER</p>
+
+        <h1>Smarter Shopping Starts Here.</h1>
+
+        <p class="subscribe-description">
+            Get useful buying guides, product comparisons,
+            technology updates and carefully selected shopping picks
+            delivered to your inbox.
+        </p>
+
+        <div class="subscribe-form-card">
+            <h2>Stay in the Loop</h2>
+
+            <p>
+                Our newsletter signup is being connected.
+                Subscription will be available soon.
+            </p>
+
+            <form id="newsletter-form">
+                <label for="newsletter-email">Email address</label>
+
+                <input type="email"
+                       id="newsletter-email"
+                       placeholder="Enter your email address"
+                       disabled>
+
+                <button type="button" disabled>
+                    Newsletter Signup Coming Soon
+                </button>
+            </form>
+        </div>
+
+        <p class="subscribe-privacy">
+            We respect your privacy. You will be able to unsubscribe
+            from newsletter emails.
+        </p>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-bottom">
+        <p>© 2026 SmartPick Hub. All rights reserved.</p>
+        <p>Smart Choices. Better Living.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth-nav.js"></script>
+<script src="script.js"></script>
+
+<style>
+.subscribe-page {
+    min-height: 65vh;
+    padding: 75px 20px;
+    background: #F7F5EF;
+    color: #102D27;
+}
+
+.subscribe-content {
+    max-width: 760px;
+    margin: auto;
+    text-align: center;
+}
+
+.subscribe-label {
+    color: #A77D2E;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.subscribe-content h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    margin: 18px 0;
+    color: #102D27;
+}
+
+.subscribe-description {
+    max-width: 620px;
+    margin: 0 auto 35px;
+    line-height: 1.8;
+    color: #52645D;
+}
+
+.subscribe-form-card {
+    max-width: 520px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(16, 45, 39, 0.08);
+}
+
+.subscribe-form-card h2 {
+    color: #102D27;
+}
+
+.subscribe-form-card p {
+    color: #65736D;
+    line-height: 1.7;
+}
+
+.subscribe-form-card label {
+    display: block;
+    text-align: left;
+    margin: 20px 0 8px;
+}
+
+.subscribe-form-card input,
+.subscribe-form-card button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.subscribe-form-card input {
+    border: 1px solid #D8DED9;
+}
+
+.subscribe-form-card button {
+    margin-top: 12px;
+    background: #102D27;
+    color: white;
+    border: none;
+}
+
+.subscribe-form-card button:disabled,
+.subscribe-form-card input:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.subscribe-privacy {
+    margin-top: 22px;
+    font-size: 13px;
+    color: #68766F;
+}
+
+@media (max-width: 600px) {
+    .subscribe-page {
+        padding: 45px 16px;
+    }
+
+    .subscribe-form-card {
+        padding: 24px 18px;
+    }
+}
+</style>
+
+</body>
+</html>
