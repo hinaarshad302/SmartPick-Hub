@@ -54,7 +54,7 @@ def main() -> int:
     secret_patterns = (
         re.compile(r"sb_secret_[A-Za-z0-9_-]{12,}"),
         re.compile(r"re_[A-Za-z0-9]{20,}"),
-        re.compile(r"SUPABASE_SECRET_KEY\s*=\s*["']", re.IGNORECASE),
+        re.compile(r"SUPABASE_SECRET_KEY\s*=\s*", re.IGNORECASE),
     )
     frontend_files = list(ROOT.glob("*.html")) + list(ROOT.glob("*.js"))
     for frontend_file in frontend_files:
