@@ -97,15 +97,18 @@ The tree above is an orientation guide; some folders may be empty or still under
 
 ## SmartPick AI search setup
 
-The homepage search interface sends questions to `POST /assistant/search`. The backend expects an OpenAI-compatible chat-completions endpoint and reads these server-only environment variables:
+The homepage search interface sends questions to `POST /assistant/search`. The canonical FastAPI backend uses Google's official `google-genai` Python SDK.
 
-- `LLM_API_KEY`: provider API key.
-- `LLM_BASE_URL`: full chat-completions URL, for example a provider's `/v1/chat/completions` endpoint.
-- `LLM_MODEL`: model identifier supported by that provider.
+Server-side environment variables:
 
-Set `SMARTPICK_API_BASE_URL` in the public `api-config.js` to the deployed HTTPS backend origin. Keep `LLM_API_KEY` only in backend environment variables. The UI can render while the API is disconnected, but live answers require a deployed backend and valid provider configuration.
+- `GEMINI_API_KEY`: Gemini API key created in Google AI Studio. Store it only in the backend host's secret/environment settings.
+- `GEMINI_MODEL`: Gemini model ID. Defaults to `gemini-2.5-flash`.
 
-This first LLM endpoint provides general shopping guidance only. It does not perform live retailer/product retrieval, price checks, stock checks, or verified product comparisons. Those require approved product data sources and retrieval services before launch.
+Install backend dependencies from `requirements.txt`. For local development, copy `.env.example` to `.env` and add the real key to the local `.env` file. Never commit `.env`.
+
+Set `SMARTPICK_API_BASE_URL` in the public `api-config.js` to the deployed HTTPS backend origin. This URL is public configuration; it must not contain a Gemini API key.
+
+The AI endpoint provides general shopping guidance only. It does not perform live retailer/product retrieval, price checks, stock checks, or verified product comparisons. Those require approved product data sources and retrieval services before launch.
 
 ## Technology currently present
 

@@ -4,3 +4,4 @@ supabase
 pydantic[email]
 python-dotenv
 requests
+google-genai

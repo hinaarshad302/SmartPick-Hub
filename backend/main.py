@@ -7,6 +7,7 @@ from pathlib import Path
 from datetime import datetime, timedelta, timezone
 
 import requests
+from google import genai
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -123,69 +124,52 @@ def health_check():
 
 @app.post("/assistant/search")
 def assistant_search(request: AssistantSearchRequest):
-    """LLM-powered shopping guidance. Provider credentials remain server-side."""
-    llm_api_key = os.getenv("LLM_API_KEY", "").strip()
-    llm_base_url = os.getenv("LLM_BASE_URL", "").strip().rstrip("/")
-    llm_model = os.getenv("LLM_MODEL", "").strip()
+    """Generate bilingual shopping guidance using Gemini; API credentials stay server-side."""
+    gemini_api_key = os.getenv("GEMINI_API_KEY", "").strip()
+    gemini_model = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
 
-    if not llm_api_key or not llm_base_url or not llm_model:
+    if not gemini_api_key:
         raise HTTPException(
             status_code=503,
-            detail="SmartPick AI is not configured yet. Add LLM_API_KEY, LLM_BASE_URL, and LLM_MODEL to the backend environment."
+            detail="SmartPick AI is not configured yet. Add GEMINI_API_KEY to the backend environment."
         )
 
     query = request.query.strip()
     if len(query) < 2:
         raise HTTPException(status_code=422, detail="Please enter a longer question.")
 
-    payload = {
-        "model": llm_model,
-        "messages": [
-            {
-                "role": "system",
-                "content": (
-                    "You are SmartPick AI, a helpful bilingual shopping and product-discovery "
-                    "assistant for Pakistan and international users. Understand English, Urdu, "
-                    "and Roman Urdu. Give clear, practical, neutral buying guidance. Ask a short "
-                    "follow-up when budget, country, or use case is essential. Do not invent live "
-                    "prices, discounts, stock, ratings, product specifications, reviews, or "
-                    "affiliate availability. If verified product data is not supplied, say so "
-                    "and explain what the user should verify with the seller. Do not claim that "
-                    "you searched live retailer listings. Keep answers structured and concise."
-                )
-            },
-            {"role": "user", "content": query}
-        ],
-        "temperature": 0.4
-    }
+    system_instruction = (
+        "You are SmartPick AI, a helpful bilingual shopping and product-discovery "
+        "assistant for Pakistan and international users. Understand English, Urdu, "
+        "and Roman Urdu. Give clear, practical, neutral buying guidance. Ask a short "
+        "follow-up when budget, country, or use case is essential. Do not invent live "
+        "prices, discounts, stock, ratings, product specifications, reviews, or "
+        "affiliate availability. If verified product data is not supplied, say so "
+        "and explain what the user should verify with the seller. Do not claim that "
+        "you searched live retailer listings. Keep answers structured and concise."
+    )
 
     try:
-        response = requests.post(
-            llm_base_url,
-            headers={
-                "Authorization": f"Bearer {llm_api_key}",
-                "Content-Type": "application/json"
-            },
-            json=payload,
-            timeout=45
-        )
-        response.raise_for_status()
-        data = response.json()
-        answer = data["choices"][0]["message"]["content"]
-        if isinstance(answer, list):
-            answer = "\\n".join(
-                part.get("text", "") for part in answer
-                if isinstance(part, dict)
+        with genai.Client(api_key=gemini_api_key) as client:
+            response = client.models.generate_content(
+                model=gemini_model,
+                contents=query,
+                config={
+                    "system_instruction": system_instruction,
+                    "temperature": 0.4,
+                    "max_output_tokens": 1024,
+                },
             )
+        answer = response.text
         if not isinstance(answer, str) or not answer.strip():
-            raise ValueError("The LLM returned an empty answer.")
+            raise ValueError("Gemini returned an empty answer.")
         return {"success": True, "answer": answer.strip()}
-    except requests.exceptions.Timeout:
-        raise HTTPException(status_code=504, detail="SmartPick AI took too long to respond. Please try again.")
-    except requests.exceptions.RequestException:
-        raise HTTPException(status_code=502, detail="SmartPick AI provider is temporarily unavailable.")
-    except (KeyError, IndexError, TypeError, ValueError):
-        raise HTTPException(status_code=502, detail="SmartPick AI returned an unexpected response format.")
+    except Exception:
+        # Do not expose provider details, request metadata, or credentials to visitors.
+        raise HTTPException(
+            status_code=502,
+            detail="SmartPick AI could not get a response right now. Please try again later."
+        )
 
 
 @app.post("/newsletter/signup")
