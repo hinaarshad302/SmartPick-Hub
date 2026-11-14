@@ -11,6 +11,8 @@ const authSwitch = document.getElementById("auth-switch");
 const authSwitchText = document.getElementById("auth-switch-text");
 const authMessage = document.getElementById("auth-message");
 const forgotPasswordButton = document.getElementById("forgot-password");
+const consentGroup = document.getElementById("auth-consent-group");
+const consentInput = document.getElementById("auth-consent");
 
 const passwordInput = document.getElementById("auth-password");
 const confirmGroup = document.getElementById("confirm-password-group");
@@ -35,6 +37,10 @@ function updateAuthMode() {
 
     confirmGroup.hidden = !isSignup;
     confirmInput.required = isSignup;
+
+    consentGroup.hidden = !isSignup;
+    consentInput.required = isSignup;
+    consentInput.checked = false;
 
     passwordInput.autocomplete = isSignup
         ? "new-password"
@@ -114,6 +120,13 @@ authForm.addEventListener("submit", async (event) => {
 
     if (isSignup && password !== confirmInput.value) {
         authMessage.textContent = "Passwords do not match. Please try again.";
+        return;
+    }
+
+    if (isSignup && !consentInput.checked) {
+        authMessage.textContent =
+            "Please agree to the Terms of Use and review the Privacy Policy before creating an account.";
+        consentInput.focus();
         return;
     }
 
