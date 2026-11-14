@@ -98,11 +98,11 @@ The tree above is an orientation guide; some folders may be empty or still under
 
 - Frontend: HTML, CSS, and browser JavaScript.
 - Authentication/database provider: Supabase (browser client configuration is present).
-- Account flow: email/password signup and login, protected profile-page session check, editable display name stored in the signed-in user's Supabase Auth metadata, local logout, account-wide sign-out, and email-based password recovery.
+- Account flow: email/password signup and login, required Terms/Privacy acknowledgement at signup, protected profile-page session check, editable display name stored in the signed-in user's Supabase Auth metadata, local logout, account-wide sign-out, and email-based password recovery.
 - Backend prototype: Python and FastAPI.
 - Newsletter email delivery: Resend integration in the canonical FastAPI backend (`backend/main.py`).
 - Newsletter database: SQL migration at `database/migrations/001_newsletter_subscribers.sql`.
-- Newsletter frontend: `api-config.js` and `newsletter.js`; the backend URL must be configured after deployment.
+- Newsletter frontend: `api-config.js` and `newsletter.js`; explicit email-marketing consent is required, and the backend URL must be configured after deployment.
 - Configuration: environment variables loaded with `python-dotenv`.
 - Static hosting: `vercel.json` provides secure response headers and clean URL configuration; the FastAPI API remains a separate deployment.
 - Quality checks: GitHub Actions checks local HTML file references, duplicate IDs, Python syntax, and JavaScript syntax.
