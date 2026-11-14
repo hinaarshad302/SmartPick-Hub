@@ -1,0 +1,71 @@
+name: Deploy SmartPick Hub to Cloudflare Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: smartpick-cloudflare-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Manual Cloudflare Pages deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the selected branch
+        uses: actions/checkout@v4
+
+      - name: Prepare a public-only static site folder
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          cp ./*.html ./*.css ./*.js ./robots.txt ./_headers dist/
+          test -s dist/index.html
+          echo "Files prepared for public hosting:"
+          find dist -maxdepth 1 -type f -printf '%f\\n' | sort
+          if find dist -type f \\( -name '*.py' -o -name '*.sql' -o -name '.env*' \\) | grep -q .; then
+            echo "Unexpected server-side or environment file found in public output."
+            exit 1
+          fi
+
+      - name: Create the Pages project if it does not exist
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            echo "Add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in GitHub Actions secrets."
+            exit 1
+          fi
+          API="https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/smartpick-hub"
+          STATUS=$(curl -sS -o /tmp/pages-project.json -w "%{http_code}" \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "$API")
+          if [ "$STATUS" = "200" ]; then
+            echo "Cloudflare Pages project already exists."
+          elif [ "$STATUS" = "404" ]; then
+            curl -sS --fail-with-body -X POST \
+              "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects" \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+              -H "Content-Type: application/json" \
+              --data '{"name":"smartpick-hub","production_branch":"main"}' \
+              -o /tmp/pages-create.json
+            jq -e '.success == true' /tmp/pages-create.json >/dev/null
+            echo "Cloudflare Pages project created."
+          else
+            echo "Cloudflare project check failed (HTTP $STATUS). Check token permissions and account ID."
+            exit 1
+          fi
+
+      - name: Deploy a preview from the selected branch
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=smartpick-hub --branch=project-foundation
