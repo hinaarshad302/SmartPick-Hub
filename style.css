@@ -2501,3 +2501,149 @@ button:focus-visible {
     padding: 7px 10px !important;
   }
 }
+
+
+/* =========================================
+   SMARTPICK HUB — REFINED BRAND CONTRAST
+   Preserve compact layout; deepen brand colors
+========================================= */
+:root {
+  --green: #244638;
+  --green-light: #3f6a53;
+  --gold: #bd974d;
+  --cream: #edf3ee;
+  --dark: #26342d;
+  --muted: #5d6c62;
+  --border: #dce5dd;
+  --shadow: 0 14px 34px rgba(27, 62, 46, .10);
+}
+
+/* Stronger readable text and balanced pale-green surfaces */
+body {
+  color: #26342d;
+  background: #ffffff;
+}
+.header nav,
+.header nav a {
+  color: #34483c;
+}
+.header nav a:hover {
+  color: #987331;
+}
+.header .nav-cta {
+  background: #e1ebe3 !important;
+  color: #244638 !important;
+}
+.hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(189,151,77,.14), transparent 32%),
+    linear-gradient(120deg, #e2ece4 0%, #edf3ed 100%) !important;
+  color: #263b30 !important;
+}
+.hero h1,
+.hero h1 span,
+.visual-card h2 {
+  color: #244638 !important;
+}
+.hero h1 span {
+  color: #527b60 !important;
+}
+.hero-content > p,
+.trust {
+  color: #53675a !important;
+}
+.eyebrow,
+.dark-eyebrow,
+.tag {
+  color: #987331;
+}
+.btn-gold {
+  background: #bd974d !important;
+  color: #1f3529 !important;
+}
+.btn-gold:hover {
+  background: #c9a65f !important;
+}
+.btn-outline {
+  border-color: #8eaa96 !important;
+  color: #244638 !important;
+}
+.visual-card {
+  border-color: #d3e0d5 !important;
+  box-shadow: 0 16px 38px rgba(36,70,56,.12) !important;
+}
+.visual-card small,
+.visual-card p {
+  color: #5d7163 !important;
+}
+.featured,
+.disclosure {
+  background: #edf3ee !important;
+}
+.category-card,
+.topic-card,
+.guide-placeholder,
+.about-highlight {
+  border-color: #dce5dd;
+}
+.category-card p,
+.topic-card p,
+.section-heading p,
+.disclosure p {
+  color: #5d6c62;
+}
+.category-card > a,
+.topic-card > a {
+  color: #315a45;
+}
+.about {
+  background: #e2ece4 !important;
+  color: #263b30 !important;
+}
+.about-content > p,
+.about-highlight p {
+  color: #52675a !important;
+}
+.about h2,
+.about-highlight h3 {
+  color: #244638 !important;
+}
+.about-highlight {
+  background: #ffffff !important;
+  border-color: #d5e1d7 !important;
+}
+.about-highlight span {
+  color: #987331 !important;
+}
+
+/* A deeper footer creates a clear, premium page finish */
+.footer {
+  background: #244638 !important;
+  color: #f5f7f3 !important;
+}
+.footer-main > p,
+.footer-links {
+  color: #e0e9e1 !important;
+}
+.footer-links a:hover {
+  color: #e0bd73 !important;
+}
+.footer-bottom {
+  color: #d0ded2 !important;
+  border-top-color: rgba(255,255,255,.22) !important;
+}
+.ai-search-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8f5 100%) !important;
+}
+.ai-search-kicker {
+  color: #244638 !important;
+}
+.ai-search-form {
+  border-color: #cbdac e !important;
+}
+.ai-search-form button {
+  background: #315b49 !important;
+}
+.ai-search-form button:hover {
+  background: #244638 !important;
+}
