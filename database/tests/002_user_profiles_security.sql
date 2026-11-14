@@ -56,11 +56,11 @@ begin
         where schemaname = 'public'
           and tablename = 'user_profiles'
           and (
-              coalesce(qual, '') not like '%auth.uid()%'
-              or (
-                  cmd in ('INSERT', 'ALL')
-                  and coalesce(with_check, '') not like '%auth.uid()%'
-              )
+              (cmd in ('SELECT', 'UPDATE', 'ALL')
+               and coalesce(qual, '') not like '%auth.uid()%')
+              or
+              (cmd in ('INSERT', 'UPDATE', 'ALL')
+               and coalesce(with_check, '') not like '%auth.uid()%')
           )
           and policyname in (
               'Users can read their own profile',
