@@ -3029,3 +3029,88 @@ body:has(main#main-content) .hero-buttons .btn:hover::before {
     animation: none !important;
   }
 }
+
+
+/* FINAL HOVER POLISH — visible color shift + floating bubble effect */
+@keyframes sh-nav-bubble-rise {
+  0%   { transform: translateY(8px) scale(.35); opacity: 0; }
+  35%  { opacity: .85; }
+  100% { transform: translateY(-13px) scale(1.15); opacity: 0; }
+}
+@keyframes sh-button-bubble {
+  0%   { background-position: 12% 115%, 42% 120%, 72% 112%, 90% 118%; }
+  100% { background-position: 12% -25%, 42% -35%, 72% -20%, 90% -30%; }
+}
+body:has(main#main-content) #site-nav > a:not(.nav-cta) {
+  isolation: isolate;
+  overflow: visible;
+  border-radius: 6px;
+  transition: color .2s ease, background-color .2s ease, transform .2s ease;
+}
+body:has(main#main-content) #site-nav > a:not(.nav-cta)::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: -3px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle, rgba(189,151,77,.85) 0 3px, transparent 4px) 12% 100% / 9px 9px no-repeat,
+    radial-gradient(circle, rgba(189,151,77,.65) 0 2px, transparent 3px) 48% 100% / 7px 7px no-repeat,
+    radial-gradient(circle, rgba(189,151,77,.8) 0 3px, transparent 4px) 82% 100% / 9px 9px no-repeat;
+}
+body:has(main#main-content) #site-nav > a:not(.nav-cta):hover {
+  color: #a77d32 !important;
+  background-color: rgba(189,151,77,.10);
+  transform: translateY(-2px);
+}
+body:has(main#main-content) #site-nav > a:not(.nav-cta):hover::before {
+  opacity: 1;
+  animation: sh-nav-bubble-rise .75s ease-out both;
+}
+body:has(main#main-content) #site-nav > a.nav-cta,
+body:has(main#main-content) .hero-buttons a.btn {
+  overflow: hidden;
+  isolation: isolate;
+  transition: color .22s ease, background-color .22s ease, border-color .22s ease,
+              transform .22s ease, box-shadow .22s ease;
+}
+body:has(main#main-content) #site-nav > a.nav-cta::before,
+body:has(main#main-content) .hero-buttons a.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle, rgba(255,255,255,.85) 0 3px, transparent 4px) 12% 110% / 10px 10px no-repeat,
+    radial-gradient(circle, rgba(255,255,255,.65) 0 2px, transparent 3px) 38% 115% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(255,255,255,.8) 0 3px, transparent 4px) 67% 112% / 10px 10px no-repeat,
+    radial-gradient(circle, rgba(255,255,255,.6) 0 2px, transparent 3px) 88% 118% / 8px 8px no-repeat;
+}
+body:has(main#main-content) #site-nav > a.nav-cta:hover,
+body:has(main#main-content) .hero-buttons a.btn:hover {
+  color: #fff !important;
+  background-color: #244638 !important;
+  border-color: #244638 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(36,70,56,.25);
+}
+body:has(main#main-content) #site-nav > a.nav-cta:hover::before,
+body:has(main#main-content) .hero-buttons a.btn:hover::before {
+  opacity: 1;
+  animation: sh-button-bubble .85s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(main#main-content) #site-nav > a,
+  body:has(main#main-content) #site-nav > a::before,
+  body:has(main#main-content) .hero-buttons a.btn,
+  body:has(main#main-content) .hero-buttons a.btn::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
