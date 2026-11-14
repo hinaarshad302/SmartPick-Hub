@@ -63,6 +63,35 @@
 <a class="nav-cta" href="featured.html">Explore Picks →</a>
 </nav>
 </div>
+
+<div class="ai-search-section" aria-label="SmartPick AI shopping assistant">
+  <div class="ai-search-inner">
+    <div class="ai-search-heading">
+      <span class="ai-search-spark" aria-hidden="true">✦</span>
+      <span class="ai-search-kicker">SMARTPICK AI</span>
+      <span class="ai-search-caption">Tell us what you are looking for</span>
+    </div>
+    <form class="ai-search-form" id="ai-search-form">
+      <label class="sr-only" for="ai-search-input">Search with SmartPick AI</label>
+      <span class="ai-search-icon" aria-hidden="true">⌕</span>
+      <input id="ai-search-input" name="query" type="search" maxlength="1200"
+        placeholder="Ask anything… e.g. Best laptop under PKR 150,000 for AI study"
+        autocomplete="off" required>
+      <button type="submit" id="ai-search-submit">
+        <span aria-hidden="true">✦</span> Ask AI
+      </button>
+    </form>
+    <div class="ai-search-suggestions" aria-label="Try asking">
+      <button type="button" data-prompt="Suggest a reliable laptop for university study within my budget.">Laptop for study</button>
+      <button type="button" data-prompt="Help me compare AI writing tools for a beginner.">Compare AI tools</button>
+      <button type="button" data-prompt="What should I check before buying a smartphone?">Buying advice</button>
+    </div>
+    <div class="ai-search-result" id="ai-search-result" role="status" aria-live="polite" hidden>
+      <div class="ai-result-label"><span>✦</span> SMARTPICK AI RESPONSE</div>
+      <div class="ai-result-content" id="ai-search-result-content"></div>
+    </div>
+  </div>
+</div>
 </header>
 <main id="main-content">
 <section class="hero" id="home">
@@ -200,6 +229,8 @@
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
+<script src="api-config.js"></script>
+<script src="assistant.js"></script>
 <script src="auth-nav.js"></script>
 <script src="script.js"></script>
 </body>
