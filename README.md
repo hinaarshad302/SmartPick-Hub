@@ -58,7 +58,8 @@ Affiliate commission must not be the sole ranking signal. Do not fabricate disco
 .
 ├── .github/
 │   ├── workflows/
-│   │   └── quality-checks.yml
+│   │   ├── quality-checks.yml
+│   └── cloudflare-pages-deploy.yml
 │   └── dependabot.yml
 ├── backend/
 │   └── main.py
@@ -87,7 +88,7 @@ Affiliate commission must not be the sole ranking signal. Do not fabricate disco
 ├── script.js
 ├── style.css
 ├── supabase-config.js
-├── vercel.json
+├── _headers
 ├── robots.txt
 └── requirements.txt
 ```
@@ -104,7 +105,7 @@ The tree above is an orientation guide; some folders may be empty or still under
 - Newsletter database: SQL migration at `database/migrations/001_newsletter_subscribers.sql`.
 - Newsletter frontend: `api-config.js` and `newsletter.js`; explicit email-marketing consent is required, and the backend URL must be configured after deployment.
 - Configuration: environment variables loaded with `python-dotenv`.
-- Static hosting: `vercel.json` provides secure response headers and clean URL configuration; the FastAPI API remains a separate deployment.
+- Static hosting: Cloudflare Pages serves a curated static output folder. `_headers` applies browser security headers; the FastAPI API remains a separate deployment.
 - Quality checks: GitHub Actions checks local HTML file references, duplicate IDs, Python syntax, and JavaScript syntax.
 
 ## Development roadmap
@@ -152,9 +153,11 @@ The tree above is an orientation guide; some folders may be empty or still under
 
 ## Preview and deployment
 
-The repository is prepared for a static Vercel preview from the `project-foundation` branch. Use the repository root as the project root, select the `Other` framework preset, leave the build command empty, and use `.` as the output directory if the Vercel import flow requests one. The frontend can be previewed without a live newsletter API, but newsletter signup will remain unavailable until the FastAPI backend is deployed and `api-config.js` is configured. Authentication also requires the matching preview URL to be added to Supabase Auth redirect settings.
+The static frontend is prepared for **manual Cloudflare Pages Direct Upload** through the GitHub Actions workflow `.github/workflows/cloudflare-pages-deploy.yml`. This does not install the Cloudflare GitHub App or grant Cloudflare direct repository access. The workflow runs only when manually started from GitHub Actions and uploads a curated `dist/` folder containing public website HTML, CSS, JavaScript, `robots.txt`, and security headers. It deliberately excludes the FastAPI backend, SQL migrations, environment files, and project documentation from the public deployment.
 
-The Vercel deployment integration must be connected to the user's Vercel account before an actual hosted preview can be created. Do not make the private repository public just to preview it.
+Before the first deployment, create a Cloudflare API token with **Cloudflare Pages: Edit** permission for the intended Cloudflare account. Add it to this private GitHub repository as the Actions secret `CLOUDFLARE_API_TOKEN`, and add the Cloudflare account ID as `CLOUDFLARE_ACCOUNT_ID`. The workflow creates the Pages project `smartpick-hub` if needed and deploys the `project-foundation` branch as a **preview**, not the production branch. Never put the token in source code, commit history, or chat. The generated `*.pages.dev` URL will be available in the successful deployment log.
+
+The frontend can be previewed without a live newsletter API, but newsletter signup remains unavailable until the FastAPI backend is separately deployed and `api-config.js` is configured. Authentication also requires the actual Pages preview URL to be added to Supabase Auth's allowed redirect URLs. A public preview URL makes the website content publicly reachable even while the GitHub repository remains private.
 
 ## Local development notes
 
