@@ -81,23 +81,25 @@ Affiliate commission must not be the sole ranking signal. Do not fabricate disco
 └── requirements.txt
 ```
 
-The tree above is an orientation guide; some folders may be empty or still under development. The two backend files are alternatives under review. Confirm the canonical entry point before deploying.
+The tree above is an orientation guide; some folders may be empty or still under development. `backend/main.py` is the canonical FastAPI entry point. The previous candidate implementation has been consolidated into it; do not deploy a second backend process.
 
 ## Technology currently present
 
 - Frontend: HTML, CSS, and browser JavaScript.
 - Authentication/database provider: Supabase (browser client configuration is present).
 - Backend prototype: Python and FastAPI.
-- Newsletter email delivery: Resend integration in the backend prototype.
+- Newsletter email delivery: Resend integration in the canonical FastAPI backend (`backend/main.py`).
+- Newsletter database: SQL migration at `database/migrations/001_newsletter_subscribers.sql`.
+- Newsletter frontend: `api-config.js` and `newsletter.js`; the backend URL must be configured after deployment.
 - Configuration: environment variables loaded with `python-dotenv`.
 
 ## Development roadmap
 
 ### Phase 1 — Foundation and audit
 - Review every existing page, script, backend route, and configuration file.
-- Select one maintainable FastAPI entry point.
+- Use one maintainable FastAPI entry point (`backend/main.py`).
 - Resolve dependency, navigation, accessibility, and responsive-layout issues.
-- Document the required database tables and access policies before changing data.
+- Keep database migrations and least-privilege access rules in version control.
 
 ### Phase 2 — Secure accounts and data
 - Verify Supabase Auth settings and Row Level Security (RLS).
@@ -138,10 +140,11 @@ The current backend prototype expects configuration such as:
 - `SUPABASE_URL`
 - `SUPABASE_SECRET_KEY` (server-side only; never expose in the browser)
 - `RESEND_API_KEY` (server-side only)
+- `RESEND_FROM_EMAIL` (a sender address/domain verified in Resend)
 - `PUBLIC_API_URL`
 - `FRONTEND_URL` (used by the professional candidate backend for CORS and confirmation links)
 
-The newsletter prototype also expects a correctly configured `newsletter_subscribers` database table. Verify the actual schema and access policies before enabling it.
+Apply `database/migrations/001_newsletter_subscribers.sql` to create the newsletter table with RLS enabled and browser-role access revoked. The backend uses a server-side Supabase secret key. The frontend also needs `window.SMARTPICK_API_BASE_URL` set in `api-config.js` to the deployed HTTPS API origin. Configure `RESEND_FROM_EMAIL` with a sender domain verified in Resend before sending real messages.
 
 ## Trust, privacy, and security principles
 
