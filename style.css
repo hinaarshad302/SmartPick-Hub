@@ -2903,3 +2903,40 @@ body {
 .ai-search-suggestions button {
   color: #252c27 !important;
 }
+
+
+/* HOMEPAGE STRICT REQUEST: all visible website typography in dark black */
+body:has(main#main-content) {
+  color: #111111 !important;
+}
+body:has(main#main-content) .header,
+body:has(main#main-content) .header *,
+body:has(main#main-content) main *,
+body:has(main#main-content) .footer,
+body:has(main#main-content) .footer * {
+  color: #111111 !important;
+}
+
+/* Keep all areas light so black typography remains readable */
+body:has(main#main-content) .header {
+  background: #ffffff !important;
+}
+body:has(main#main-content) .hero,
+body:has(main#main-content) .about,
+body:has(main#main-content) .featured,
+body:has(main#main-content) .disclosure {
+  background: #edf3ee !important;
+}
+body:has(main#main-content) .footer {
+  background: #e2ece4 !important;
+}
+body:has(main#main-content) .ai-search-form button,
+body:has(main#main-content) .btn-gold,
+body:has(main#main-content) .nav-cta {
+  background: #bd974d !important;
+  color: #111111 !important;
+}
+body:has(main#main-content) .btn-outline {
+  color: #111111 !important;
+  border-color: #52675a !important;
+}
