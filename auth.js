@@ -10,6 +10,7 @@ const authSubmit = document.getElementById("auth-submit");
 const authSwitch = document.getElementById("auth-switch");
 const authSwitchText = document.getElementById("auth-switch-text");
 const authMessage = document.getElementById("auth-message");
+const forgotPasswordButton = document.getElementById("forgot-password");
 
 const passwordInput = document.getElementById("auth-password");
 const confirmGroup = document.getElementById("confirm-password-group");
@@ -41,6 +42,39 @@ function updateAuthMode() {
 
     authMessage.textContent = "";
 }
+
+forgotPasswordButton.addEventListener("click", async () => {
+    if (isSignup) {
+        isSignup = false;
+        authForm.reset();
+        updateAuthMode();
+    }
+
+    const email = document.getElementById("auth-email").value.trim();
+    if (!email) {
+        authMessage.textContent = "Enter your account email first, then select Forgot password.";
+        document.getElementById("auth-email").focus();
+        return;
+    }
+
+    forgotPasswordButton.disabled = true;
+    authMessage.textContent = "Sending password reset email...";
+
+    try {
+        const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+            redirectTo: new URL("reset-password.html", window.location.href).href
+        });
+
+        if (error) throw error;
+        authMessage.textContent =
+            "If an account exists for this email, a password reset link will be sent. Please check your inbox.";
+    } catch (error) {
+        authMessage.textContent =
+            error?.message || "We could not send the reset email. Please try again.";
+    } finally {
+        forgotPasswordButton.disabled = false;
+    }
+});
 
 authSwitch.addEventListener("click", () => {
     isSignup = !isSignup;
