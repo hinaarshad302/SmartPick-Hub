@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore curated products and useful tools from SmartPick Hub. Compare options before you buy.">
+  <title>Shop & Discover | SmartPick Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .shop-wrap{max-width:1180px;margin:0 auto;padding:56px 24px 80px}
+    .shop-heading{text-align:center;margin-bottom:30px}.shop-heading .eyebrow{color:#987438;font-weight:700;letter-spacing:.13em;font-size:12px}
+    .shop-heading h1{font-family:'Playfair Display',serif;color:#244638;font-size:clamp(32px,5vw,48px);margin:12px 0}
+    .shop-heading p{color:#111;max-width:680px;margin:0 auto}
+    .shop-controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:28px 0}
+    .shop-controls input,.shop-controls select{min-height:46px;padding:0 14px;border:1px solid #d7e2d9;border-radius:8px;background:#fff;color:#111;font:inherit}
+    .shop-controls input{width:min(100%,390px)}
+    .shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+    .shop-card{background:#fff;border:1px solid #d7e2d9;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 5px 18px #102d2708}
+    .shop-card img{width:100%;height:180px;object-fit:contain;background:#edf3ee;padding:16px}
+    .shop-card-body{padding:18px;display:flex;flex:1;flex-direction:column}
+    .shop-category{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#987438;font-weight:700}
+    .shop-card h2{font-size:19px;color:#244638;margin:8px 0}
+    .shop-card p{font-size:14px;color:#333;line-height:1.6}
+    .shop-meta{font-size:12px;color:#555;margin:0 0 14px}
+    .shop-buy{margin-top:auto;display:inline-block;text-align:center;padding:11px 16px;border-radius:7px;background:#bd974d;color:#102d27;font-weight:700;text-decoration:none}
+    .shop-buy:hover{background:#244638;color:#fff}
+    .shop-empty{grid-column:1/-1;text-align:center;padding:38px 20px;background:#edf3ee;border-radius:12px;color:#244638}
+    .shop-disclosure{font-size:12px;color:#444;margin:28px auto 0;max-width:850px;text-align:center}
+    @media(max-width:600px){.shop-wrap{padding:38px 16px 60px}.shop-controls{align-items:stretch}.shop-controls input,.shop-controls select{width:100%}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="navbar">
+      <a class="logo" href="index.html">SmartPick <span>Hub</span></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="technology.html">Technology</a>
+        <a href="featured.html">Featured</a>
+        <a href="products.html" aria-current="page">Shop Products</a>
+        <a href="guides.html">Buying Guides</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+  <main class="shop-wrap">
+    <section class="shop-heading">
+      <span class="eyebrow">SMARTPICK HUB / PRODUCT DISCOVERY</span>
+      <h1>Find Products Worth Choosing</h1>
+      <p>Explore useful products across technology, home, lifestyle and more. Compare details and choose what fits your needs.</p>
+    </section>
+    <div class="shop-controls">
+      <input id="product-search" type="search" placeholder="Search products..." aria-label="Search products">
+      <select id="category-filter" aria-label="Filter by category"><option value="">All categories</option></select>
+      <select id="market-filter" aria-label="Filter by market"><option value="">All markets</option><option>USA</option><option>UK</option><option>Canada</option><option>Europe</option><option>Pakistan</option></select>
+    </div>
+    <section class="shop-grid" id="product-grid" aria-live="polite">
+      <div class="shop-empty">Our product collection is being prepared. Please check back soon.</div>
+    </section>
+    <p class="shop-disclosure">Some product links may be affiliate links. If you buy through a qualifying link, SmartPick Hub may earn a commission at no extra cost to you. We will identify affiliate links clearly.</p>
+  </main>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> SmartPick Hub. All rights reserved.</p>
+    <div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a></div>
+  </footer>
+  <script src="products.js"></script>
+</body>
+</html>
