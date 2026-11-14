@@ -93,7 +93,7 @@ The tree above is an orientation guide; some folders may be empty or still under
 - Newsletter email delivery: Resend integration in the canonical FastAPI backend (`backend/main.py`).
 - Newsletter database: SQL migration at `database/migrations/001_newsletter_subscribers.sql`.
 - Newsletter frontend: `api-config.js` and `newsletter.js`; the backend URL must be configured after deployment.
-- Configuration: environment variables loaded with `python-dotenv`.
+- Configuration: environment variables loaded with `python-dotenv`.\n- Static hosting: `vercel.json` provides secure response headers and clean URL configuration; the FastAPI API remains a separate deployment.\n- Quality checks: GitHub Actions checks local HTML file references, duplicate IDs, Python syntax, and JavaScript syntax.
 
 ## Development roadmap
 
@@ -138,7 +138,7 @@ The tree above is an orientation guide; some folders may be empty or still under
 - Deploy the static frontend and Python backend to suitable hosting services; configure secrets in the hosting provider, not in Git.
 - Connect a custom domain only after deployment and security checks.
 
-## Local development notes
+## Preview and deployment\n\nThe repository is prepared for a static Vercel preview from the `project-foundation` branch. Use the repository root as the project root, select the `Other` framework preset, leave the build command empty, and use `.` as the output directory if the Vercel import flow requests one. The frontend can be previewed without a live newsletter API, but newsletter signup will remain unavailable until the FastAPI backend is deployed and `api-config.js` is configured. Authentication also requires the matching preview URL to be added to Supabase Auth redirect settings.\n\nThe Vercel deployment integration must be connected to the user's Vercel account before an actual hosted preview can be created. Do not make the private repository public just to preview it.\n\n## Local development notes
 
 The backend dependencies are listed in `requirements.txt`. A backend deployment needs environment variables configured in the hosting platform. Never commit a real `.env` file or paste secret keys into issues, chat, screenshots, or frontend JavaScript.
 
@@ -153,7 +153,7 @@ The current backend prototype expects configuration such as:
 
 Apply `database/migrations/001_newsletter_subscribers.sql` to create the newsletter table with RLS enabled and browser-role access revoked. Then run `database/tests/001_newsletter_security.sql` in the Supabase SQL Editor to verify the expected grants. The separate user-profile migration `database/migrations/002_user_profiles.sql` creates a row per authenticated user with owner-only RLS policies; run `database/tests/002_user_profiles_security.sql` after applying it. Do not connect profile editing to this table until the migration and security test have been completed in the target Supabase project. The backend uses a server-side Supabase secret key. The frontend also needs `window.SMARTPICK_API_BASE_URL` set in `api-config.js` to the deployed HTTPS API origin. Configure `RESEND_FROM_EMAIL` with a sender domain verified in Resend before sending real messages.
 
-## Trust, privacy, and security principles
+## Trust, privacy, and security principles\n\nThe current privacy and service terms drafts are published as `privacy.html` and `terms.html`. They describe the features currently present and distinguish them from planned product features. Review them for the final hosting providers, legal jurisdiction, and operational retention practices before public launch.
 
 - Never expose Supabase secret/service-role keys or email-provider keys in frontend files.
 - Apply least-privilege database policies and test them with separate user accounts.
