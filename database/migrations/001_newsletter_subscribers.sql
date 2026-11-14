@@ -3,7 +3,9 @@
 -- The backend accesses this table with a server-side Supabase secret key.
 -- Public browser roles must not read or modify subscriber records.
 
-create table if not exists public.newsletter_subscribers (
+begin;
+
+create table public.newsletter_subscribers (
     id uuid primary key default gen_random_uuid(),
     email text not null,
     status text not null default 'pending'
@@ -36,8 +38,10 @@ create index if not exists newsletter_subscribers_status_idx
 alter table public.newsletter_subscribers enable row level security;
 
 -- No browser access to subscriber emails or one-time token hashes.
-revoke all on table public.newsletter_subscribers from anon, authenticated;
+revoke all on table public.newsletter_subscribers from public, anon, authenticated;
 grant all on table public.newsletter_subscribers to service_role;
 
 comment on table public.newsletter_subscribers is
     'Private newsletter subscription records. Access is server-side only.';
+
+commit;
