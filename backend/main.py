@@ -78,6 +78,10 @@ app.add_middleware(
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type"],
 )
+class AssistantSearchRequest(BaseModel):
+    query: str = Field(min_length=2, max_length=1200)
+
+
 class NewsletterSignup(BaseModel):
     email: EmailStr = Field(max_length=254)
 
@@ -103,6 +107,73 @@ def health_check():
     try:
         supabase.table("newsletter_subscribers") \
             .select("id").limit(1).execute()
+
+@app.post("/assistant/search")
+def assistant_search(request: AssistantSearchRequest):
+    """LLM-powered shopping guidance. Provider credentials remain server-side."""
+    llm_api_key = os.getenv("LLM_API_KEY", "").strip()
+    llm_base_url = os.getenv("LLM_BASE_URL", "").strip().rstrip("/")
+    llm_model = os.getenv("LLM_MODEL", "").strip()
+
+    if not llm_api_key or not llm_base_url or not llm_model:
+        raise HTTPException(
+            status_code=503,
+            detail="SmartPick AI is not configured yet. Add LLM_API_KEY, LLM_BASE_URL, and LLM_MODEL to the backend environment."
+        )
+
+    query = request.query.strip()
+    if len(query) < 2:
+        raise HTTPException(status_code=422, detail="Please enter a longer question.")
+
+    payload = {
+        "model": llm_model,
+        "messages": [
+            {
+                "role": "system",
+                "content": (
+                    "You are SmartPick AI, a helpful bilingual shopping and product-discovery "
+                    "assistant for Pakistan and international users. Understand English, Urdu, "
+                    "and Roman Urdu. Give clear, practical, neutral buying guidance. Ask a short "
+                    "follow-up when budget, country, or use case is essential. Do not invent live "
+                    "prices, discounts, stock, ratings, product specifications, reviews, or "
+                    "affiliate availability. If verified product data is not supplied, say so "
+                    "and explain what the user should verify with the seller. Do not claim that "
+                    "you searched live retailer listings. Keep answers structured and concise."
+                )
+            },
+            {"role": "user", "content": query}
+        ],
+        "temperature": 0.4
+    }
+
+    try:
+        response = requests.post(
+            llm_base_url,
+            headers={
+                "Authorization": f"Bearer {llm_api_key}",
+                "Content-Type": "application/json"
+            },
+            json=payload,
+            timeout=45
+        )
+        response.raise_for_status()
+        data = response.json()
+        answer = data["choices"][0]["message"]["content"]
+        if isinstance(answer, list):
+            answer = "\\n".join(
+                part.get("text", "") for part in answer
+                if isinstance(part, dict)
+            )
+        if not isinstance(answer, str) or not answer.strip():
+            raise ValueError("The LLM returned an empty answer.")
+        return {"success": True, "answer": answer.strip()}
+    except requests.exceptions.Timeout:
+        raise HTTPException(status_code=504, detail="SmartPick AI took too long to respond. Please try again.")
+    except requests.exceptions.RequestException:
+        raise HTTPException(status_code=502, detail="SmartPick AI provider is temporarily unavailable.")
+    except (KeyError, IndexError, TypeError, ValueError):
+        raise HTTPException(status_code=502, detail="SmartPick AI returned an unexpected response format.")
+
 
         return {
             "api": "working",
