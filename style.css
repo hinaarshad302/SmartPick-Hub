@@ -2079,3 +2079,232 @@ button:focus-visible {
  .ai-search-suggestions{justify-content:flex-start}
  .ai-search-suggestions button{font-size:10px}
 }
+
+
+/* =========================================
+   SMARTPICK HUB - LIGHT, COMPACT HOMEPAGE
+   Alibaba-inspired layout; original branding
+========================================= */
+
+:root {
+  --green: #315b49;
+  --green-light: #4f7964;
+  --gold: #c6a45e;
+  --cream: #f3f7f3;
+  --dark: #26352e;
+  --muted: #68776e;
+}
+
+/* Compact navigation header */
+.header {
+  background: #ffffff !important;
+  box-shadow: 0 3px 16px rgba(39, 77, 59, .07) !important;
+}
+.navbar {
+  min-height: 62px !important;
+  padding: 8px 24px !important;
+  gap: 18px !important;
+}
+.logo-mark {
+  width: 38px !important;
+  height: 38px !important;
+  flex-basis: 38px !important;
+}
+.logo {
+  gap: 9px !important;
+}
+.logo-text strong {
+  font-size: 16px !important;
+}
+.logo-text small {
+  font-size: 8px !important;
+  letter-spacing: 1px !important;
+  color: #87998d !important;
+}
+.header nav {
+  gap: 17px !important;
+  font-size: 12px !important;
+}
+.header nav a {
+  color: #40564a;
+}
+.header .nav-cta {
+  padding: 8px 13px !important;
+  border-radius: 6px !important;
+  background: #e5eee7 !important;
+  color: #315b49 !important;
+}
+
+/* Slimmer, more balanced AI search area */
+.ai-search-section {
+  padding: 10px 20px 13px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8f4 100%) !important;
+  border-bottom: 1px solid #e7eee8 !important;
+}
+.ai-search-inner {
+  max-width: 820px !important;
+}
+.ai-search-heading {
+  margin-bottom: 7px !important;
+  gap: 7px !important;
+}
+.ai-search-kicker {
+  color: #315b49 !important;
+  font-size: 10px !important;
+}
+.ai-search-caption {
+  color: #829087 !important;
+  font-size: 11px !important;
+}
+.ai-search-form {
+  min-height: 48px !important;
+  padding: 5px 6px 5px 14px !important;
+  gap: 9px !important;
+  border: 1px solid #d5e2d8 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 3px 12px rgba(49, 91, 73, .06) !important;
+}
+.ai-search-form:focus-within {
+  border-color: #91b29c !important;
+  box-shadow: 0 0 0 3px rgba(91, 139, 106, .11) !important;
+}
+.ai-search-icon {
+  font-size: 22px !important;
+  color: #668b72 !important;
+}
+.ai-search-form input {
+  font-size: 13px !important;
+}
+.ai-search-form button {
+  padding: 9px 15px !important;
+  border-radius: 7px !important;
+  background: #47765b !important;
+  font-size: 12px !important;
+}
+.ai-search-form button:hover {
+  background: #365f49 !important;
+}
+.ai-search-suggestions {
+  margin-top: 8px !important;
+  gap: 7px !important;
+}
+.ai-search-suggestions button {
+  padding: 5px 10px !important;
+  border-color: #e1e9e1 !important;
+  background: #ffffff !important;
+  color: #64766a !important;
+  font-size: 10px !important;
+}
+.ai-search-suggestions button:hover {
+  background: #edf4ee !important;
+  border-color: #bfd2c2 !important;
+  color: #315b49 !important;
+}
+
+/* Lighter green theme across homepage feature sections */
+.hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(198, 164, 94, .13), transparent 32%),
+    linear-gradient(120deg, #e8f1e9, #f3f7f1) !important;
+  color: #263b30 !important;
+}
+.hero h1,
+.hero h1 span {
+  color: #315b49 !important;
+}
+.hero h1 span {
+  color: #668b72 !important;
+}
+.hero-content > p,
+.trust {
+  color: #607267 !important;
+}
+.btn-outline {
+  border-color: #9ab5a0 !important;
+  color: #315b49 !important;
+}
+.btn-gold {
+  background: #c6a45e !important;
+  color: #263b30 !important;
+}
+.visual-card {
+  background: rgba(255, 255, 255, .82) !important;
+  border: 1px solid #dce8dd !important;
+  box-shadow: 0 16px 40px rgba(49, 91, 73, .10) !important;
+  color: #315b49 !important;
+}
+.visual-card small,
+.visual-card p {
+  color: #6b7e71 !important;
+}
+.visual-card h2 {
+  color: #315b49 !important;
+}
+.about {
+  background: #eaf2eb !important;
+  color: #2d4034 !important;
+}
+.about-content > p,
+.about-highlight p {
+  color: #617368 !important;
+}
+.about h2,
+.about-highlight h3 {
+  color: #315b49 !important;
+}
+.about-highlight {
+  background: #ffffff !important;
+  border-color: #dce8dd !important;
+}
+.about-highlight span {
+  color: #9a783c !important;
+}
+.footer {
+  background: #dfeae1 !important;
+  color: #315b49 !important;
+}
+.footer-main > p,
+.footer-links,
+.footer-bottom {
+  color: #617368 !important;
+}
+.footer-links a:hover {
+  color: #9a783c !important;
+}
+.footer-bottom {
+  border-top-color: #cbd9ce !important;
+}
+
+/* Keep the compact header usable on tablets and phones */
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 60px !important;
+    padding: 9px 18px !important;
+  }
+  .header nav {
+    gap: 12px !important;
+  }
+}
+@media (max-width: 650px) {
+  .navbar {
+    padding: 9px 15px !important;
+  }
+  .logo-mark {
+    width: 36px !important;
+    height: 36px !important;
+    flex-basis: 36px !important;
+  }
+  .ai-search-section {
+    padding: 10px 14px 12px !important;
+  }
+  .ai-search-form {
+    min-height: 45px !important;
+    padding: 5px 6px 5px 10px !important;
+  }
+  .ai-search-form button {
+    padding: 8px 11px !important;
+  }
+  .hero {
+    background: linear-gradient(145deg, #e8f1e9, #f5f8f3) !important;
+  }
+}
