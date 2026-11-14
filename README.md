@@ -74,6 +74,8 @@ Affiliate commission must not be the sole ranking signal. Do not fabricate disco
 ├── auth.js
 ├── auth-nav.js
 ├── profile.html
+├── reset-password.html
+├── reset-password.js
 ├── subscribe.html
 ├── script.js
 ├── style.css
@@ -87,6 +89,7 @@ The tree above is an orientation guide; some folders may be empty or still under
 
 - Frontend: HTML, CSS, and browser JavaScript.
 - Authentication/database provider: Supabase (browser client configuration is present).
+- Account flow: email/password signup and login, protected profile-page session check, logout, and email-based password recovery.
 - Backend prototype: Python and FastAPI.
 - Newsletter email delivery: Resend integration in the canonical FastAPI backend (`backend/main.py`).
 - Newsletter database: SQL migration at `database/migrations/001_newsletter_subscribers.sql`.
@@ -103,9 +106,11 @@ The tree above is an orientation guide; some folders may be empty or still under
 
 ### Phase 2 — Secure accounts and data
 - Verify Supabase Auth settings and Row Level Security (RLS).
+- Configure the deployed frontend URL in Supabase Auth's allowed redirect URLs, including `profile.html` and `reset-password.html`.
+- Test signup email confirmation, login, logout, protected profile access, password reset, and expired recovery links in a real browser.
 - Define user profiles, saved preferences, product, retailer, affiliate-click, and content schemas.
 - Keep service-role/secret keys only in backend environment variables.
-- Add account recovery, session handling, consent, and privacy controls.
+- Add consent and privacy controls.
 
 ### Phase 3 — Product catalogue and affiliate foundation
 - Start with a small number of categories and approved, reliable data sources.
