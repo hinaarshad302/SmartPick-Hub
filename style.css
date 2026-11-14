@@ -3114,3 +3114,185 @@ body:has(main#main-content) .hero-buttons a.btn:hover::before {
     transition: none !important;
   }
 }
+
+
+/* =========================================
+   SMARTPICK HUB — SHARED BRAND THEME
+   Align every page with the homepage palette
+   Forest green, warm gold, soft green surfaces
+========================================= */
+:root {
+  --sh-green: #244638;
+  --sh-green-deep: #18382d;
+  --sh-green-soft: #edf3ee;
+  --sh-gold: #bd974d;
+  --sh-ink: #111111;
+  --sh-muted: #303b34;
+  --sh-page: #f5f7f3;
+  --sh-card: #ffffff;
+  --sh-border: #d7e2d9;
+}
+body {
+  background: var(--sh-page);
+  color: var(--sh-ink);
+}
+body:not(:has(main#main-content)) .header {
+  background: #ffffff !important;
+  color: var(--sh-ink) !important;
+  border-bottom: 1px solid var(--sh-border);
+}
+body:not(:has(main#main-content)) .header nav a,
+body:not(:has(main#main-content)) .header .logo-text,
+body:not(:has(main#main-content)) .header .logo-text strong {
+  color: var(--sh-ink) !important;
+}
+body:not(:has(main#main-content)) .header nav a:hover,
+body:not(:has(main#main-content)) .header nav a[aria-current="page"] {
+  color: #a77d32 !important;
+}
+body:not(:has(main#main-content)) .header nav .nav-cta {
+  background: var(--sh-gold) !important;
+  color: #111111 !important;
+  border-color: var(--sh-gold) !important;
+}
+body:not(:has(main#main-content)) .header nav .nav-cta:hover {
+  background: var(--sh-green) !important;
+  color: #ffffff !important;
+  border-color: var(--sh-green) !important;
+}
+
+/* Page hero panels use the same soft green background */
+.technology-page .tech-page-hero,
+.featured-page .featured-hero,
+.guides-page .guides-hero,
+.about-page .about-hero,
+.account-hero {
+  background: var(--sh-green-soft) !important;
+  color: var(--sh-ink) !important;
+}
+.tech-page-hero h1, .featured-hero h1, .guides-hero h1,
+.about-hero h1, .account-hero h1 {
+  color: var(--sh-ink) !important;
+}
+.tech-page-hero p, .featured-hero p, .guides-hero p,
+.about-hero p, .account-hero p {
+  color: var(--sh-muted) !important;
+}
+.tech-page-hero .eyebrow, .featured-eyebrow,
+.guides-eyebrow, .about-eyebrow, .account-eyebrow {
+  color: #8a682d !important;
+}
+.tech-page-hero .btn, .featured-hero .btn,
+.guides-hero .btn, .about-hero .btn {
+  background: var(--sh-gold) !important;
+  color: #111111 !important;
+  border-color: var(--sh-gold) !important;
+}
+.tech-page-hero .btn:hover, .featured-hero .btn:hover,
+.guides-hero .btn:hover, .about-hero .btn:hover {
+  background: var(--sh-green) !important;
+  color: #ffffff !important;
+  border-color: var(--sh-green) !important;
+}
+
+/* Content areas and cards */
+.technology-page, .featured-page, .guides-page, .about-page,
+.auth-container {
+  background: var(--sh-page);
+  color: var(--sh-ink);
+}
+.tech-section, .featured-topics, .guides-section,
+.about-section, .about-mission, .about-approach,
+.featured-value-section, .featured-cta {
+  background: var(--sh-green-soft) !important;
+  color: var(--sh-ink) !important;
+}
+.tech-feature-card, .featured-topic-card, .guide-card,
+.about-value-card, .auth-card, .account-card, .profile-summary {
+  background: var(--sh-card) !important;
+  color: var(--sh-ink) !important;
+  border: 1px solid var(--sh-border) !important;
+  box-shadow: 0 8px 24px rgba(24,56,45,.07);
+}
+.tech-feature-card h3, .featured-topic-card h3,
+.guide-card h3, .about-value-card h3,
+.tech-section h2, .featured-heading h2,
+.guides-heading h2, .about-page h2,
+.auth-card h1, .account-container h2 {
+  color: var(--sh-ink) !important;
+}
+.tech-feature-card p, .featured-topic-card p,
+.guide-card p, .about-value-card p,
+.tech-section p, .featured-heading p,
+.guides-heading p, .about-page p,
+.auth-card p {
+  color: var(--sh-muted);
+}
+.tech-feature-card a, .featured-topic-card a,
+.guides-page a:not(.btn), .about-page a:not(.btn),
+.auth-card a {
+  color: var(--sh-green) !important;
+}
+.tech-card-icon, .featured-card-number, .guide-number,
+.about-value-number {
+  color: #9a742f !important;
+}
+
+/* Account, login and subscription surfaces */
+.auth-container { background: var(--sh-green-soft) !important; }
+.auth-card { border-radius: 16px; }
+.auth-card button[type="submit"], #auth-submit,
+.account-container button, .quick-link {
+  background: var(--sh-green) !important;
+  color: #ffffff !important;
+  border-color: var(--sh-green) !important;
+}
+.auth-card button[type="submit"]:hover, #auth-submit:hover,
+.account-container button:hover, .quick-link:hover {
+  background: var(--sh-gold) !important;
+  color: #111111 !important;
+  border-color: var(--sh-gold) !important;
+}
+.account-status {
+  background: #eaf2eb !important;
+  color: var(--sh-green) !important;
+}
+.account-hero .account-eyebrow { color: #8a682d !important; }
+.account-hero p { color: var(--sh-muted) !important; }
+.account-hero h1 { color: var(--sh-ink) !important; }
+.account-container .section-heading h2,
+.account-container .summary-info h2,
+.account-container .card-value { color: var(--sh-ink) !important; }
+
+/* Same soft green footer treatment as the homepage */
+body:not(:has(main#main-content)) .footer {
+  background: #e2ece4 !important;
+  color: var(--sh-ink) !important;
+}
+body:not(:has(main#main-content)) .footer *,
+body:not(:has(main#main-content)) .footer p,
+body:not(:has(main#main-content)) .footer a {
+  color: var(--sh-ink) !important;
+}
+body:not(:has(main#main-content)) .footer a:hover {
+  color: #9a742f !important;
+}
+
+/* Consistent hover response on content cards */
+.tech-feature-card, .featured-topic-card, .guide-card,
+.about-value-card, .account-card, .quick-link {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.tech-feature-card:hover, .featured-topic-card:hover,
+.guide-card:hover, .about-value-card:hover,
+.account-card:hover, .quick-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--sh-gold) !important;
+  box-shadow: 0 13px 28px rgba(24,56,45,.12);
+}
+@media (max-width: 650px) {
+  .tech-page-hero, .featured-hero, .guides-hero,
+  .about-hero, .account-hero {
+    background: var(--sh-green-soft) !important;
+  }
+}
