@@ -126,7 +126,7 @@ def health_check():
 def assistant_search(request: AssistantSearchRequest):
     """Generate bilingual shopping guidance using Gemini; API credentials stay server-side."""
     gemini_api_key = os.getenv("GEMINI_API_KEY", "").strip()
-   gemini_model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash").strip()
+    gemini_model = os.getenv("GEMINI_MODEL", "gemini-3.8-flash").strip()
 
     if not gemini_api_key:
         raise HTTPException(
