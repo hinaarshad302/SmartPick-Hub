@@ -23,13 +23,14 @@ if FRONTEND_URL:
     if (
         parsed_frontend_url.scheme != "https"
         or not parsed_frontend_url.netloc
-        or parsed_frontend_url.path not in ("", "/")
         or parsed_frontend_url.query
         or parsed_frontend_url.fragment
     ):
         raise RuntimeError("FRONTEND_URL must be a valid HTTPS website origin.")
 
-FRONTEND_ORIGINS = [FRONTEND_URL] if FRONTEND_URL else []
+FRONTEND_ORIGINS = [
+    f"{urlsplit(FRONTEND_URL).scheme}://{urlsplit(FRONTEND_URL).netloc}"
+] if FRONTEND_URL else []
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_SECRET_KEY = os.getenv("SUPABASE_SECRET_KEY")
