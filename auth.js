@@ -68,29 +68,45 @@ authForm.addEventListener("submit", async (event) => {
     const email = document.getElementById("auth-email").value.trim();
     const password = passwordInput.value;
 
+    if (!email) {
+        authMessage.textContent = "Please enter your email address.";
+        return;
+    }
+
+    if (password.length < 8) {
+        authMessage.textContent = "Password must be at least 8 characters long.";
+        return;
+    }
+
     if (isSignup && password !== confirmInput.value) {
         authMessage.textContent = "Passwords do not match. Please try again.";
         return;
     }
 
+    const submittingSignup = isSignup;
     authSubmit.disabled = true;
+    authSwitch.disabled = true;
     authMessage.textContent = "Please wait...";
 
     try {
-        if (isSignup) {
+        if (submittingSignup) {
             const { data, error } = await supabaseClient.auth.signUp({
                 email,
                 password,
                 options: {
-                    emailRedirectTo: window.location.origin + "/index.html"
+                    emailRedirectTo: new URL("profile.html", window.location.href).href
                 }
             });
 
             if (error) throw error;
 
-            authMessage.textContent = data.session
-                ? "Account created successfully!"
-                : "Account created! Please check your email to verify your account.";
+            if (data.session) {
+                authMessage.textContent = "Account created successfully! Opening your profile...";
+                window.location.replace("profile.html");
+            } else {
+                authMessage.textContent =
+                    "Account created! Please check your email to verify your account before logging in.";
+            }
 
         } else {
             const { error } = await supabaseClient.auth.signInWithPassword({
@@ -101,13 +117,15 @@ authForm.addEventListener("submit", async (event) => {
             if (error) throw error;
 
             authMessage.textContent = "Login successful! Opening your profile...";
-            window.location.href = "index.html";
+            window.location.replace("profile.html");
         }
 
     } catch (error) {
-        authMessage.textContent = error.message;
+        authMessage.textContent =
+            error?.message || "We could not complete your request. Please try again.";
     } finally {
         authSubmit.disabled = false;
+        authSwitch.disabled = false;
     }
 });
 
