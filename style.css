@@ -1991,3 +1991,48 @@ button:focus-visible {
 .profile-chevron {
     display: none !important;
 }
+
+
+/* Consent controls */
+.auth-consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 14px 0;
+  color: #58665f;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+}
+.auth-consent-label input {
+  flex: 0 0 auto;
+  width: auto;
+  margin: 3px 0 0;
+}
+.auth-consent-label a,
+.auth-legal-links a {
+  color: #1D493D;
+  text-decoration: underline;
+}
+.auth-legal-links {
+  font-size: 13px;
+}
+.newsletter-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 8px;
+  text-align: left;
+  color: #58665f;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.newsletter-consent input {
+  width: auto;
+  flex: 0 0 auto;
+  margin: 3px 0 0;
+}
+.newsletter-consent a {
+  color: #1D493D;
+  text-decoration: underline;
+}
