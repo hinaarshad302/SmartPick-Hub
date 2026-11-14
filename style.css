@@ -2940,3 +2940,10 @@ body:has(main#main-content) .btn-outline {
   color: #111111 !important;
   border-color: #52675a !important;
 }
+
+
+/* Hero trust points: explicitly force all three labels to black */
+body:has(main#main-content) .hero .trust,
+body:has(main#main-content) .hero .trust span {
+  color: #000000 !important;
+}
