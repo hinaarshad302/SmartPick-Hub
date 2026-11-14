@@ -294,6 +294,30 @@
             cursor: not-allowed;
         }
 
+        .security-action-button {
+            margin-top: 14px;
+            padding: 11px 18px;
+            border: 1px solid #a33b32;
+            border-radius: 7px;
+            background: #fff;
+            color: #a33b32;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .security-action-button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        #security-message {
+            min-height: 20px;
+            margin: 10px 0 0;
+            color: var(--profile-muted);
+            font-size: 13px;
+        }
+
         #profile-edit-message {
             min-height: 20px;
             margin: 2px 0 0;
@@ -477,6 +501,24 @@
         </section>
 
         <div class="section-heading">
+            <h2>Account Security</h2>
+            <p>Manage access to your SmartPick Hub account.</p>
+        </div>
+
+        <section class="account-card profile-edit-card" aria-labelledby="security-title">
+            <h3 id="security-title">Sign out of all devices</h3>
+            <p class="card-description">
+                Use this if you signed in on a shared or lost device.
+                This will end your active sessions and require you to log in again.
+            </p>
+            <button type="button" id="global-signout-button"
+                    class="security-action-button">
+                Sign out of all devices
+            </button>
+            <p id="security-message" role="status" aria-live="polite"></p>
+        </section>
+
+        <div class="section-heading">
             <h2>Explore SmartPick Hub</h2>
             <p>Continue discovering useful products, tools and information.</p>
         </div>
@@ -575,6 +617,45 @@
 
         document.getElementById("profile-display-name").value = displayName;
     }
+
+    profilePageClient.auth.onAuthStateChange((event) => {
+        if (event === "SIGNED_OUT") {
+            window.location.replace("auth.html");
+        }
+    });
+
+    const globalSignoutButton =
+        document.getElementById("global-signout-button");
+    const securityMessage = document.getElementById("security-message");
+
+    globalSignoutButton.addEventListener("click", async () => {
+        const confirmed = window.confirm(
+            "Sign out of SmartPick Hub on all devices? You will need to log in again."
+        );
+
+        if (!confirmed) return;
+
+        globalSignoutButton.disabled = true;
+        globalSignoutButton.textContent = "Signing out...";
+        securityMessage.textContent = "";
+
+        try {
+            const { error } = await profilePageClient.auth.signOut({
+                scope: "global"
+            });
+
+            if (error) throw error;
+
+            securityMessage.textContent =
+                "You have been signed out. Redirecting to login...";
+            window.location.replace("auth.html");
+        } catch (error) {
+            securityMessage.textContent =
+                "We could not sign out all devices. Please try again.";
+            globalSignoutButton.disabled = false;
+            globalSignoutButton.textContent = "Sign out of all devices";
+        }
+    });
 
     const profileEditForm = document.getElementById("profile-edit-form");
     const profileSaveButton = document.getElementById("profile-save-button");
