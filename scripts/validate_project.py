@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from html.parser import HTMLParser
-import json
 import re
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -39,11 +38,16 @@ def main() -> int:
     if not pages:
         errors.append("No HTML pages were found in the repository root.")
 
-    vercel_config = ROOT / "vercel.json"
-    try:
-        json.loads(vercel_config.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError) as exc:
-        errors.append(f"vercel.json: invalid or unreadable JSON: {exc}")
+    cloudflare_workflow = ROOT / ".github" / "workflows" / "cloudflare-pages-deploy.yml"
+    headers_config = ROOT / "_headers"
+    if not cloudflare_workflow.is_file():
+        errors.append("Cloudflare Pages deployment workflow is missing.")
+    else:
+        workflow_source = cloudflare_workflow.read_text(encoding="utf-8")
+        if "workflow_dispatch:" not in workflow_source or "pages deploy dist" not in workflow_source:
+            errors.append("Cloudflare Pages workflow must be manual and deploy the curated dist directory.")
+    if not headers_config.is_file():
+        errors.append("Cloudflare Pages _headers security configuration is missing.")
 
     for env_file in ROOT.glob(".env*"):
         if env_file.name != ".env.example":
@@ -116,7 +120,7 @@ def main() -> int:
 
     print(
         f"SmartPick Hub validation passed: checked {len(pages)} HTML pages, "
-        "duplicate IDs, local href/src references, Vercel JSON, and frontend secret patterns."
+        "duplicate IDs, local href/src references, Cloudflare deployment configuration, and frontend secret patterns."
     )
     return 0
 
