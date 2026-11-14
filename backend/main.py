@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
 from supabase import create_client
 
 PROJECT = Path(__file__).resolve().parent.parent
@@ -71,11 +71,15 @@ app.add_middleware(
     allow_headers=["Content-Type"],
 )
 class NewsletterSignup(BaseModel):
-    email: EmailStr
+    email: EmailStr = Field(max_length=254)
+
+
+class ConfirmationRequest(BaseModel):
+    token: str = Field(min_length=1, max_length=200)
 
 
 class UnsubscribeRequest(BaseModel):
-    token: str
+    token: str = Field(min_length=1, max_length=200)
 
 
 @app.get("/")
@@ -251,240 +255,157 @@ def newsletter_signup(request: NewsletterSignup):
 
 
 @app.get("/newsletter/confirm", response_class=HTMLResponse)
-def confirm_newsletter(token: str):
-
-    def confirmation_page(title, message, success=False, status_code=200):
-        if success:
-            icon = "✓"
-            label = "SUBSCRIPTION CONFIRMED"
-            button_text = "Explore SmartPick Hub"
-        else:
-            icon = "!"
-            label = "SUBSCRIPTION UPDATE"
-            button_text = "Return to SmartPick Hub"
-
-        safe_title = html.escape(title)
-        safe_message = html.escape(message)
-        safe_home = html.escape(FRONTEND_URL, quote=True) if FRONTEND_URL else ""
-        button_html = (
-            f'<a class="button" href="{safe_home}">{button_text}</a>'
-            if safe_home else
-            '<p class="footer">You can close this page. SmartPick Hub website link is not configured yet.</p>'
-        )
-
-        page = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="theme-color" content="#102D27">
-    <title>{safe_title} | SmartPick Hub</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-    <style>
-        * {{
-            box-sizing: border-box;
-        }}
-
-        body {{
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            background: #F7F5EF;
-            color: #102D27;
-            font-family: 'DM Sans', sans-serif;
-        }}
-
-        .card {{
-            width: 100%;
-            max-width: 560px;
-            padding: 52px 42px;
-            text-align: center;
-            background: #FFFFFF;
-            border: 1px solid #E7E8DF;
-            border-radius: 18px;
-            box-shadow: 0 18px 55px rgba(16,45,39,.08);
-        }}
-
-        .brand {{
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: #102D27;
-        }}
-
-        .brand-line {{
-            width: 42px;
-            height: 3px;
-            margin: 20px auto 30px;
-            background: #C5A66A;
-            border-radius: 5px;
-        }}
-
-        .icon {{
-            width: 76px;
-            height: 76px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: {"#E6F2EA" if success else "#F8EFE2"};
-            color: {"#167044" if success else "#A36B21"};
-            font-size: 38px;
-            font-weight: 700;
-        }}
-
-        .label {{
-            color: #8A7650;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }}
-
-        h1 {{
-            margin: 16px 0;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(28px, 5vw, 38px);
-            line-height: 1.2;
-            color: #102D27;
-        }}
-
-        .message {{
-            max-width: 410px;
-            margin: 0 auto;
-            color: #63716A;
-            font-size: 15px;
-            line-height: 1.8;
-        }}
-
-        .button {{
-            display: inline-block;
-            margin-top: 32px;
-            padding: 15px 27px;
-            background: #102D27;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background .2s ease;
-        }}
-
-        .button:hover {{
-            background: #244B40;
-        }}
-
-        .footer {{
-            margin-top: 35px;
-            padding-top: 22px;
-            border-top: 1px solid #ECEDE7;
-            color: #8A938E;
-            font-size: 12px;
-        }}
-
-        @media (max-width: 500px) {{
-            .card {{
-                padding: 38px 22px;
-            }}
-        }}
-    </style>
-</head>
-
-<body>
-    <main class="card">
-        <div class="brand">SMARTPICK HUB</div>
-        <div class="brand-line"></div>
-
-        <div class="icon" aria-hidden="true">{icon}</div>
-
-        <div class="label">{label}</div>
-
-        <h1>{safe_title}</h1>
-
-        <p class="message">{safe_message}</p>
-
-        {button_html}
-
-        <div class="footer">
-            © 2026 SmartPick Hub. All rights reserved.
-        </div>
-    </main>
-</body>
-</html>"""
-
-        return HTMLResponse(
-            content=page,
-            status_code=status_code,
-            headers={
-                "Cache-Control": "no-store",
-                "X-Content-Type-Options": "nosniff",
-                "Referrer-Policy": "no-referrer"
-            }
-        )
-
-    # Validate token
+def confirmation_page(token: str):
+    # Email security scanners often open links automatically. A GET request
+    # must display a confirmation page, not activate the subscription.
     if not token or len(token) > 200:
-        return confirmation_page(
-            "Invalid Confirmation Link",
-            "This confirmation link is not valid. Please sign up again to receive a new confirmation email.",
-            status_code=400
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid confirmation link."
         )
 
-    token_hash = hashlib.sha256(
-        token.encode("utf-8")
-    ).hexdigest()
+    safe_token = html.escape(token, quote=True)
+    page = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="referrer" content="no-referrer">
+        <meta name="theme-color" content="#102D27">
+        <title>Confirm Subscription | SmartPick Hub</title>
+        <style>
+            * { box-sizing: border-box; }
+            body {
+                margin: 0; min-height: 100vh; padding: 24px;
+                display: grid; place-items: center;
+                background: #F7F5EF; color: #102D27;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .card {
+                width: 100%; max-width: 540px; padding: 42px 30px;
+                background: #fff; border: 1px solid #E9E5DA;
+                border-radius: 18px; text-align: center;
+                box-shadow: 0 12px 40px rgba(16,45,39,.08);
+            }
+            .brand { font-size: 24px; font-weight: 700; color: #1D493D; }
+            h1 { font-size: 26px; line-height: 1.3; margin: 28px 0 14px; }
+            p { color: #65736D; line-height: 1.8; }
+            button {
+                width: 100%; max-width: 300px; margin-top: 18px;
+                padding: 15px 22px; border: 0; border-radius: 8px;
+                background: #1D493D; color: #fff; font-size: 15px;
+                font-weight: 700; cursor: pointer;
+            }
+            button:disabled { opacity: .6; cursor: wait; }
+            #confirmation-message { min-height: 24px; font-size: 14px; }
+            @media (max-width: 480px) { .card { padding: 32px 20px; } }
+        </style>
+    </head>
+    <body>
+        <main class="card">
+            <div class="brand">SmartPick Hub</div>
+            <h1>Confirm Your Newsletter Subscription</h1>
+            <p>To complete your subscription, select the button below. Opening this page alone will not activate email updates.</p>
+            <div id="confirmation-form" data-token="TOKEN_PLACEHOLDER">
+                <button type="button" id="confirm-button">Confirm Subscription</button>
+            </div>
+            <p id="confirmation-message" role="status" aria-live="polite"></p>
+        </main>
+        <script>
+        const confirmButton = document.getElementById("confirm-button");
+        confirmButton.addEventListener("click", async () => {
+            confirmButton.disabled = true;
+            confirmButton.textContent = "Confirming...";
+            const message = document.getElementById("confirmation-message");
+            const token = document.getElementById("confirmation-form").dataset.token;
 
-    # Find subscriber
+            try {
+                const response = await fetch("/newsletter/confirm", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ token })
+                });
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok) {
+                    throw new Error(data.detail || "We could not confirm your subscription.");
+                }
+                message.textContent = data.message || "Your subscription is confirmed.";
+                document.querySelector("h1").textContent = "You're Successfully Subscribed!";
+                confirmButton.remove();
+            } catch (error) {
+                message.textContent = error.message || "Please try again later.";
+                confirmButton.disabled = false;
+                confirmButton.textContent = "Confirm Subscription";
+            }
+        });
+        </script>
+    </body>
+    </html>
+    """
+
+    page = page.replace("TOKEN_PLACEHOLDER", safe_token)
+    return HTMLResponse(
+        content=page,
+        headers={
+            "Cache-Control": "no-store, max-age=0",
+            "X-Content-Type-Options": "nosniff",
+            "Referrer-Policy": "no-referrer"
+        }
+    )
+
+
+@app.post("/newsletter/confirm")
+def confirm_newsletter(request: ConfirmationRequest):
+    token = request.token.strip()
+
+    if not token or len(token) > 200:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid confirmation token."
+        )
+
+    token_hash = hashlib.sha256(token.encode("utf-8")).hexdigest()
+
     try:
         result = (
             supabase.table("newsletter_subscribers")
-            .select("id,email,status,confirmation_expires_at")
+            .select("id,status,confirmation_expires_at")
             .eq("confirmation_token_hash", token_hash)
+            .eq("status", "pending")
             .limit(1)
             .execute()
         )
     except Exception:
-        return confirmation_page(
-            "Unable to Verify Your Link",
-            "We could not verify your confirmation right now. Please try again later.",
-            status_code=503
+        raise HTTPException(
+            status_code=503,
+            detail="We could not verify your confirmation right now. Please try again later."
         )
 
     if not result.data:
-        return confirmation_page(
-            "Link Already Used or Invalid",
-            "This confirmation link may already have been used or is no longer valid.",
-            status_code=400
+        raise HTTPException(
+            status_code=400,
+            detail="This confirmation link is invalid or has already been used."
         )
 
     subscriber = result.data[0]
-    expiry_value = subscriber["confirmation_expires_at"]
+    expiry_value = subscriber.get("confirmation_expires_at")
 
     if not expiry_value:
-        return confirmation_page(
-            "Invalid Confirmation Link",
-            "This confirmation link is no longer valid. Please sign up again.",
-            status_code=400
+        raise HTTPException(
+            status_code=400,
+            detail="This confirmation link is no longer valid. Please subscribe again."
         )
 
-    # Check expiration
     try:
-        expiry = datetime.fromisoformat(
-            expiry_value.replace("Z", "+00:00")
-        )
+        expiry = datetime.fromisoformat(expiry_value.replace("Z", "+00:00"))
+        if expiry.tzinfo is None:
+            expiry = expiry.replace(tzinfo=timezone.utc)
     except (ValueError, AttributeError):
-        return confirmation_page(
-            "Invalid Confirmation Link",
-            "We could not verify this confirmation link. Please sign up again.",
-            status_code=400
+        raise HTTPException(
+            status_code=400,
+            detail="We could not verify this confirmation link. Please subscribe again."
         )
 
     if expiry <= datetime.now(timezone.utc):
@@ -497,26 +418,23 @@ def confirm_newsletter(token: str):
                 })
                 .eq("id", subscriber["id"])
                 .eq("confirmation_token_hash", token_hash)
+                .eq("status", "pending")
                 .execute()
             )
         except Exception:
             pass
 
-        return confirmation_page(
-            "Confirmation Link Expired",
-            "Your confirmation link has expired. Please sign up again to receive a new link.",
-            status_code=400
+        raise HTTPException(
+            status_code=400,
+            detail="This confirmation link has expired. Please subscribe again."
         )
 
-    # Confirm subscription in database
     try:
         update_result = (
             supabase.table("newsletter_subscribers")
             .update({
                 "status": "confirmed",
-                "confirmed_at": datetime.now(
-                    timezone.utc
-                ).isoformat(),
+                "confirmed_at": datetime.now(timezone.utc).isoformat(),
                 "confirmation_token_hash": None,
                 "confirmation_expires_at": None
             })
@@ -527,26 +445,21 @@ def confirm_newsletter(token: str):
             .execute()
         )
     except Exception:
-        return confirmation_page(
-            "Confirmation Temporarily Unavailable",
-            "Your subscription could not be confirmed right now. Please try again later.",
-            status_code=503
+        raise HTTPException(
+            status_code=503,
+            detail="Your subscription could not be confirmed right now. Please try again later."
         )
 
     if not update_result.data:
-        return confirmation_page(
-            "Link Already Used or Invalid",
-            "This confirmation link has already been used or is no longer valid.",
-            status_code=409
+        raise HTTPException(
+            status_code=409,
+            detail="This confirmation link has already been used."
         )
 
-    return confirmation_page(
-        "You're Successfully Subscribed!",
-        "Thank you for joining SmartPick Hub. Your email address has been confirmed. Stay tuned for useful buying guides, product comparisons and carefully selected shopping updates.",
-        success=True
-    )
-
-
+    return {
+        "success": True,
+        "message": "Thank you for confirming your SmartPick Hub newsletter subscription."
+    }
 
 
 @app.get("/newsletter/unsubscribe", response_class=HTMLResponse)
