@@ -2863,3 +2863,43 @@ body {
 .ai-search-form button {
   color: #ffffff !important;
 }
+
+
+/* Homepage: use dark charcoal/black for primary typography */
+.hero h1,
+.hero h1 span,
+.visual-card h2,
+.section-heading h2,
+.disclosure h2,
+.category-card h3,
+.topic-card h3,
+.guide-placeholder h3,
+.about h2,
+.about-highlight h3 {
+  color: #171a18 !important;
+}
+.hero-content > p,
+.trust,
+.visual-card small,
+.visual-card p,
+.section-heading p,
+.category-card p,
+.topic-card p,
+.guide-placeholder p,
+.disclosure p,
+.about-content > p,
+.about-highlight p {
+  color: #252c27 !important;
+}
+.eyebrow,
+.dark-eyebrow,
+.tag,
+.about-highlight span,
+.ai-search-kicker {
+  color: #252c27 !important;
+}
+.ai-search-caption,
+.ai-search-form input,
+.ai-search-suggestions button {
+  color: #252c27 !important;
+}
