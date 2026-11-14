@@ -16,38 +16,46 @@ from supabase import create_client
 
 PROJECT = Path(__file__).resolve().parent.parent
 load_dotenv(PROJECT / ".env", override=True)
-FRONTEND_URL = os.getenv("FRONTEND_URL", "").strip().rstrip("/")
+def validate_https_url(value: str, setting_name: str, allow_path: bool = False) -> None:
+    parsed = urlsplit(value)
+    try:
+        parsed.port
+    except ValueError as exc:
+        raise RuntimeError(f"{setting_name} contains an invalid port.") from exc
 
-if FRONTEND_URL:
-    parsed_frontend_url = urlsplit(FRONTEND_URL)
     if (
-        parsed_frontend_url.scheme != "https"
-        or not parsed_frontend_url.netloc
-        or parsed_frontend_url.query
-        or parsed_frontend_url.fragment
+        parsed.scheme != "https"
+        or not parsed.hostname
+        or parsed.username
+        or parsed.password
+        or parsed.query
+        or parsed.fragment
+        or (not allow_path and parsed.path not in ("", "/"))
     ):
-        raise RuntimeError("FRONTEND_URL must be a valid HTTPS website origin.")
+        raise RuntimeError(
+            f"{setting_name} must be a valid HTTPS "
+            + ("website URL." if allow_path else "origin URL.")
+        )
+
+
+FRONTEND_URL = os.getenv("FRONTEND_URL", "").strip().rstrip("/")
+if FRONTEND_URL:
+    validate_https_url(FRONTEND_URL, "FRONTEND_URL", allow_path=True)
 
 FRONTEND_ORIGINS = [
     f"{urlsplit(FRONTEND_URL).scheme}://{urlsplit(FRONTEND_URL).netloc}"
 ] if FRONTEND_URL else []
 
-SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_URL = os.getenv("SUPABASE_URL", "").strip().rstrip("/")
 SUPABASE_SECRET_KEY = os.getenv("SUPABASE_SECRET_KEY")
 RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 RESEND_FROM_EMAIL = os.getenv("RESEND_FROM_EMAIL", "").strip()
 PUBLIC_API_URL = os.getenv("PUBLIC_API_URL", "").strip().rstrip("/")
 
+if SUPABASE_URL:
+    validate_https_url(SUPABASE_URL, "SUPABASE_URL")
 if PUBLIC_API_URL:
-    parsed_api_url = urlsplit(PUBLIC_API_URL)
-    if (
-        parsed_api_url.scheme != "https"
-        or not parsed_api_url.netloc
-        or parsed_api_url.path not in ("", "/")
-        or parsed_api_url.query
-        or parsed_api_url.fragment
-    ):
-        raise RuntimeError("PUBLIC_API_URL must be a valid HTTPS website origin.")
+    validate_https_url(PUBLIC_API_URL, "PUBLIC_API_URL")
 
 if not SUPABASE_URL or not SUPABASE_SECRET_KEY:
     raise RuntimeError("Supabase configuration is missing.")
