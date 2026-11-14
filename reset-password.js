@@ -7,8 +7,18 @@ const resetForm = document.getElementById("reset-password-form");
 const resetSubmit = document.getElementById("reset-submit");
 const resetMessage = document.getElementById("reset-message");
 let recoverySessionReady = false;
+const recoveryFlowDetected =
+    new URLSearchParams(window.location.search).has("code") ||
+    new URLSearchParams(window.location.hash.slice(1)).get("type") === "recovery";
 
 async function checkRecoverySession() {
+    if (!recoveryFlowDetected) {
+        resetSubmit.disabled = true;
+        resetMessage.textContent =
+            "Open the password reset link from your email. If it has expired, request a new one.";
+        return;
+    }
+
     try {
         const { data, error } = await resetClient.auth.getSession();
         if (error) throw error;
@@ -27,7 +37,7 @@ async function checkRecoverySession() {
 }
 
 resetClient.auth.onAuthStateChange((event, session) => {
-    if (event === "PASSWORD_RECOVERY" || event === "SIGNED_IN") {
+    if (event === "PASSWORD_RECOVERY" && recoveryFlowDetected) {
         recoverySessionReady = Boolean(session);
         resetSubmit.disabled = !recoverySessionReady;
         resetMessage.textContent = recoverySessionReady
