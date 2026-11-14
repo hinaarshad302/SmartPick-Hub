@@ -105,6 +105,7 @@ The tree above is an orientation guide; some folders may be empty or still under
 
 ### Phase 2 — Secure accounts and data
 - Verify Supabase Auth settings and Row Level Security (RLS).
+- A least-privilege `user_profiles` migration and SQL security test are prepared in `database/migrations/002_user_profiles.sql` and `database/tests/002_user_profiles_security.sql`. Apply and test them in Supabase before connecting the frontend to this table.
 - Let signed-in users update their own display name through Supabase Auth user metadata; do not use client-editable metadata for permissions or privileged decisions.
 - Provide a user-initiated global sign-out control for lost/shared-device scenarios. Verify session revocation behavior in a real browser before launch.
 - Configure the deployed frontend URL in Supabase Auth's allowed redirect URLs, including `profile.html` and `reset-password.html`.
@@ -150,7 +151,7 @@ The current backend prototype expects configuration such as:
 - `PUBLIC_API_URL`
 - `FRONTEND_URL` (used by the professional candidate backend for CORS and confirmation links)
 
-Apply `database/migrations/001_newsletter_subscribers.sql` to create the newsletter table with RLS enabled and browser-role access revoked. Then run `database/tests/001_newsletter_security.sql` in the Supabase SQL Editor to verify the expected grants. The backend uses a server-side Supabase secret key. The frontend also needs `window.SMARTPICK_API_BASE_URL` set in `api-config.js` to the deployed HTTPS API origin. Configure `RESEND_FROM_EMAIL` with a sender domain verified in Resend before sending real messages.
+Apply `database/migrations/001_newsletter_subscribers.sql` to create the newsletter table with RLS enabled and browser-role access revoked. Then run `database/tests/001_newsletter_security.sql` in the Supabase SQL Editor to verify the expected grants. The separate user-profile migration `database/migrations/002_user_profiles.sql` creates a row per authenticated user with owner-only RLS policies; run `database/tests/002_user_profiles_security.sql` after applying it. Do not connect profile editing to this table until the migration and security test have been completed in the target Supabase project. The backend uses a server-side Supabase secret key. The frontend also needs `window.SMARTPICK_API_BASE_URL` set in `api-config.js` to the deployed HTTPS API origin. Configure `RESEND_FROM_EMAIL` with a sender domain verified in Resend before sending real messages.
 
 ## Trust, privacy, and security principles
 
