@@ -2399,3 +2399,105 @@ button:focus-visible {
     padding: 7px 9px !important;
   }
 }
+
+
+/* Professional final proportions for desktop and mobile */
+.navbar {
+  min-height: 56px !important;
+  padding: 7px 24px !important;
+  gap: 18px !important;
+}
+.logo {
+  gap: 8px !important;
+}
+.logo-mark {
+  width: 34px !important;
+  height: 34px !important;
+  flex-basis: 34px !important;
+}
+.logo-text strong {
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+}
+.logo-text small {
+  font-size: 7.5px !important;
+  letter-spacing: .9px !important;
+}
+.header nav {
+  gap: 16px !important;
+  font-size: 12px !important;
+}
+.header .nav-cta {
+  padding: 7px 12px !important;
+  font-size: 11px !important;
+}
+.ai-search-section {
+  padding: 8px 18px 10px !important;
+}
+.ai-search-inner {
+  max-width: 760px !important;
+}
+.ai-search-heading {
+  margin-bottom: 5px !important;
+}
+.ai-search-kicker {
+  font-size: 9px !important;
+  letter-spacing: 1.3px !important;
+}
+.ai-search-caption {
+  font-size: 10px !important;
+}
+.ai-search-form {
+  min-height: 42px !important;
+  padding: 4px 5px 4px 12px !important;
+  gap: 8px !important;
+  border-radius: 8px !important;
+}
+.ai-search-icon {
+  font-size: 18px !important;
+}
+.ai-search-form input {
+  font-size: 12px !important;
+}
+.ai-search-form button {
+  padding: 7px 13px !important;
+  font-size: 11px !important;
+}
+.ai-search-suggestions {
+  margin-top: 6px !important;
+  gap: 6px !important;
+}
+.ai-search-suggestions button {
+  padding: 4px 8px !important;
+  font-size: 9px !important;
+}
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 54px !important;
+    padding: 7px 17px !important;
+  }
+  .header nav {
+    gap: 12px !important;
+  }
+}
+@media (max-width: 650px) {
+  .navbar {
+    min-height: 52px !important;
+    padding: 7px 13px !important;
+  }
+  .logo-mark {
+    width: 32px !important;
+    height: 32px !important;
+    flex-basis: 32px !important;
+  }
+  .ai-search-section {
+    padding: 7px 12px 9px !important;
+  }
+  .ai-search-form {
+    min-height: 40px !important;
+    padding: 4px 5px 4px 9px !important;
+  }
+  .ai-search-form button {
+    padding: 7px 10px !important;
+  }
+}
