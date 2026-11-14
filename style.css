@@ -2647,3 +2647,47 @@ body {
 .ai-search-form button:hover {
   background: #244638 !important;
 }
+
+
+/* Readability refinement: near-black typography on light surfaces */
+body {
+  color: #171d19 !important;
+}
+.section-heading h2,
+.disclosure h2,
+.category-card h3,
+.topic-card h3,
+.guide-placeholder h3 {
+  color: #171d19 !important;
+}
+.section-heading p,
+.category-card p,
+.topic-card p,
+.disclosure p,
+.guide-placeholder p,
+.affiliate-note {
+  color: #303b34 !important;
+}
+.category-card > a,
+.topic-card > a,
+.section-cta a {
+  color: #244638;
+}
+.about,
+.about h2,
+.about-highlight h3 {
+  color: #171d19 !important;
+}
+.about-content > p,
+.about-highlight p {
+  color: #303b34 !important;
+}
+/* Keep the dark footer readable with light text */
+.footer {
+  color: #f5f7f3 !important;
+}
+.footer-main > p,
+.footer-links,
+.footer-bottom {
+  color: #e0e9e1 !important;
+}
