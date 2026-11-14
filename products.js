@@ -1,0 +1,76 @@
+const grid = document.getElementById("product-grid");
+const searchInput = document.getElementById("product-search");
+const categoryFilter = document.getElementById("category-filter");
+const marketFilter = document.getElementById("market-filter");
+document.getElementById("year").textContent = new Date().getFullYear();
+
+async function loadProducts() {
+  try {
+    const response = await fetch("products.json");
+    if (!response.ok) throw new Error("Product list could not be loaded.");
+    const products = await response.json();
+    const liveProducts = products.filter(p => p.status === "published" && p.name && p.affiliateUrl);
+    [...new Set(liveProducts.map(p => p.category).filter(Boolean))].sort().forEach(category => {
+      const option = document.createElement("option");
+      option.value = category;
+      option.textContent = category;
+      categoryFilter.appendChild(option);
+    });
+    renderProducts(liveProducts);
+    [searchInput, categoryFilter, marketFilter].forEach(control =>
+      control.addEventListener("input", () => renderProducts(liveProducts))
+    );
+  } catch (error) {
+    grid.innerHTML = '<div class="shop-empty">Products are temporarily unavailable. Please try again later.</div>';
+  }
+}
+
+function renderProducts(products) {
+  const term = searchInput.value.trim().toLowerCase();
+  const category = categoryFilter.value;
+  const market = marketFilter.value;
+  const filtered = products.filter(product => {
+    const searchable = [product.name, product.description, product.category, product.merchant].join(" ").toLowerCase();
+    return searchable.includes(term) &&
+      (!category || product.category === category) &&
+      (!market || (product.markets || []).includes(market));
+  });
+  grid.replaceChildren();
+  if (!filtered.length) {
+    const empty = document.createElement("div");
+    empty.className = "shop-empty";
+    empty.textContent = products.length ? "No matching products found." : "Our product collection is being prepared. Please check back soon.";
+    grid.appendChild(empty);
+    return;
+  }
+  filtered.forEach(product => {
+    const card = document.createElement("article");
+    card.className = "shop-card";
+    const image = document.createElement("img");
+    image.src = product.image || "";
+    image.alt = product.name;
+    image.loading = "lazy";
+    const body = document.createElement("div");
+    body.className = "shop-card-body";
+    const categoryLabel = document.createElement("span");
+    categoryLabel.className = "shop-category";
+    categoryLabel.textContent = product.category || "Product";
+    const title = document.createElement("h2");
+    title.textContent = product.name;
+    const description = document.createElement("p");
+    description.textContent = product.description || "";
+    const meta = document.createElement("div");
+    meta.className = "shop-meta";
+    meta.textContent = [product.price, product.merchant, (product.markets || []).join(", ")].filter(Boolean).join(" · ");
+    const link = document.createElement("a");
+    link.className = "shop-buy";
+    link.href = product.affiliateUrl;
+    link.target = "_blank";
+    link.rel = "sponsored nofollow noopener";
+    link.textContent = "View Product";
+    body.append(categoryLabel, title, description, meta, link);
+    card.append(image, body);
+    grid.appendChild(card);
+  });
+}
+loadProducts();
