@@ -7,6 +7,7 @@ const resetForm = document.getElementById("reset-password-form");
 const resetSubmit = document.getElementById("reset-submit");
 const resetMessage = document.getElementById("reset-message");
 let recoverySessionReady = false;
+let recoveryEventReceived = false;
 const recoveryFlowDetected =
     new URLSearchParams(window.location.search).has("code") ||
     new URLSearchParams(window.location.hash.slice(1)).get("type") === "recovery";
@@ -23,12 +24,14 @@ async function checkRecoverySession() {
         const { data, error } = await resetClient.auth.getSession();
         if (error) throw error;
 
-        recoverySessionReady = Boolean(data.session);
+        // A normal signed-in session is not proof of a password-recovery flow.
+        // Only the PASSWORD_RECOVERY event below may authorize password changes.
+        recoverySessionReady = recoveryEventReceived && Boolean(data.session);
         resetSubmit.disabled = !recoverySessionReady;
 
         resetMessage.textContent = recoverySessionReady
             ? "Your reset link is valid. You can now choose a new password."
-            : "This reset link is invalid or has expired. Please request a new password reset email.";
+            : "Please open the password reset link from your email. If it has expired, request a new one.";
     } catch (error) {
         resetSubmit.disabled = true;
         resetMessage.textContent =
@@ -38,6 +41,7 @@ async function checkRecoverySession() {
 
 resetClient.auth.onAuthStateChange((event, session) => {
     if (event === "PASSWORD_RECOVERY" && recoveryFlowDetected) {
+        recoveryEventReceived = true;
         recoverySessionReady = Boolean(session);
         resetSubmit.disabled = !recoverySessionReady;
         resetMessage.textContent = recoverySessionReady
