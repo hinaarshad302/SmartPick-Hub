@@ -2840,3 +2840,26 @@ body {
     font-size: 14px !important;
   }
 }
+
+
+/* AI search text: darker, clearer contrast */
+.ai-search-kicker,
+.ai-search-caption,
+.ai-search-form input,
+.ai-search-form input::placeholder,
+.ai-search-suggestions button {
+  color: #171d19 !important;
+}
+.ai-search-form input::placeholder {
+  opacity: 1 !important;
+  color: #303b34 !important;
+}
+.ai-search-suggestions button {
+  color: #202a23 !important;
+}
+.ai-search-suggestions button:hover {
+  color: #111a14 !important;
+}
+.ai-search-form button {
+  color: #ffffff !important;
+}
