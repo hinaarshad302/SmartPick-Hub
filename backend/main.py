@@ -102,11 +102,24 @@ def home():
     }
 
 
+
 @app.get("/health")
 def health_check():
     try:
         supabase.table("newsletter_subscribers") \
             .select("id").limit(1).execute()
+
+        return {
+            "api": "working",
+            "database": "connected",
+            "status": "healthy"
+        }
+    except Exception:
+        raise HTTPException(
+            status_code=503,
+            detail="Database connection failed."
+        )
+
 
 @app.post("/assistant/search")
 def assistant_search(request: AssistantSearchRequest):
@@ -173,18 +186,6 @@ def assistant_search(request: AssistantSearchRequest):
         raise HTTPException(status_code=502, detail="SmartPick AI provider is temporarily unavailable.")
     except (KeyError, IndexError, TypeError, ValueError):
         raise HTTPException(status_code=502, detail="SmartPick AI returned an unexpected response format.")
-
-
-        return {
-            "api": "working",
-            "database": "connected",
-            "status": "healthy"
-        }
-    except Exception:
-        raise HTTPException(
-            status_code=503,
-            detail="Database connection failed."
-        )
 
 
 @app.post("/newsletter/signup")
