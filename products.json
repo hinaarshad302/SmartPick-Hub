@@ -1,0 +1,15 @@
+[
+  {
+    "id": "example-product-001",
+    "name": "Replace with an approved product name",
+    "category": "Technology",
+    "markets": ["USA", "UK", "Canada"],
+    "description": "Add an original, accurate product description.",
+    "image": "assets/products/replace-with-product-image.jpg",
+    "price": "",
+    "merchant": "Merchant or affiliate network",
+    "affiliateUrl": "",
+    "isAffiliate": true,
+    "status": "draft"
+  }
+]
