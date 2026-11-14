@@ -88,7 +88,7 @@ The tree above is an orientation guide; some folders may be empty or still under
 
 - Frontend: HTML, CSS, and browser JavaScript.
 - Authentication/database provider: Supabase (browser client configuration is present).
-- Account flow: email/password signup and login, protected profile-page session check, editable display name stored in the signed-in user's Supabase Auth metadata, logout, and email-based password recovery.
+- Account flow: email/password signup and login, protected profile-page session check, editable display name stored in the signed-in user's Supabase Auth metadata, local logout, account-wide sign-out, and email-based password recovery.
 - Backend prototype: Python and FastAPI.
 - Newsletter email delivery: Resend integration in the canonical FastAPI backend (`backend/main.py`).
 - Newsletter database: SQL migration at `database/migrations/001_newsletter_subscribers.sql`.
@@ -106,6 +106,7 @@ The tree above is an orientation guide; some folders may be empty or still under
 ### Phase 2 — Secure accounts and data
 - Verify Supabase Auth settings and Row Level Security (RLS).
 - Let signed-in users update their own display name through Supabase Auth user metadata; do not use client-editable metadata for permissions or privileged decisions.
+- Provide a user-initiated global sign-out control for lost/shared-device scenarios. Verify session revocation behavior in a real browser before launch.
 - Configure the deployed frontend URL in Supabase Auth's allowed redirect URLs, including `profile.html` and `reset-password.html`.
 - Test signup email confirmation, login, logout, protected profile access, password reset, and expired recovery links in a real browser.
 - Define user profiles, saved preferences, product, retailer, affiliate-click, and content schemas.
