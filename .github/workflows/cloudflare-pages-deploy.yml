@@ -27,7 +27,7 @@ jobs:
           cp ./*.html ./*.css ./*.js ./robots.txt ./_headers dist/
           test -s dist/index.html
           echo "Files prepared for public hosting:"
-          find dist -maxdepth 1 -type f -printf '%s\n' | sort
+          find dist -maxdepth 1 -type f -printf '%f\n' | sort
           if find dist -type f -name '*.py' -print -quit | grep -q . || find dist -type f -name '*.sql' -print -quit | grep -q . || find dist -type f -name '.env*' -print -quit | grep -q .; then
             echo "Unexpected server-side or environment file found in public output."
             exit 1
