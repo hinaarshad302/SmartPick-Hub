@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from html.parser import HTMLParser
+import json
+import re
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 import sys
@@ -36,6 +38,33 @@ def main() -> int:
 
     if not pages:
         errors.append("No HTML pages were found in the repository root.")
+
+    vercel_config = ROOT / "vercel.json"
+    try:
+        json.loads(vercel_config.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"vercel.json: invalid or unreadable JSON: {exc}")
+
+    for env_file in ROOT.glob(".env*"):
+        if env_file.name != ".env.example":
+            errors.append(
+                f"{env_file.name}: environment files must not be committed."
+            )
+
+    secret_patterns = (
+        re.compile(r"sb_secret_[A-Za-z0-9_-]{12,}"),
+        re.compile(r"re_[A-Za-z0-9]{20,}"),
+        re.compile(r"SUPABASE_SECRET_KEY\\s*=\\s*['\\\"]", re.IGNORECASE),
+    )
+    frontend_files = list(ROOT.glob("*.html")) + list(ROOT.glob("*.js"))
+    for frontend_file in frontend_files:
+        source = frontend_file.read_text(encoding="utf-8")
+        for pattern in secret_patterns:
+            if pattern.search(source):
+                errors.append(
+                    f"{frontend_file.name}: possible server-side secret in frontend source."
+                )
+                break
 
     for page in pages:
         inspector = PageInspector()
@@ -80,7 +109,7 @@ def main() -> int:
 
     print(
         f"SmartPick Hub validation passed: checked {len(pages)} HTML pages, "
-        "duplicate IDs, and local href/src file references."
+        "duplicate IDs, local href/src references, Vercel JSON, and frontend secret patterns."
     )
     return 0
 
