@@ -88,19 +88,12 @@ authForm.addEventListener("submit", async (event) => {
 
             if (error) throw error;
 
-            console.log("SIGNUP RESPONSE:", data);
-            console.log("USER ID:", data.user?.id);
-            console.log("USER EMAIL:", data.user?.email);
-            console.log("EMAIL CONFIRMED:", data.user?.email_confirmed_at);
-            console.log("IDENTITIES COUNT:", data.user?.identities?.length);
-            console.log("SESSION CREATED:", Boolean(data.session));
-
             authMessage.textContent = data.session
                 ? "Account created successfully!"
                 : "Account created! Please check your email to verify your account.";
 
         } else {
-            const { data, error } = await supabaseClient.auth.signInWithPassword({
+            const { error } = await supabaseClient.auth.signInWithPassword({
                 email,
                 password
             });
