@@ -57,10 +57,12 @@ Affiliate commission must not be the sole ranking signal. Do not fabricate disco
 ```text
 .
 ├── .github/
-│   └── workflows/
-│       └── quality-checks.yml
+│   ├── workflows/
+│   │   └── quality-checks.yml
+│   └── dependabot.yml
 ├── backend/
 │   └── main.py
+├── SECURITY.md
 ├── assets/
 ├── database/
 ├── models/
@@ -183,5 +185,7 @@ The current privacy and service terms drafts are published as `privacy.html` and
 - Provide a way to report incorrect information and broken links.
 
 ## Contribution and change policy
+
+Security issues should follow the private reporting guidance in `SECURITY.md`. Dependabot is configured to propose weekly updates for Python dependencies and GitHub Actions.
 
 Work in a feature branch first, review the diff, test the affected feature, and merge only after verification. Avoid replacing working files wholesale when a small, reviewed change is sufficient.
