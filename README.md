@@ -144,7 +144,7 @@ The current backend prototype expects configuration such as:
 - `PUBLIC_API_URL`
 - `FRONTEND_URL` (used by the professional candidate backend for CORS and confirmation links)
 
-Apply `database/migrations/001_newsletter_subscribers.sql` to create the newsletter table with RLS enabled and browser-role access revoked. The backend uses a server-side Supabase secret key. The frontend also needs `window.SMARTPICK_API_BASE_URL` set in `api-config.js` to the deployed HTTPS API origin. Configure `RESEND_FROM_EMAIL` with a sender domain verified in Resend before sending real messages.
+Apply `database/migrations/001_newsletter_subscribers.sql` to create the newsletter table with RLS enabled and browser-role access revoked. Then run `database/tests/001_newsletter_security.sql` in the Supabase SQL Editor to verify the expected grants. The backend uses a server-side Supabase secret key. The frontend also needs `window.SMARTPICK_API_BASE_URL` set in `api-config.js` to the deployed HTTPS API origin. Configure `RESEND_FROM_EMAIL` with a sender domain verified in Resend before sending real messages.
 
 ## Trust, privacy, and security principles
 
