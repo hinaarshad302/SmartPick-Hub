@@ -1,0 +1,45 @@
+name: Project quality checks
+
+on:
+  push:
+    branches:
+      - project-foundation
+  pull_request:
+    branches:
+      - main
+      - project-foundation
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate website and backend source
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate local website files
+        run: python scripts/validate_project.py
+
+      - name: Check Python syntax
+        run: python -m compileall -q backend
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do
+            node --check "$file"
+          done < <(find . -type f -name '*.js' -not -path './.git/*' | sort)
