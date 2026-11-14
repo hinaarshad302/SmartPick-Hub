@@ -6,7 +6,7 @@ SmartPick Hub is being developed as a bilingual (English and Urdu/Roman Urdu), A
 
 The goal is to help visitors make informed decisions by explaining products, comparing suitable options, and considering budget, needs, availability, and important limitations. The business model may include affiliate links. Affiliate relationships must be disclosed clearly, and recommendations must remain relevant to the visitor rather than being ranked only by commission.
 
-> **Project status:** Early development. The current repository contains a static HTML/CSS/JavaScript website, a Supabase browser-authentication integration, and a FastAPI backend prototype for newsletter subscriptions. The full AI shopping assistant, product catalogue, affiliate tracking, and specialist agents are not yet implemented. Do not treat this repository as production-ready.
+> **Project status:** Early development. The current repository contains a static HTML/CSS/JavaScript website, a Supabase browser-authentication integration, and a FastAPI backend prototype for newsletter subscriptions. The homepage now includes a SmartPick AI search interface and a configurable OpenAI-compatible LLM endpoint prototype. Verified live product search, product catalogue retrieval, affiliate tracking, and specialist agents are not yet implemented. Do not treat this repository as production-ready.
 
 ## Confirmed product direction
 
@@ -94,6 +94,18 @@ Affiliate commission must not be the sole ranking signal. Do not fabricate disco
 ```
 
 The tree above is an orientation guide; some folders may be empty or still under development. `backend/main.py` is the canonical FastAPI entry point. The previous candidate implementation has been consolidated into it; do not deploy a second backend process.
+
+## SmartPick AI search setup
+
+The homepage search interface sends questions to `POST /assistant/search`. The backend expects an OpenAI-compatible chat-completions endpoint and reads these server-only environment variables:
+
+- `LLM_API_KEY`: provider API key.
+- `LLM_BASE_URL`: full chat-completions URL, for example a provider's `/v1/chat/completions` endpoint.
+- `LLM_MODEL`: model identifier supported by that provider.
+
+Set `SMARTPICK_API_BASE_URL` in the public `api-config.js` to the deployed HTTPS backend origin. Keep `LLM_API_KEY` only in backend environment variables. The UI can render while the API is disconnected, but live answers require a deployed backend and valid provider configuration.
+
+This first LLM endpoint provides general shopping guidance only. It does not perform live retailer/product retrieval, price checks, stock checks, or verified product comparisons. Those require approved product data sources and retrieval services before launch.
 
 ## Technology currently present
 
