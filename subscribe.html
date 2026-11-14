@@ -356,21 +356,29 @@
             <h2>Stay in the Loop</h2>
 
             <p>
-                Our newsletter signup is being connected.
-                Subscription will be available soon.
+                Join for practical buying guides, product comparisons and useful updates.
+                Please confirm your email address before your subscription becomes active.
             </p>
 
-            <form id="newsletter-form">
+            <form id="newsletter-form" novalidate>
                 <label for="newsletter-email">Email address</label>
 
                 <input type="email"
                        id="newsletter-email"
+                       name="email"
                        placeholder="Enter your email address"
-                       disabled>
+                       autocomplete="email"
+                       maxlength="254"
+                       required>
 
-                <button type="button" disabled>
-                    Newsletter Signup Coming Soon
+                <button type="submit" id="newsletter-submit">
+                    Subscribe
                 </button>
+
+                <p id="newsletter-message"
+                   class="newsletter-message"
+                   role="status"
+                   aria-live="polite"></p>
             </form>
         </div>
 
@@ -390,6 +398,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
+<script src="api-config.js"></script>
+<script src="newsletter.js"></script>
 <script src="auth-nav.js"></script>
 <script src="script.js"></script>
 
@@ -470,10 +480,24 @@
     border: none;
 }
 
-.subscribe-form-card button:disabled,
-.subscribe-form-card input:disabled {
+.subscribe-form-card button:disabled {
     opacity: 0.65;
-    cursor: not-allowed;
+    cursor: wait;
+}
+
+.newsletter-message {
+    min-height: 24px;
+    margin: 14px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.newsletter-message[data-state="success"] {
+    color: #27633b;
+}
+
+.newsletter-message[data-state="error"] {
+    color: #963b32;
 }
 
 .subscribe-privacy {
