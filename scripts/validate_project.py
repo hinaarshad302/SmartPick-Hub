@@ -67,6 +67,13 @@ def main() -> int:
                 break
 
     for page in pages:
+        page_source = page.read_text(encoding="utf-8")
+        if page_source.lower().count("<!doctype html>") != 1:
+            errors.append(f"{page.name}: expected exactly one HTML doctype declaration.")
+        description_count = page_source.lower().count('name="description"') + page_source.lower().count("name='description'")
+        if description_count > 1:
+            errors.append(f"{page.name}: duplicate meta description tags.")
+
         inspector = PageInspector()
         try:
             inspector.feed(page.read_text(encoding="utf-8"))
