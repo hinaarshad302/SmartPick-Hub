@@ -3296,3 +3296,157 @@ body:not(:has(main#main-content)) .footer a:hover {
     background: var(--sh-green-soft) !important;
   }
 }
+
+
+/* =========================================
+   DEFINITIVE NON-HOMEPAGE THEME OVERRIDE
+   Homepage is identified by .hero#home.
+   Every other page now uses the same homepage palette.
+========================================= */
+body:not(:has(section.hero#home)) {
+  background: #f5f7f3 !important;
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .header,
+body:not(:has(section.hero#home)) header.header {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-bottom: 1px solid #d7e2d9 !important;
+}
+body:not(:has(section.hero#home)) .header *,
+body:not(:has(section.hero#home)) .header nav a,
+body:not(:has(section.hero#home)) .header .logo-text,
+body:not(:has(section.hero#home)) .header .logo-text strong {
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .header nav a:hover,
+body:not(:has(section.hero#home)) .header nav a[aria-current="page"] {
+  color: #a77d32 !important;
+}
+body:not(:has(section.hero#home)) .header nav a.nav-cta {
+  background: #bd974d !important;
+  color: #111111 !important;
+  border: 1px solid #bd974d !important;
+}
+body:not(:has(section.hero#home)) .header nav a.nav-cta:hover {
+  background: #244638 !important;
+  color: #ffffff !important;
+  border-color: #244638 !important;
+}
+
+/* Force every page canvas and main content to the homepage light palette */
+body:not(:has(section.hero#home)) main,
+body:not(:has(section.hero#home)) .technology-page,
+body:not(:has(section.hero#home)) .featured-page,
+body:not(:has(section.hero#home)) .guides-page,
+body:not(:has(section.hero#home)) .about-page,
+body:not(:has(section.hero#home)) .auth-container,
+body:not(:has(section.hero#home)) .account-container {
+  background: #f5f7f3 !important;
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) main > section,
+body:not(:has(section.hero#home)) .tech-page-hero,
+body:not(:has(section.hero#home)) .featured-hero,
+body:not(:has(section.hero#home)) .featured-value-section,
+body:not(:has(section.hero#home)) .featured-cta,
+body:not(:has(section.hero#home)) .guides-hero,
+body:not(:has(section.hero#home)) .guides-section,
+body:not(:has(section.hero#home)) .about-hero,
+body:not(:has(section.hero#home)) .about-section,
+body:not(:has(section.hero#home)) .about-mission,
+body:not(:has(section.hero#home)) .about-approach,
+body:not(:has(section.hero#home)) .tech-section {
+  background: #edf3ee !important;
+  color: #111111 !important;
+}
+
+/* Matching white cards, black typography and green links */
+body:not(:has(section.hero#home)) article,
+body:not(:has(section.hero#home)) .tech-feature-card,
+body:not(:has(section.hero#home)) .featured-topic-card,
+body:not(:has(section.hero#home)) .guide-card,
+body:not(:has(section.hero#home)) .about-value-card,
+body:not(:has(section.hero#home)) .auth-card,
+body:not(:has(section.hero#home)) .account-card,
+body:not(:has(section.hero#home)) .profile-summary,
+body:not(:has(section.hero#home)) .quick-link {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-color: #d7e2d9 !important;
+}
+body:not(:has(section.hero#home)) main h1,
+body:not(:has(section.hero#home)) main h2,
+body:not(:has(section.hero#home)) main h3,
+body:not(:has(section.hero#home)) main h4,
+body:not(:has(section.hero#home)) main p,
+body:not(:has(section.hero#home)) main li,
+body:not(:has(section.hero#home)) .account-container *,
+body:not(:has(section.hero#home)) .auth-card * {
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .tech-page-hero .eyebrow,
+body:not(:has(section.hero#home)) .featured-eyebrow,
+body:not(:has(section.hero#home)) .guides-eyebrow,
+body:not(:has(section.hero#home)) .about-eyebrow,
+body:not(:has(section.hero#home)) .account-eyebrow,
+body:not(:has(section.hero#home)) .tech-card-icon,
+body:not(:has(section.hero#home)) .featured-card-number,
+body:not(:has(section.hero#home)) .guide-number,
+body:not(:has(section.hero#home)) .about-value-number {
+  color: #8a682d !important;
+}
+body:not(:has(section.hero#home)) main a:not(.btn),
+body:not(:has(section.hero#home)) .auth-card a {
+  color: #244638 !important;
+}
+body:not(:has(section.hero#home)) main .btn,
+body:not(:has(section.hero#home)) #auth-submit,
+body:not(:has(section.hero#home)) .auth-card button[type="submit"],
+body:not(:has(section.hero#home)) .account-container button {
+  background: #bd974d !important;
+  color: #111111 !important;
+  border-color: #bd974d !important;
+}
+body:not(:has(section.hero#home)) main .btn:hover,
+body:not(:has(section.hero#home)) #auth-submit:hover,
+body:not(:has(section.hero#home)) .auth-card button[type="submit"]:hover,
+body:not(:has(section.hero#home)) .account-container button:hover {
+  background: #244638 !important;
+  color: #ffffff !important;
+  border-color: #244638 !important;
+}
+
+/* Same pale green footer and black footer text on every inner page */
+body:not(:has(section.hero#home)) .footer {
+  background: #e2ece4 !important;
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .footer *,
+body:not(:has(section.hero#home)) .footer p,
+body:not(:has(section.hero#home)) .footer a {
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .footer a:hover {
+  color: #9a742f !important;
+}
+
+/* Matching navigation and button hover animation across inner pages */
+body:not(:has(section.hero#home)) #site-nav > a:not(.nav-cta) {
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+body:not(:has(section.hero#home)) #site-nav > a:not(.nav-cta):hover {
+  color: #a77d32 !important;
+  transform: translateY(-2px);
+}
+body:not(:has(section.hero#home)) #site-nav > a.nav-cta,
+body:not(:has(section.hero#home)) main .btn {
+  transition: color .22s ease, background-color .22s ease,
+              border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+body:not(:has(section.hero#home)) #site-nav > a.nav-cta:hover,
+body:not(:has(section.hero#home)) main .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px rgba(36,70,56,.2);
+}
