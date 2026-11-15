@@ -11,10 +11,20 @@ async function loadProducts() {
       .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
       .eq("status", "published")
       .order("name");
-    if (error) throw error;
-    const liveProducts = (data || []).map(p => ({
-      ...p, affiliateUrl: p.affiliate_url || "", productUrl: p.product_url || ""
-    })).filter(p => p.name && (p.affiliateUrl || p.productUrl));
+    let records;
+    if (error) {
+      console.warn("Supabase catalogue is not ready; using the temporary JSON catalogue.", error);
+      const fallback = await fetch("products.json");
+      if (!fallback.ok) throw error;
+      records = await fallback.json();
+    } else {
+      records = (data || []).map(p => ({
+        ...p, affiliateUrl: p.affiliate_url || "", productUrl: p.product_url || ""
+      }));
+    }
+    const liveProducts = records.filter(p =>
+      p.status === "published" && p.name && (p.affiliateUrl || p.productUrl)
+    );
     [...new Set(liveProducts.map(p => p.category).filter(Boolean))].sort().forEach(category => {
       categoryFilter.appendChild(new Option(category, category));
     });
