@@ -154,6 +154,12 @@ def main() -> int:
         errors.append("Affiliate click-events security verification script is missing.")
     if not outbound_config.is_file():
         errors.append("Optional outbound tracking configuration is missing.")
+    edge_function = ROOT / "supabase" / "functions" / "outbound-click" / "index.ts"
+    edge_config = ROOT / "supabase" / "config.toml"
+    if not edge_function.is_file():
+        errors.append("Supabase outbound-click Edge Function is missing.")
+    if not edge_config.is_file() or 'verify_jwt = false' not in edge_config.read_text(encoding="utf-8"):
+        errors.append("Supabase outbound-click function must explicitly disable JWT verification for public product links.")
     if not backend_source.is_file() or '"/out/{product_id}"' not in backend_source.read_text(encoding="utf-8"):
         errors.append("Backend outbound product redirect endpoint is missing.")
 
