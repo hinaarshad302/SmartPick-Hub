@@ -28,7 +28,8 @@
     "affiliateUrl": "",
     "productUrl": "https://www.dell.com/en-us/shop/clientaudiovideo/apd/dell-pro-3-webcam-2k-wb3023/dp1x1/-",
     "isAffiliate": false,
-    "status": "published"
+    "status": "published",
+    "image": "https://i.dell.com/sites/csimages/Video_Imagery/all/dell-webcam-wb3023-thumbnail.jpg"
   },
   {
     "id": "logitech-mx-keys-s",
