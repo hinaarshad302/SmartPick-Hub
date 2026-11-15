@@ -74,14 +74,24 @@ function renderProducts(products) {
     card.className = "shop-card";
     const body = document.createElement("div");
     body.className = "shop-card-body";
+    const imageFrame = document.createElement("div");
+    imageFrame.className = "shop-image-frame";
+    const showImageFallback = () => {
+      imageFrame.replaceChildren();
+      imageFrame.classList.add("is-fallback");
+      imageFrame.textContent = "Product image unavailable";
+    };
     if (product.image) {
       const image = document.createElement("img");
       image.alt = product.name;
       image.loading = "lazy";
       image.src = product.image;
-      image.onerror = () => image.remove();
-      card.appendChild(image);
+      image.onerror = showImageFallback;
+      imageFrame.appendChild(image);
+    } else {
+      showImageFallback();
     }
+    card.appendChild(imageFrame);
     const categoryLabel = document.createElement("span");
     categoryLabel.className = "shop-category";
     categoryLabel.textContent = product.category || "Product";
