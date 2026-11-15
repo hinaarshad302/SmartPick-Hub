@@ -3510,3 +3510,83 @@ body:not(:has(section.hero#home)) main .btn:hover {
 }
 .catalog-product-card .catalog-buy:hover { background: #244638; color: #ffffff !important; }
 .catalog-loading, .catalog-empty { grid-column: 1/-1; text-align: center; padding: 22px; color: #303b34; }
+
+
+/* Interactive Buying Guide topic and checklist details */
+.guide-open-button,
+.checklist-open-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 10px 15px;
+  border: 1px solid #bd974d;
+  border-radius: 7px;
+  background: #bd974d;
+  color: #111111 !important;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.guide-open-button:hover,
+.checklist-open-button:hover {
+  background: #244638;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+.guides-check-item { position: relative; }
+.guides-check-item .checklist-open-button { margin-top: 12px; }
+.guide-dialog-open { overflow: hidden; }
+.guide-dialog-backdrop[hidden] { display: none !important; }
+.guide-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(8, 22, 17, .68);
+  overflow-y: auto;
+}
+.guide-dialog-panel {
+  position: relative;
+  width: min(100%, 760px);
+  max-height: min(86vh, 900px);
+  overflow-y: auto;
+  padding: clamp(24px, 5vw, 42px);
+  border: 1px solid #d7e2d9;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 24px 80px rgba(0,0,0,.25);
+}
+.guide-dialog-close {
+  position: sticky;
+  float: right;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  margin: -10px -10px 0 12px;
+  border: 1px solid #d7e2d9;
+  border-radius: 50%;
+  background: #edf3ee;
+  color: #111111;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+.guide-dialog-panel > .guides-eyebrow { display: block; margin: 8px 0 10px; color: #8a682d !important; }
+.guide-dialog-panel h2 { margin: 0 0 12px; color: #111111 !important; font-size: clamp(25px, 4vw, 34px); line-height: 1.2; }
+.guide-dialog-intro { margin: 0 0 22px; color: #303b34 !important; }
+.guide-dialog-points { display: grid; gap: 14px; }
+.guide-dialog-point { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 15px; border: 1px solid #d7e2d9; border-radius: 10px; background: #f5f7f3; }
+.guide-dialog-point-number { color: #8a682d; font-weight: 700; }
+.guide-dialog-point h3 { margin: 0 0 4px; color: #111111 !important; font-size: 16px; }
+.guide-dialog-point p { margin: 0; color: #303b34 !important; font-size: 14px; line-height: 1.6; }
+.guide-dialog-tip { margin: 20px 0 0; padding: 15px 17px; border-left: 4px solid #bd974d; border-radius: 5px; background: #edf3ee; color: #18382d !important; font-weight: 600; }
+@media(max-width:600px) {
+  .guide-dialog-backdrop { padding: 10px; align-items: end; }
+  .guide-dialog-panel { max-height: 90vh; border-radius: 16px 16px 8px 8px; padding: 23px 17px; }
+}
