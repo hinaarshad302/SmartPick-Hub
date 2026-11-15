@@ -27,12 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
               String(product.department || "").toLowerCase() === department.toLowerCase()
             );
 
+        grid.replaceChildren();
         if (!matching.length) {
-          section.hidden = true;
+          const empty = document.createElement("p");
+          empty.className = "catalog-empty";
+          empty.textContent = "We're preparing product picks for this category. Please check back soon.";
+          grid.appendChild(empty);
           return;
         }
-
-        grid.replaceChildren();
         matching.forEach(product => {
           const card = document.createElement("article");
           card.className = "catalog-product-card";
