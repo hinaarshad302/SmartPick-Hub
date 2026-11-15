@@ -92,9 +92,11 @@ begin
               'Admins can delete products'
           )
           and (
-              coalesce(qual, '') not like '%smartpick_admins%'
-              or (cmd in ('INSERT', 'UPDATE')
-                  and coalesce(with_check, '') not like '%smartpick_admins%')
+              (cmd in ('UPDATE', 'DELETE')
+               and coalesce(qual, '') not like '%smartpick_admins%')
+              or
+              (cmd in ('INSERT', 'UPDATE')
+               and coalesce(with_check, '') not like '%smartpick_admins%')
           )
     ) then
         raise exception 'A product mutation policy is missing its admin-membership condition';
