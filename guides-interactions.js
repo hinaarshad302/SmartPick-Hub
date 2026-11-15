@@ -147,6 +147,14 @@ document.addEventListener("DOMContentLoaded", () => {
     tip.className = "guide-dialog-tip";
     tip.textContent = content.takeaway;
     description.appendChild(tip);
+    if (content.title === "How to Choose AI Writing Tools") {
+      const toolsLink = document.createElement("a");
+      toolsLink.className = "guide-dialog-tools-link";
+      toolsLink.href = "#ai-writing-tools";
+      toolsLink.textContent = "Explore actual AI writing tools ↓";
+      toolsLink.addEventListener("click", closeDialog);
+      description.appendChild(toolsLink);
+    }
     dialog.hidden = false;
     document.body.classList.add("guide-dialog-open");
     closeButton.focus();
