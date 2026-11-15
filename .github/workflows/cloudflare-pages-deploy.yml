@@ -24,11 +24,27 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p dist
-          cp ./*.html ./*.css ./*.js ./robots.txt ./_headers dist/
+
+          # Copy all public root pages, styles, scripts, and the JSON catalogue.
+          cp ./*.html ./*.css ./*.js ./*.json ./robots.txt ./_headers dist/
+
+          # Keep public image/logo assets available at their original relative paths.
+          if [ -d assets ]; then
+            cp -R assets dist/assets
+          fi
+
+          # Fail early if files required by the live catalogue or branding are absent.
           test -s dist/index.html
-          echo "Files prepared for public hosting:"
-          find dist -maxdepth 1 -type f -printf '%f\n' | sort
-          if find dist -type f -name '*.py' -print -quit | grep -q . || find dist -type f -name '*.sql' -print -quit | grep -q . || find dist -type f -name '.env*' -print -quit | grep -q .; then
+          test -s dist/products.json
+          test -s dist/product-catalog.js
+          test -s dist/products.js
+          test -s dist/assets/smartpick-hub-sh-logo.webp
+
+          echo "Public deployment files:"
+          find dist -type f -printf '%P\n' | sort
+
+          # Never publish backend source, SQL migrations, or environment files.
+          if find dist -type f \( -name '*.py' -o -name '*.sql' -o -name '.env*' \) -print -quit | grep -q .; then
             echo "Unexpected server-side or environment file found in public output."
             exit 1
           fi
