@@ -47,7 +47,6 @@ function renderProducts(products) {
     const card = document.createElement("article");
     card.className = "shop-card";
     const image = document.createElement("img");
-    image.src = product.image || "";
     image.alt = product.name;
     image.loading = "lazy";
     const body = document.createElement("div");
@@ -64,10 +63,11 @@ function renderProducts(products) {
     meta.textContent = [product.price, product.merchant, (product.markets || []).join(", ")].filter(Boolean).join(" · ");
     const link = document.createElement("a");
     link.className = "shop-buy";
-    link.href = product.affiliateUrl;
+    const isAffiliate = Boolean(product.affiliateUrl);
+    link.href = product.affiliateUrl || product.productUrl;
     link.target = "_blank";
-    link.rel = "sponsored nofollow noopener";
-    link.textContent = "View Product";
+    link.rel = isAffiliate ? "sponsored nofollow noopener" : "noopener";
+    link.textContent = isAffiliate ? "View Product" : "View on Manufacturer Site";
     body.append(categoryLabel, title, description, meta, link);
     if (product.image) card.append(image);\n    card.append(body);
     grid.appendChild(card);
