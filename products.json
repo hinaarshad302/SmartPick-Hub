@@ -83,5 +83,197 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Technology"
+  },
+  {
+    "id": "jbl-flip-6-speaker",
+    "name": "JBL Flip 6 Portable Bluetooth Speaker",
+    "category": "Portable Speakers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A compact Bluetooth speaker with IP67 water and dust resistance and up to 12 hours of advertised playtime. A practical pick for travel and everyday listening.",
+    "price": "",
+    "merchant": "JBL",
+    "affiliateUrl": "",
+    "productUrl": "https://www.jbl.com/JBLFLIP6BLKAM.html?ged=off",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets"
+  },
+  {
+    "id": "tp-link-tapo-c210-camera",
+    "name": "TP-Link Tapo C210 Pan/Tilt Home Security Camera",
+    "category": "Smart Home Cameras",
+    "markets": [
+      "USA"
+    ],
+    "description": "An indoor pan-and-tilt Wi-Fi camera with 2K resolution, motion detection and two-way audio. Check local privacy rules and storage options before purchase.",
+    "price": "",
+    "merchant": "TP-Link",
+    "affiliateUrl": "",
+    "productUrl": "https://www.tp-link.com/us/home-networking/cloud-camera/tapo-c210/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets"
+  },
+  {
+    "id": "ninja-af101-air-fryer",
+    "name": "Ninja Air Fryer (AF101)",
+    "category": "Air Fryers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A compact air fryer designed for air frying, roasting, reheating and dehydrating. Check basket capacity and counter space to make sure it suits your household.",
+    "price": "",
+    "merchant": "Ninja",
+    "affiliateUrl": "",
+    "productUrl": "https://www.ninjakitchen.com/products/ninja-air-fryer-zidAF101",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home"
+  },
+  {
+    "id": "instant-pot-duo-7-in-1",
+    "name": "Instant Pot Duo 7-in-1 Electric Pressure Cooker",
+    "category": "Multi-Cookers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A multi-cooker that combines pressure cooking, slow cooking, steaming, sautéing, rice cooking, yogurt making and warming. Choose the capacity that fits your family size.",
+    "price": "",
+    "merchant": "Instant Pot",
+    "affiliateUrl": "",
+    "productUrl": "https://instantpot.com/products/instant-pot-duo-7-in-1-electric-pressure-cooker",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home"
+  },
+  {
+    "id": "oral-b-io-series-5",
+    "name": "Oral-B iO Series 5 Electric Toothbrush",
+    "category": "Personal Care",
+    "markets": [
+      "USA"
+    ],
+    "description": "An electric toothbrush with a pressure sensor and app-connected brushing guidance. Brush-head replacements and regional availability should be checked before buying.",
+    "price": "",
+    "merchant": "Oral-B",
+    "affiliateUrl": "",
+    "productUrl": "https://oralb.com/en-us/products/electric-toothbrushes/io-series/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty"
+  },
+  {
+    "id": "philips-oneblade",
+    "name": "Philips OneBlade Hybrid Trimmer",
+    "category": "Grooming Tools",
+    "markets": [
+      "USA"
+    ],
+    "description": "A rechargeable grooming tool designed to trim, edge and shave facial hair. Check the exact model and included attachments, as kits vary by market.",
+    "price": "",
+    "merchant": "Philips",
+    "affiliateUrl": "",
+    "productUrl": "https://www.usa.philips.com/c-m-pe/oneblade-trim-edge-and-shave",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty"
+  },
+  {
+    "id": "herschel-classic-backpack",
+    "name": "Herschel Classic Backpack",
+    "category": "Bags & Backpacks",
+    "markets": [
+      "USA"
+    ],
+    "description": "A simple everyday backpack for commuting, study and travel. Compare the selected size, laptop sleeve details and fabric before ordering.",
+    "price": "",
+    "merchant": "Herschel",
+    "affiliateUrl": "",
+    "productUrl": "https://herschel.com/shop/backpacks/classic-backpack",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion"
+  },
+  {
+    "id": "casio-gshock-dw5600",
+    "name": "Casio G-Shock DW-5600 Digital Watch",
+    "category": "Watches",
+    "markets": [
+      "USA"
+    ],
+    "description": "A durable digital watch with shock resistance, stopwatch, countdown timer and water resistance. Confirm the exact DW-5600 variant and dimensions before purchase.",
+    "price": "",
+    "merchant": "Casio",
+    "affiliateUrl": "",
+    "productUrl": "https://www.casio.com/us/watches/gshock/product.DW-5600E-1V/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion"
+  },
+  {
+    "id": "fitbit-charge-6",
+    "name": "Google Fitbit Charge 6 Fitness Tracker",
+    "category": "Fitness Trackers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A fitness tracker with activity and heart-rate tracking, built-in GPS and up to 7 days of advertised battery life. Feature availability and some insights may depend on app, phone and subscription.",
+    "price": "",
+    "merchant": "Google Fitbit",
+    "affiliateUrl": "",
+    "productUrl": "https://store.google.com/us/product/fitbit_charge_6?hl=en-US",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness"
+  },
+  {
+    "id": "manduka-pro-yoga-mat",
+    "name": "Manduka PRO Yoga Mat",
+    "category": "Yoga & Exercise Mats",
+    "markets": [
+      "USA"
+    ],
+    "description": "A dense, durable yoga mat designed for regular practice and studio use. It is a premium, heavier mat, so check dimensions and weight before ordering.",
+    "price": "",
+    "merchant": "Manduka",
+    "affiliateUrl": "",
+    "productUrl": "https://www.manduka.com/products/manduka-pro-yoga-mat",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness"
+  },
+  {
+    "id": "owala-freesip-bottle",
+    "name": "Owala FreeSip Insulated Water Bottle",
+    "category": "Water Bottles",
+    "markets": [
+      "USA"
+    ],
+    "description": "An insulated stainless-steel bottle with a dual-purpose FreeSip spout for sipping or using the built-in straw. Check size, lid care and colour availability.",
+    "price": "",
+    "merchant": "Owala",
+    "affiliateUrl": "",
+    "productUrl": "https://owalalife.com/products/freesip",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use"
+  },
+  {
+    "id": "hydro-flask-wide-mouth-32oz",
+    "name": "Hydro Flask 32 oz Wide Mouth Bottle",
+    "category": "Reusable Bottles",
+    "markets": [
+      "USA"
+    ],
+    "description": "A reusable insulated bottle for everyday hydration, commuting and outdoor use. Check lid compatibility and bottle dimensions before purchase.",
+    "price": "",
+    "merchant": "Hydro Flask",
+    "affiliateUrl": "",
+    "productUrl": "https://www.hydroflask.com/32-oz-wide-mouth",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use"
   }
 ]
