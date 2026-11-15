@@ -6,22 +6,25 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 async function loadProducts() {
   try {
-    const response = await fetch("products.json");
-    if (!response.ok) throw new Error("Product list could not be loaded.");
-    const products = await response.json();
-    const liveProducts = products.filter(p => p.status === "published" && p.name && (p.affiliateUrl || p.productUrl));
+    const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+    const { data, error } = await client.from("products")
+      .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
+      .eq("status", "published")
+      .order("name");
+    if (error) throw error;
+    const liveProducts = (data || []).map(p => ({
+      ...p, affiliateUrl: p.affiliate_url || "", productUrl: p.product_url || ""
+    })).filter(p => p.name && (p.affiliateUrl || p.productUrl));
     [...new Set(liveProducts.map(p => p.category).filter(Boolean))].sort().forEach(category => {
-      const option = document.createElement("option");
-      option.value = category;
-      option.textContent = category;
-      categoryFilter.appendChild(option);
+      categoryFilter.appendChild(new Option(category, category));
     });
     renderProducts(liveProducts);
     [searchInput, categoryFilter, marketFilter].forEach(control =>
       control.addEventListener("input", () => renderProducts(liveProducts))
     );
   } catch (error) {
-    grid.innerHTML = '<div class="shop-empty">Products are temporarily unavailable. Please try again later.</div>';
+    console.error("Shop Products load failed:", error);
+    grid.innerHTML = '<div class="shop-empty">The product catalogue is not available yet. The administrator may need to complete the database setup.</div>';
   }
 }
 
@@ -46,11 +49,16 @@ function renderProducts(products) {
   filtered.forEach(product => {
     const card = document.createElement("article");
     card.className = "shop-card";
-    const image = document.createElement("img");
-    image.alt = product.name;
-    image.loading = "lazy";
     const body = document.createElement("div");
     body.className = "shop-card-body";
+    if (product.image) {
+      const image = document.createElement("img");
+      image.alt = product.name;
+      image.loading = "lazy";
+      image.src = product.image;
+      image.onerror = () => image.remove();
+      card.appendChild(image);
+    }
     const categoryLabel = document.createElement("span");
     categoryLabel.className = "shop-category";
     categoryLabel.textContent = product.category || "Product";
@@ -62,18 +70,14 @@ function renderProducts(products) {
     meta.className = "shop-meta";
     meta.textContent = [product.price, product.merchant, (product.markets || []).join(", ")].filter(Boolean).join(" · ");
     const link = document.createElement("a");
-    link.className = "shop-buy";
     const isAffiliate = Boolean(product.affiliateUrl);
+    link.className = "shop-buy";
     link.href = product.affiliateUrl || product.productUrl;
     link.target = "_blank";
     link.rel = isAffiliate ? "sponsored nofollow noopener" : "noopener";
     link.textContent = isAffiliate ? "View Product" : "View on Manufacturer Site";
     body.append(categoryLabel, title, description, meta, link);
-    if (product.image) {
-      image.src = product.image;
-      card.append(image);
-    }
-    card.append(body);
+    card.appendChild(body);
     grid.appendChild(card);
   });
 }
