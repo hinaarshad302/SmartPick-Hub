@@ -12,13 +12,13 @@ async function loadProducts() {
       .eq("status", "published")
       .order("name");
     let records;
-    if (error) {
-      console.warn("Supabase catalogue is not ready; using the temporary JSON catalogue.", error);
-      const fallback = await fetch("products.json");
-      if (!fallback.ok) throw error;
+    if (error || !data || !data.length) {
+      console.warn("Supabase catalogue is empty or unavailable; using the JSON catalogue.", error);
+      const fallback = await fetch("products.json", { cache: "no-store" });
+      if (!fallback.ok) throw error || new Error("Could not load products.");
       records = await fallback.json();
     } else {
-      records = (data || []).map(p => ({
+      records = data.map(p => ({
         ...p, affiliateUrl: p.affiliate_url || "", productUrl: p.product_url || ""
       }));
     }
