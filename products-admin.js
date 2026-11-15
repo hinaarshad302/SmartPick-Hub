@@ -99,6 +99,9 @@ form.addEventListener("submit", async event => {
   if (!record.affiliate_url && !record.product_url) {
     showMessage("Add a manufacturer/retailer URL or an approved affiliate URL.", true); return;
   }
+  if (record.status === "published" && !record.image) {
+    showMessage("Add the exact product photo before publishing this product.", true); return;
+  }
   if (![record.image, record.product_url, record.affiliate_url].every(validHttps)) {
     showMessage("Image and product links must use HTTPS URLs.", true); return;
   }
