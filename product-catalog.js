@@ -26,15 +26,18 @@ document.addEventListener("DOMContentLoaded", async () => {
       databaseError = error;
     }
 
-    // The JSON catalogue keeps the site usable before the database has products
-    // or if the public database request is temporarily unavailable.
-    if (databaseRecords.length) return databaseRecords;
-
+    // Merge the JSON catalogue with Supabase so new curated picks are not
+    // hidden when the database already contains older products. Database rows
+    // take priority when the same product ID exists in both sources.
     try {
       const response = await fetch("products.json", { cache: "no-store" });
       if (!response.ok) throw new Error("Could not load the product catalogue.");
-      return await response.json();
+      const jsonRecords = await response.json();
+      const byId = new Map(jsonRecords.map(product => [product.id, product]));
+      databaseRecords.forEach(product => byId.set(product.id, product));
+      return [...byId.values()];
     } catch (fallbackError) {
+      if (databaseRecords.length) return databaseRecords;
       throw databaseError || fallbackError;
     }
   }
