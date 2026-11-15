@@ -114,7 +114,8 @@
     "productUrl": "https://www.tp-link.com/us/home-networking/cloud-camera/tapo-c210/",
     "isAffiliate": false,
     "status": "published",
-    "department": "Electronics & Gadgets"
+    "department": "Electronics & Gadgets",
+    "image": "https://www.proshop.de/Images/915x900/2983714_b10b34e6c0ab.jpg"
   },
   {
     "id": "ninja-af101-air-fryer",
@@ -130,7 +131,8 @@
     "productUrl": "https://www.ninjakitchen.com/products/ninja-air-fryer-zidAF101",
     "isAffiliate": false,
     "status": "published",
-    "department": "Kitchen & Home"
+    "department": "Kitchen & Home",
+    "image": "https://i.ebayimg.com/images/g/HCYAAeSwi7FpG7Qv/s-l1600.jpg"
   },
   {
     "id": "instant-pot-duo-7-in-1",
@@ -146,7 +148,8 @@
     "productUrl": "https://instantpot.com/products/instant-pot-duo-7-in-1-electric-pressure-cooker",
     "isAffiliate": false,
     "status": "published",
-    "department": "Kitchen & Home"
+    "department": "Kitchen & Home",
+    "image": "https://m.media-amazon.com/images/I/71lONZDrnyL.jpg"
   },
   {
     "id": "oral-b-io-series-5",
@@ -162,7 +165,8 @@
     "productUrl": "https://oralb.com/en-us/products/electric-toothbrushes/io-series/",
     "isAffiliate": false,
     "status": "published",
-    "department": "Beauty"
+    "department": "Beauty",
+    "image": "https://m.media-amazon.com/images/I/71cn2L60vBL.jpg"
   },
   {
     "id": "philips-oneblade",
@@ -178,7 +182,8 @@
     "productUrl": "https://www.usa.philips.com/c-m-pe/oneblade-trim-edge-and-shave",
     "isAffiliate": false,
     "status": "published",
-    "department": "Beauty"
+    "department": "Beauty",
+    "image": "https://images.philips.com/is/image/philipsconsumer/3b18573c152248f28f99ae78009aff96-P3D-global-069?%24png%24=&hei=1400&wid=1400"
   },
   {
     "id": "herschel-classic-backpack",
@@ -210,7 +215,8 @@
     "productUrl": "https://www.casio.com/us/watches/gshock/product.DW-5600E-1V/",
     "isAffiliate": false,
     "status": "published",
-    "department": "Fashion"
+    "department": "Fashion",
+    "image": "https://www.stewartdawsons.co.nz/content/products/g-shock-mens-digital-watch-dw5600ue-1-5147051-210337.jpg"
   },
   {
     "id": "fitbit-charge-6",
@@ -226,7 +232,8 @@
     "productUrl": "https://store.google.com/us/product/fitbit_charge_6?hl=en-US",
     "isAffiliate": false,
     "status": "published",
-    "department": "Health & Fitness"
+    "department": "Health & Fitness",
+    "image": "https://static01.galaxus.com/productimages/6/3/3/0/9/7/9/1/8/3/1/2/0/6/0/0/0/2/8/afdfc23b-8fe8-465a-bb13-9e27582f69a2.png_720.jpeg"
   },
   {
     "id": "manduka-pro-yoga-mat",
@@ -258,7 +265,8 @@
     "productUrl": "https://owalalife.com/products/freesip",
     "isAffiliate": false,
     "status": "published",
-    "department": "Daily Use"
+    "department": "Daily Use",
+    "image": "https://media.kitchenwarehouse.com.au/kitchenwarehouse/image/upload/w_3840%2Cf_auto%2Cq_auto%3Abest/c_fill%2Cg_face%2Cw_auto%2Cf_auto%2Cq_auto/Supplier%20Images%20/2000px/Owala-FreeSip-Insulated-Water-Bottle-710ml-24oz-Out-of-the-Blue_1_2000px.jpg"
   },
   {
     "id": "hydro-flask-wide-mouth-32oz",
