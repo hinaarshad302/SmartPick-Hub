@@ -3607,3 +3607,24 @@ body:not(:has(section.hero#home)) main .btn:hover {
 .guide-dialog-tools-link{display:inline-flex;margin-top:12px;padding:12px 18px;border-radius:9px;background:#244638;color:#fff!important;text-decoration:none;font-weight:700}
 .guide-dialog-tools-link:hover,.guide-dialog-tools-link:focus{background:#183428}
 @media(max-width:600px){.ai-tool-grid{grid-template-columns:1fr;gap:16px}.ai-tool-card{padding:20px}.ai-tool-actions{gap:12px}}
+
+
+/* Keep product action labels readable in every hover state. */
+.catalog-product-card .catalog-buy,
+.catalog-product-card .catalog-buy:link,
+.catalog-product-card .catalog-buy:visited {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  opacity: 1;
+  visibility: visible;
+}
+.catalog-product-card .catalog-buy:hover,
+.catalog-product-card .catalog-buy:focus-visible,
+.catalog-product-card .catalog-buy:active {
+  background: #244638 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1;
+  visibility: visible;
+  text-decoration: none;
+}
