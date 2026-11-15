@@ -275,5 +275,293 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Daily Use"
+  },
+  {
+    "id": "sony-wh-ch720n-headphones",
+    "name": "Sony WH-CH720N Wireless Noise Canceling Headphones",
+    "category": "Headphones",
+    "markets": [
+      "USA"
+    ],
+    "description": "Lightweight wireless over-ear headphones with noise cancelling, ambient sound modes and multipoint Bluetooth connectivity. Check regional availability and included accessories.",
+    "price": "",
+    "merchant": "Sony",
+    "affiliateUrl": "",
+    "productUrl": "https://electronics.sony.com/audio/headphones/headband/p/whch720n-b",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets"
+  },
+  {
+    "id": "anker-737-power-bank",
+    "name": "Anker 737 Power Bank (PowerCore 24K)",
+    "category": "Power Banks",
+    "markets": [
+      "USA"
+    ],
+    "description": "A high-capacity portable charger with USB-C Power Delivery and a display for charging information. Confirm laptop and device compatibility, airline limits and regional model specifications.",
+    "price": "",
+    "merchant": "Anker",
+    "affiliateUrl": "",
+    "productUrl": "https://www.anker.com/products/a1289",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets"
+  },
+  {
+    "id": "logitech-mx-master-3s",
+    "name": "Logitech MX Master 3S Wireless Mouse",
+    "category": "Computer Mice",
+    "markets": [
+      "USA"
+    ],
+    "description": "An ergonomic productivity mouse with quiet clicks, a high-precision sensor and customizable controls. Check hand size, operating-system support and receiver compatibility.",
+    "price": "",
+    "merchant": "Logitech",
+    "affiliateUrl": "",
+    "productUrl": "https://www.logitech.com/en-us/shop/p/mx-master-3s",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets"
+  },
+  {
+    "id": "oxo-good-grips-salad-spinner",
+    "name": "OXO Good Grips Salad Spinner",
+    "category": "Kitchen Tools",
+    "markets": [
+      "USA"
+    ],
+    "description": "A countertop salad spinner with a pump mechanism and a non-slip base, designed to wash and dry leafy greens. Check dimensions and storage space.",
+    "price": "",
+    "merchant": "OXO",
+    "affiliateUrl": "",
+    "productUrl": "https://www.oxo.com/good-grips-salad-spinner.html",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home"
+  },
+  {
+    "id": "kitchenaid-5-speed-hand-blender",
+    "name": "KitchenAid 5-Speed Hand Blender",
+    "category": "Blenders & Food Prep",
+    "markets": [
+      "USA"
+    ],
+    "description": "A versatile immersion blender with multiple speed settings for blending soups, smoothies and sauces. Review included attachments and jar capacity for the exact model.",
+    "price": "",
+    "merchant": "KitchenAid",
+    "affiliateUrl": "",
+    "productUrl": "https://www.kitchenaid.com/countertop-appliances/hand-blenders/hand-blender-products/p.5-speed-hand-blender.khbv53er.html",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home"
+  },
+  {
+    "id": "cuisinart-custom-14-cup-food-processor",
+    "name": "Cuisinart Custom 14-Cup Food Processor",
+    "category": "Food Processors",
+    "markets": [
+      "USA"
+    ],
+    "description": "A full-size food processor for chopping, slicing, shredding and mixing larger batches. Consider its countertop footprint and included discs before choosing.",
+    "price": "",
+    "merchant": "Cuisinart",
+    "affiliateUrl": "",
+    "productUrl": "https://www.cuisinart.com/shopping/appliances/food_processors/dfp-14bcny/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home"
+  },
+  {
+    "id": "revlon-one-step-volumizer-plus",
+    "name": "Revlon One-Step Volumizer PLUS",
+    "category": "Hair Styling Tools",
+    "markets": [
+      "USA"
+    ],
+    "description": "A hot-air styling brush with an oval head, multiple heat settings and a detachable design for blowout-style results. Use heat protection and follow the manufacturer's hair-type guidance.",
+    "price": "",
+    "merchant": "Revlon",
+    "affiliateUrl": "",
+    "productUrl": "https://www.revlonhairtools.com/dryers/one-step-volumizer-plus/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty"
+  },
+  {
+    "id": "foreo-luna-4",
+    "name": "FOREO LUNA 4 Facial Cleansing Device",
+    "category": "Facial Care Tools",
+    "markets": [
+      "USA"
+    ],
+    "description": "A rechargeable silicone facial cleansing device with app-connected routines. Review the model-specific features, skin-care guidance and replacement or warranty terms.",
+    "price": "",
+    "merchant": "FOREO",
+    "affiliateUrl": "",
+    "productUrl": "https://www.foreo.com/luna-4",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty"
+  },
+  {
+    "id": "panasonic-nanoe-hair-dryer",
+    "name": "Panasonic nanoe Hair Dryer",
+    "category": "Hair Dryers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A hair dryer from Panasonic's nanoe range, designed for everyday drying and styling. Confirm the exact model, voltage and plug type for your country before ordering.",
+    "price": "",
+    "merchant": "Panasonic",
+    "affiliateUrl": "",
+    "productUrl": "https://shop.panasonic.com/collections/hair-dryers",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty"
+  },
+  {
+    "id": "levis-501-original-jeans",
+    "name": "Levi's 501 Original Fit Jeans",
+    "category": "Clothing",
+    "markets": [
+      "USA"
+    ],
+    "description": "The classic straight-fit denim style with a button fly. Check the size guide, inseam and wash options because fit and fabric can vary by version.",
+    "price": "",
+    "merchant": "Levi's",
+    "affiliateUrl": "",
+    "productUrl": "https://www.levi.com/US/en_US/clothing/men/jeans/501-original-fit-mens-jeans/p/005010114",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion"
+  },
+  {
+    "id": "adidas-classic-3-stripes-backpack",
+    "name": "Adidas Classic 3-Stripes Backpack",
+    "category": "Bags & Backpacks",
+    "markets": [
+      "USA"
+    ],
+    "description": "A practical everyday backpack with a simple sports-inspired design for commuting, study and casual use. Check capacity, laptop protection and dimensions on the selected variant.",
+    "price": "",
+    "merchant": "Adidas",
+    "affiliateUrl": "",
+    "productUrl": "https://www.adidas.com/us/classic-3-stripes-backpack",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion"
+  },
+  {
+    "id": "new-balance-574-core",
+    "name": "New Balance 574 Core Sneakers",
+    "category": "Footwear",
+    "markets": [
+      "USA"
+    ],
+    "description": "A versatile lifestyle sneaker with the familiar 574 silhouette for everyday casual wear. Use the brand's size guide and check width options before ordering.",
+    "price": "",
+    "merchant": "New Balance",
+    "affiliateUrl": "",
+    "productUrl": "https://www.newbalance.com/pd/574-core/ML574V3-40348.html",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion"
+  },
+  {
+    "id": "bowflex-selecttech-552-dumbbells",
+    "name": "BowFlex SelectTech 552 Adjustable Dumbbells",
+    "category": "Strength Training",
+    "markets": [
+      "USA"
+    ],
+    "description": "Adjustable dumbbells with multiple weight settings that can replace several pairs of fixed dumbbells. Check available model generation, weight range and shipping restrictions.",
+    "price": "",
+    "merchant": "BowFlex",
+    "affiliateUrl": "",
+    "productUrl": "https://www.bowflex.com/products/bowflex-results-series-552-selecttech-dumbbells",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness"
+  },
+  {
+    "id": "theragun-mini",
+    "name": "Theragun Mini Percussive Massage Device",
+    "category": "Recovery & Massage",
+    "markets": [
+      "USA"
+    ],
+    "description": "A compact percussive massage device designed for portable muscle recovery routines. Follow the manufacturer's safety guidance and avoid use on injured areas without professional advice.",
+    "price": "",
+    "merchant": "Therabody",
+    "affiliateUrl": "",
+    "productUrl": "https://www.therabody.com/us/en-us/theragun-mini.html",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness"
+  },
+  {
+    "id": "trx-all-in-one-suspension-trainer",
+    "name": "TRX All-in-One Suspension Training System",
+    "category": "Home Workout Equipment",
+    "markets": [
+      "USA"
+    ],
+    "description": "A suspension training kit for bodyweight exercises at home or while travelling. Check the anchor requirements and installation instructions for your intended setup.",
+    "price": "",
+    "merchant": "TRX Training",
+    "affiliateUrl": "",
+    "productUrl": "https://www.trxtraining.com/products/trx-all-in-one-suspension-training-system",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness"
+  },
+  {
+    "id": "stanley-quencher-h2o-40oz",
+    "name": "Stanley Quencher H2.0 FlowState Tumbler (40 oz)",
+    "category": "Drinkware",
+    "markets": [
+      "USA"
+    ],
+    "description": "A reusable insulated stainless-steel tumbler with a handle, reusable straw and three-position lid. Check dimensions and lid care; it is designed to fit many, but not all, vehicle cup holders.",
+    "price": "",
+    "merchant": "Stanley 1913",
+    "affiliateUrl": "",
+    "productUrl": "https://www.stanley1913.com/products/adventure-quencher-travel-tumbler-40-oz",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use"
+  },
+  {
+    "id": "tile-mate-bluetooth-tracker",
+    "name": "Tile Mate Bluetooth Item Tracker",
+    "category": "Everyday Tech",
+    "markets": [
+      "USA"
+    ],
+    "description": "A small Bluetooth tracker designed to help locate everyday items such as keys and bags using the companion app. Check phone compatibility, network limitations and subscription features.",
+    "price": "",
+    "merchant": "Tile",
+    "affiliateUrl": "",
+    "productUrl": "https://www.tile.com/product/mate",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use"
+  },
+  {
+    "id": "simplehuman-sensor-pump",
+    "name": "simplehuman Rechargeable Sensor Pump",
+    "category": "Home & Personal Essentials",
+    "markets": [
+      "USA"
+    ],
+    "description": "A touch-free soap dispenser designed for kitchen or bathroom counters. Confirm the selected size, soap compatibility and charging method before purchase.",
+    "price": "",
+    "merchant": "simplehuman",
+    "affiliateUrl": "",
+    "productUrl": "https://www.simplehuman.com/collections/sensor-pumps",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use"
   }
 ]
