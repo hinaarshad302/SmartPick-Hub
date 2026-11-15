@@ -290,7 +290,8 @@
     "productUrl": "https://electronics.sony.com/audio/headphones/headband/p/whch720n-b",
     "isAffiliate": false,
     "status": "published",
-    "department": "Electronics & Gadgets"
+    "department": "Electronics & Gadgets",
+    "image": "https://d5bm31en4blvo.cloudfront.net/uploads/prodimg/108609251_2265172209.jpg"
   },
   {
     "id": "anker-737-power-bank",
@@ -306,7 +307,8 @@
     "productUrl": "https://www.anker.com/products/a1289",
     "isAffiliate": false,
     "status": "published",
-    "department": "Electronics & Gadgets"
+    "department": "Electronics & Gadgets",
+    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1289011-Anker_737_Power_Bank_PowerCore_24K_1.png?v=1775967275&width=1600"
   },
   {
     "id": "logitech-mx-master-3s",
@@ -354,7 +356,8 @@
     "productUrl": "https://www.kitchenaid.com/countertop-appliances/hand-blenders/hand-blender-products/p.5-speed-hand-blender.khbv53er.html",
     "isAffiliate": false,
     "status": "published",
-    "department": "Kitchen & Home"
+    "department": "Kitchen & Home",
+    "image": "https://media.binglee.com.au/d/3/6/c/d36cfd115142ebb9b373d50a70c4ec28390f4ad3_Hero2.jpg"
   },
   {
     "id": "cuisinart-custom-14-cup-food-processor",
@@ -418,7 +421,8 @@
     "productUrl": "https://shop.panasonic.com/collections/hair-dryers",
     "isAffiliate": false,
     "status": "published",
-    "department": "Beauty"
+    "department": "Beauty",
+    "image": "https://media.flixcar.com/webp/synd-asset/Panasonic-110236662-ast-1622037.jpg"
   },
   {
     "id": "levis-501-original-jeans",
@@ -434,7 +438,8 @@
     "productUrl": "https://www.levi.com/US/en_US/clothing/men/jeans/501-original-fit-mens-jeans/p/005010114",
     "isAffiliate": false,
     "status": "published",
-    "department": "Fashion"
+    "department": "Fashion",
+    "image": "https://lscoglobal.scene7.com/is/image/lscoglobal/MB_00501-0114_GLO_CM_DA?fit=crop%2C1&fmt=jpeg&hei=1200&op_usm=0.6%2C0.6%2C8&qlt=80&resMode=sharp2&wid=960"
   },
   {
     "id": "adidas-classic-3-stripes-backpack",
@@ -482,7 +487,8 @@
     "productUrl": "https://www.bowflex.com/products/bowflex-results-series-552-selecttech-dumbbells",
     "isAffiliate": false,
     "status": "published",
-    "department": "Health & Fitness"
+    "department": "Health & Fitness",
+    "image": "https://m.media-amazon.com/images/I/71bdxVC7-0L._AC_US1400_.jpg"
   },
   {
     "id": "theragun-mini",
@@ -498,7 +504,8 @@
     "productUrl": "https://www.therabody.com/us/en-us/theragun-mini.html",
     "isAffiliate": false,
     "status": "published",
-    "department": "Health & Fitness"
+    "department": "Health & Fitness",
+    "image": "https://twl.com.au/cdn/shop/files/THBD_Mini3.0_Black_Front_-1.0.0--scaled.jpg?v=1765889528&width=1080"
   },
   {
     "id": "trx-all-in-one-suspension-trainer",
@@ -530,7 +537,8 @@
     "productUrl": "https://www.stanley1913.com/products/adventure-quencher-travel-tumbler-40-oz",
     "isAffiliate": false,
     "status": "published",
-    "department": "Daily Use"
+    "department": "Daily Use",
+    "image": "https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Black2.0-Front.png?v=1770327737&width=990"
   },
   {
     "id": "tile-mate-bluetooth-tracker",
@@ -546,7 +554,8 @@
     "productUrl": "https://www.tile.com/product/mate",
     "isAffiliate": false,
     "status": "published",
-    "department": "Daily Use"
+    "department": "Daily Use",
+    "image": "https://cdn11.bigcommerce.com/s-jeta0bsn5b/images/stencil/original/products/277/8121/0274d8b83d2ce9fbd19937d929690f3ceb50e8abb7c04e7d938cd233fbba6f85__98477.1764621770.png"
   },
   {
     "id": "simplehuman-sensor-pump",
@@ -562,6 +571,7 @@
     "productUrl": "https://www.simplehuman.com/collections/sensor-pumps",
     "isAffiliate": false,
     "status": "published",
-    "department": "Daily Use"
+    "department": "Daily Use",
+    "image": "https://www.simplehuman.co.uk/cdn/shop/files/ECOM_9oz_PUMP_ANGLED_POLISHED_2_e9087ef6-6aa7-4897-85f3-fb0064376f1f_900x900.png?v=1779403085"
   }
 ]
