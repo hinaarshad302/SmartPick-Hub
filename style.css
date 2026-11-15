@@ -3450,3 +3450,63 @@ body:not(:has(section.hero#home)) main .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 9px 20px rgba(36,70,56,.2);
 }
+
+
+/* Shared product catalogue cards used on Home and category pages */
+.product-catalog-section { padding-top: 64px; padding-bottom: 64px; }
+.catalog-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+.catalog-product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #d7e2d9;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(16,45,39,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.catalog-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(16,45,39,.12);
+}
+.catalog-product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  padding: 16px;
+  background: #edf3ee;
+}
+.catalog-product-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+.catalog-product-card .catalog-category {
+  color: #8a682d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.catalog-product-card h3 { margin: 8px 0; color: #111111; font-size: 18px; }
+.catalog-product-card p { color: #303b34; font-size: 14px; line-height: 1.6; }
+.catalog-product-card .catalog-meta { margin: 0 0 14px; font-size: 12px; color: #555; }
+.catalog-product-card .catalog-buy {
+  display: block;
+  margin-top: auto;
+  padding: 11px 14px;
+  border-radius: 7px;
+  background: #bd974d;
+  color: #111111 !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+}
+.catalog-product-card .catalog-buy:hover { background: #244638; color: #ffffff !important; }
+.catalog-loading, .catalog-empty { grid-column: 1/-1; text-align: center; padding: 22px; color: #303b34; }
