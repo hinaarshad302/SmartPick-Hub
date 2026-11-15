@@ -13,7 +13,8 @@
     "affiliateUrl": "",
     "productUrl": "https://www.logitech.com/en-us/shop/p/c920s-pro-hd-webcam.960-001252",
     "isAffiliate": false,
-    "status": "published"
+    "status": "published",
+    "department": "Technology"
   },
   {
     "id": "dell-pro-3-webcam-2k",
@@ -29,7 +30,8 @@
     "productUrl": "https://www.dell.com/en-us/shop/clientaudiovideo/apd/dell-pro-3-webcam-2k-wb3023/dp1x1/-",
     "isAffiliate": false,
     "status": "published",
-    "image": "https://i.dell.com/sites/csimages/Video_Imagery/all/dell-webcam-wb3023-thumbnail.jpg"
+    "image": "https://i.dell.com/sites/csimages/Video_Imagery/all/dell-webcam-wb3023-thumbnail.jpg",
+    "department": "Technology"
   },
   {
     "id": "logitech-mx-keys-s",
@@ -45,7 +47,8 @@
     "affiliateUrl": "",
     "productUrl": "https://www.logitech.com/en-us/shop/p/mx-keys-s",
     "isAffiliate": false,
-    "status": "published"
+    "status": "published",
+    "department": "Technology"
   },
   {
     "id": "anker-usb-c-hub-7-in-1",
@@ -61,7 +64,8 @@
     "affiliateUrl": "",
     "productUrl": "https://www.anker.com/products/a83d2-usb-c-hub-7-in-1",
     "isAffiliate": false,
-    "status": "published"
+    "status": "published",
+    "department": "Technology"
   },
   {
     "id": "samsung-t7-shield-1tb",
@@ -77,6 +81,7 @@
     "affiliateUrl": "",
     "productUrl": "https://www.samsung.com/us/memory-storage/portable-ssd/portable-ssd-t7-shield-usb-3-2-1tb-black-sku-mu-pe1t0s-am/",
     "isAffiliate": false,
-    "status": "published"
+    "status": "published",
+    "department": "Technology"
   }
 ]
