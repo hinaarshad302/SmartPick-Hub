@@ -1,6 +1,6 @@
 -- Privacy-conscious outbound product click events.
 -- Apply after 003_product_catalog.sql. Browser roles receive no access;
--- only the server-side FastAPI service-role client writes events.
+-- only the server-side Supabase Edge Function (using the service role) writes events.
 
 begin;
 
