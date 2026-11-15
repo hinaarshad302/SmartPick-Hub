@@ -1,8 +1,9 @@
-/* Optional FastAPI outbound-click endpoint. Keep blank until the backend is deployed. */
-window.SMARTPICK_BACKEND_BASE_URL = "";
+/* Supabase Edge Function URL. Keep blank until the function is deployed and tested. */
+window.SMARTPICK_OUTBOUND_FUNCTION_URL = "";
 
 window.smartPickOutboundUrl = function (productId, fallbackUrl) {
-  const base = String(window.SMARTPICK_BACKEND_BASE_URL || "").trim().replace(/\/$/, "");
-  if (!base || !/^https:\/\//i.test(base) || !productId) return fallbackUrl;
-  return base + "/out/" + encodeURIComponent(String(productId));
+  const endpoint = String(window.SMARTPICK_OUTBOUND_FUNCTION_URL || "").trim();
+  if (!endpoint || !/^https:\/\//i.test(endpoint) || !productId) return fallbackUrl;
+  const separator = endpoint.includes("?") ? "&" : "?";
+  return endpoint + separator + "product_id=" + encodeURIComponent(String(productId));
 };
