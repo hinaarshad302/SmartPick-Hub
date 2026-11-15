@@ -69,7 +69,11 @@ function renderProducts(products) {
     link.rel = isAffiliate ? "sponsored nofollow noopener" : "noopener";
     link.textContent = isAffiliate ? "View Product" : "View on Manufacturer Site";
     body.append(categoryLabel, title, description, meta, link);
-    if (product.image) card.append(image);\n    card.append(body);
+    if (product.image) {
+      image.src = product.image;
+      card.append(image);
+    }
+    card.append(body);
     grid.appendChild(card);
   });
 }
