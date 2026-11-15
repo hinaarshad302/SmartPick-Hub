@@ -157,6 +157,22 @@ def main() -> int:
     if not backend_source.is_file() or '"/out/{product_id}"' not in backend_source.read_text(encoding="utf-8"):
         errors.append("Backend outbound product redirect endpoint is missing.")
 
+    vercel_entrypoint = ROOT / "main.py"
+    vercel_config = ROOT / "vercel.json"
+    if not vercel_entrypoint.is_file() or "from backend.main import app" not in vercel_entrypoint.read_text(encoding="utf-8"):
+        errors.append("Vercel FastAPI entry point must import the canonical backend application.")
+    if not vercel_config.is_file():
+        errors.append("Vercel backend deployment configuration is missing.")
+    else:
+        try:
+            vercel_settings = json.loads(vercel_config.read_text(encoding="utf-8"))
+            function_settings = vercel_settings.get("functions", {}).get("main.py", {})
+            included_files = function_settings.get("includeFiles", "")
+            if "products.json" not in included_files:
+                errors.append("Vercel FastAPI function must package products.json for the outbound redirect fallback.")
+        except (json.JSONDecodeError, OSError, AttributeError):
+            errors.append("vercel.json: invalid deployment configuration.")
+
     for page in pages:
         page_source = page.read_text(encoding="utf-8")
         if page_source.lower().count("<!doctype html>") != 1:
