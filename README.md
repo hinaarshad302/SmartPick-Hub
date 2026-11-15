@@ -178,6 +178,33 @@ The frontend can be previewed without a live newsletter API, but newsletter sign
 
 The backend dependencies are listed in `requirements.txt`. A backend deployment needs environment variables configured in the hosting platform. Never commit a real `.env` file or paste secret keys into issues, chat, screenshots, or frontend JavaScript.
 
+## FastAPI deployment on Vercel
+
+The repository now includes a root `main.py` entry point that imports the canonical application from `backend/main.py`, plus `vercel.json` to package `products.json` for the click-redirect catalogue fallback. This keeps one backend implementation for local development and hosting.
+
+To deploy the backend as a separate Vercel project:
+
+1. Create a Vercel project linked to this GitHub repository. Use the repository root as the project root; do not set `backend/` as the root directory.
+2. Set the production branch to `main` after the reviewed changes have been merged. Preview deployments can use the feature branch.
+3. Add the environment variables listed below in Vercel Project Settings → Environment Variables. Never put secret values in Git or chat.
+4. Deploy a preview first and test `/`, `/health`, and a known published product's `/out/{product_id}` route. The health route checks the Supabase connection.
+5. Set `PUBLIC_API_URL` to the exact HTTPS Vercel backend origin. Set `FRONTEND_URL` to the public GitHub Pages origin `https://hinaarshad302.github.io/SmartPick-Hub`.
+6. After the backend preview is verified, configure `SMARTPICK_API_BASE_URL` in `api-config.js` and `SMARTPICK_BACKEND_BASE_URL` in `outbound-config.js` with the backend HTTPS origin. Then redeploy the static frontend.
+
+Required Vercel environment variables:
+
+- `SUPABASE_URL` — the Supabase project URL.
+- `SUPABASE_SECRET_KEY` — the server-side Supabase secret/service key. Keep it private.
+- `FRONTEND_URL` — the exact deployed frontend URL (the backend derives its CORS origin from this).
+- `PUBLIC_API_URL` — the exact HTTPS URL of the deployed backend.
+
+Optional variables, depending on enabled features:
+
+- `GEMINI_API_KEY` and `GEMINI_MODEL` — SmartPick AI responses.
+- `RESEND_API_KEY` and `RESEND_FROM_EMAIL` — newsletter email delivery.
+
+Do not configure the frontend to call the backend until the preview is deployed and tested. Vercel project creation, environment-variable setup, and public backend deployment are still pending; this repository change alone does not activate click tracking or newsletter/AI APIs.
+
 The current backend prototype expects configuration such as:
 
 - `SUPABASE_URL`
