@@ -1,15 +1,82 @@
 [
   {
-    "id": "example-product-001",
-    "name": "Replace with an approved product name",
-    "category": "Technology",
-    "markets": ["USA", "UK", "Canada"],
-    "description": "Add an original, accurate product description.",
-    "image": "assets/products/replace-with-product-image.jpg",
+    "id": "logitech-c920s-webcam",
+    "name": "Logitech C920s Pro HD Webcam",
+    "category": "Webcams",
+    "markets": [
+      "USA"
+    ],
+    "description": "A Full HD 1080p webcam with autofocus, automatic light correction, dual stereo microphones and a privacy shutter. A practical option for online classes and video meetings.",
+    "image": "https://resource.logitech.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/c920s/gallery/c920s-gallery-1.png",
     "price": "",
-    "merchant": "Merchant or affiliate network",
+    "merchant": "Logitech",
     "affiliateUrl": "",
-    "isAffiliate": true,
-    "status": "draft"
+    "productUrl": "https://www.logitech.com/en-us/shop/p/c920s-pro-hd-webcam.960-001252",
+    "isAffiliate": false,
+    "status": "published"
+  },
+  {
+    "id": "dell-pro-3-webcam-2k",
+    "name": "Dell Pro 3 Webcam 2K (WB3023)",
+    "category": "Webcams",
+    "markets": [
+      "USA"
+    ],
+    "description": "A 2K QHD webcam supporting up to 2560 × 1440 resolution at 60 fps, with a 78° field of view, autofocus and built-in microphone. Check device and software compatibility before buying.",
+    "image": "https://i.dell.com/sites/csimages/Video_Imagery/all/dell-webcam-wb3023-thumbnail.jpg",
+    "price": "",
+    "merchant": "Dell",
+    "affiliateUrl": "",
+    "productUrl": "https://www.dell.com/en-us/shop/clientaudiovideo/apd/dell-pro-3-webcam-2k-wb3023/dp1x1/-",
+    "isAffiliate": false,
+    "status": "published"
+  },
+  {
+    "id": "logitech-mx-keys-s",
+    "name": "Logitech MX Keys S Wireless Keyboard",
+    "category": "Keyboards",
+    "markets": [
+      "USA"
+    ],
+    "description": "A low-profile wireless keyboard with smart backlighting, programmable keys and multi-device switching. Designed for comfortable, precise typing at a desk.",
+    "image": "https://resource.logitech.com/w_544%2Ch_466%2Car_7%3A6%2Cc_pad%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/keyboards/mx-keys-s/migration-assets-for-delorean-2025/gallery/mx-keys-s-top-view-black-us.png",
+    "price": "",
+    "merchant": "Logitech",
+    "affiliateUrl": "",
+    "productUrl": "https://www.logitech.com/en-us/shop/p/mx-keys-s",
+    "isAffiliate": false,
+    "status": "published"
+  },
+  {
+    "id": "anker-usb-c-hub-7-in-1",
+    "name": "Anker USB-C Hub (7-in-1)",
+    "category": "Connectivity",
+    "markets": [
+      "USA"
+    ],
+    "description": "A compact USB-C hub that adds multiple connections, including HDMI, USB and card access. The manufacturer lists 4K at 60Hz HDMI output and up to 85W charging; verify your laptop's USB-C capabilities.",
+    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/image_11_3f856f3b-1d0b-4609-974f-af0ea4ca2d12.png?v=1764833041&width=3840",
+    "price": "",
+    "merchant": "Anker",
+    "affiliateUrl": "",
+    "productUrl": "https://www.anker.com/products/a83d2-usb-c-hub-7-in-1",
+    "isAffiliate": false,
+    "status": "published"
+  },
+  {
+    "id": "samsung-t7-shield-1tb",
+    "name": "Samsung T7 Shield Portable SSD (1TB)",
+    "category": "Storage",
+    "markets": [
+      "USA"
+    ],
+    "description": "A rugged 1TB portable SSD with USB 3.2 Gen 2, IP65-rated protection and advertised sequential read/write speeds of up to 1,050/1,000 MB/s. Actual speeds depend on the connected device and setup.",
+    "image": "https://images.samsung.com/is/image/samsung/p6pim/us/mu-pe1t0s-am/gallery/us-portable-ssd-t7-shield-mu-pe1t0s-am-552408700?$product-details-jpg$=",
+    "price": "",
+    "merchant": "Samsung",
+    "affiliateUrl": "",
+    "productUrl": "https://www.samsung.com/us/memory-storage/portable-ssd/portable-ssd-t7-shield-usb-3-2-1tb-black-sku-mu-pe1t0s-am/",
+    "isAffiliate": false,
+    "status": "published"
   }
 ]
