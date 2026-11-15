@@ -1,39 +1,61 @@
-/* Shared SmartPick Hub catalogue powered by Supabase.
-   Product records are managed through products-admin.html.
-*/
+/* Shared SmartPick Hub catalogue: every published product is shown on Home,
+   and only its assigned department is shown on the matching category page. */
 document.addEventListener("DOMContentLoaded", async () => {
   const sections = [...document.querySelectorAll("[data-product-catalog]")];
   if (!sections.length) return;
-  try {
-    const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-    const { data, error } = await client.from("products")
-      .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
-      .eq("status", "published")
-      .order("name");
-    let records;
-    if (error) {
-      console.warn("Supabase catalogue is not ready; using the temporary JSON catalogue.", error);
-      const fallback = await fetch("products.json");
-      if (!fallback.ok) throw error;
-      records = await fallback.json();
-    } else {
-      records = (data || []).map(product => ({
+
+  const normalize = value => String(value || "").trim().toLowerCase().replace(/\\s+/g, " ");
+
+  async function loadProducts() {
+    let databaseRecords = [];
+    let databaseError = null;
+
+    try {
+      const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+      const { data, error } = await client.from("products")
+        .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
+        .eq("status", "published")
+        .order("name");
+      if (error) databaseError = error;
+      else databaseRecords = (data || []).map(product => ({
         ...product,
-        affiliateUrl: product.affiliate_url || "",
-        productUrl: product.product_url || ""
+        affiliateUrl: product.affiliate_url || product.affiliateUrl || "",
+        productUrl: product.product_url || product.productUrl || ""
       }));
+    } catch (error) {
+      databaseError = error;
     }
+
+    // The JSON catalogue keeps the site usable before the database has products
+    // or if the public database request is temporarily unavailable.
+    if (databaseRecords.length) return databaseRecords;
+
+    try {
+      const response = await fetch("products.json", { cache: "no-store" });
+      if (!response.ok) throw new Error("Could not load the product catalogue.");
+      return await response.json();
+    } catch (fallbackError) {
+      throw databaseError || fallbackError;
+    }
+  }
+
+  try {
+    const records = await loadProducts();
     const published = records.filter(product =>
-      product.status === "published" && product.name && (product.affiliateUrl || product.productUrl)
+      product.status === "published" &&
+      product.name &&
+      (product.affiliateUrl || product.productUrl || product.affiliate_url || product.product_url)
     );
 
     sections.forEach(section => {
       const grid = section.querySelector("[data-product-grid]");
       if (!grid) return;
-      const department = section.dataset.productCatalog;
-      const matching = department === "all" ? published : published.filter(product =>
-        String(product.department || "").toLowerCase() === department.toLowerCase()
-      );
+
+      const department = normalize(section.dataset.productCatalog);
+      const matching = department === "all"
+        ? published
+        : published.filter(product => normalize(product.department) === department);
+
       grid.replaceChildren();
       if (!matching.length) {
         const empty = document.createElement("p");
@@ -42,9 +64,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         grid.appendChild(empty);
         return;
       }
+
       matching.forEach(product => {
         const card = document.createElement("article");
         card.className = "catalog-product-card";
+
         if (product.image) {
           const image = document.createElement("img");
           image.src = product.image;
@@ -53,6 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           image.onerror = () => image.remove();
           card.appendChild(image);
         }
+
         const body = document.createElement("div");
         body.className = "catalog-product-card-body";
         const category = document.createElement("span");
@@ -64,14 +89,22 @@ document.addEventListener("DOMContentLoaded", async () => {
         description.textContent = product.description || "";
         const meta = document.createElement("p");
         meta.className = "catalog-meta";
-        meta.textContent = [product.price, product.merchant, (product.markets || []).join(", "), product.affiliateUrl ? "Affiliate link" : "Direct retailer link"].filter(Boolean).join(" · ");
+        const affiliateUrl = product.affiliateUrl || product.affiliate_url || "";
+        const productUrl = product.productUrl || product.product_url || "";
+        meta.textContent = [
+          product.price,
+          product.merchant,
+          (product.markets || []).join(", "),
+          affiliateUrl ? "Affiliate link" : "Direct retailer link"
+        ].filter(Boolean).join(" · ");
+
         const link = document.createElement("a");
-        const isAffiliate = Boolean(product.affiliateUrl);
         link.className = "catalog-buy";
-        link.href = product.affiliateUrl || product.productUrl;
+        link.href = affiliateUrl || productUrl;
         link.target = "_blank";
-        link.rel = isAffiliate ? "sponsored nofollow noopener" : "noopener";
-        link.textContent = isAffiliate ? "View Product" : "View on Manufacturer Site";
+        link.rel = affiliateUrl ? "sponsored nofollow noopener" : "noopener";
+        link.textContent = affiliateUrl ? "View Product" : "View on Manufacturer Site";
+
         body.append(category, title, description, meta, link);
         card.appendChild(body);
         grid.appendChild(card);
@@ -81,7 +114,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("SmartPick catalogue load failed:", error);
     sections.forEach(section => {
       const grid = section.querySelector("[data-product-grid]");
-      if (grid) grid.innerHTML = '<p class="catalog-empty">The product catalogue is not available yet. The administrator may need to complete the database setup.</p>';
+      if (grid) {
+        const message = document.createElement("p");
+        message.className = "catalog-empty";
+        message.textContent = "The product catalogue is temporarily unavailable. Please try again shortly.";
+        grid.replaceChildren(message);
+      }
     });
   }
 });
