@@ -68,7 +68,7 @@ function renderProducts(products) {
     description.textContent = product.description || "";
     const meta = document.createElement("div");
     meta.className = "shop-meta";
-    meta.textContent = [product.price, product.merchant, (product.markets || []).join(", ")].filter(Boolean).join(" · ");
+    meta.textContent = [product.price, product.merchant, (product.markets || []).join(", "), product.affiliateUrl ? "Affiliate link" : "Direct retailer link"].filter(Boolean).join(" · ");
     const link = document.createElement("a");
     const isAffiliate = Boolean(product.affiliateUrl);
     link.className = "shop-buy";
