@@ -34,7 +34,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (!response.ok) throw new Error("Could not load the product catalogue.");
       const jsonRecords = await response.json();
       const byId = new Map(jsonRecords.map(product => [product.id, product]));
-      databaseRecords.forEach(product => byId.set(product.id, product));
+      databaseRecords.forEach(product => {
+        const curated = byId.get(product.id) || {};
+        // Keep the curated catalogue photo when an older database row has
+        // an empty image field; otherwise use the newer database photo.
+        byId.set(product.id, {
+          ...curated,
+          ...product,
+          image: product.image || curated.image || ""
+        });
+      });
       return [...byId.values()];
     } catch (fallbackError) {
       if (databaseRecords.length) return databaseRecords;
