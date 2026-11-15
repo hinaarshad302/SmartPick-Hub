@@ -96,7 +96,7 @@
                     Learn how to compare writing quality, ease of use,
                     language support, features and pricing plans.
                 </p>
-                <span class="guide-status">Topic overview</span>
+                <button class="guide-status guide-open-button" type="button" data-guide-topic="01">Topic overview <span aria-hidden="true">→</span></button>
             </article>
 
             <article class="guide-card">
@@ -106,7 +106,7 @@
                     Understand design features, templates, export options,
                     editing flexibility and beginner-friendly interfaces.
                 </p>
-                <span class="guide-status">Topic overview</span>
+                <button class="guide-status guide-open-button" type="button" data-guide-topic="02">Topic overview <span aria-hidden="true">→</span></button>
             </article>
 
             <article class="guide-card">
@@ -116,7 +116,7 @@
                     Explore factors such as task management, collaboration,
                     integrations, privacy and overall usability.
                 </p>
-                <span class="guide-status">Topic overview</span>
+                <button class="guide-status guide-open-button" type="button" data-guide-topic="03">Topic overview <span aria-hidden="true">→</span></button>
             </article>
 
             <article class="guide-card">
@@ -126,7 +126,7 @@
                     Learn how to evaluate free plans, usage limits,
                     paid features and whether an upgrade is worthwhile.
                 </p>
-                <span class="guide-status">Topic overview</span>
+                <button class="guide-status guide-open-button" type="button" data-guide-topic="04">Topic overview <span aria-hidden="true">→</span></button>
             </article>
 
         </div>
@@ -144,6 +144,7 @@
                 <div>
                     <h3>Your Actual Needs</h3>
                     <p>Identify the problem you want the product or tool to solve.</p>
+                    <button class="checklist-open-button" type="button" data-checklist-topic="01">View details <span aria-hidden="true">→</span></button>
                 </div>
             </div>
 
@@ -152,6 +153,7 @@
                 <div>
                     <h3>Features and Limitations</h3>
                     <p>Check what is included and what limitations may apply.</p>
+                    <button class="checklist-open-button" type="button" data-checklist-topic="02">View details <span aria-hidden="true">→</span></button>
                 </div>
             </div>
 
@@ -160,6 +162,7 @@
                 <div>
                     <h3>Pricing and Value</h3>
                     <p>Compare available plans and understand recurring costs.</p>
+                    <button class="checklist-open-button" type="button" data-checklist-topic="03">View details <span aria-hidden="true">→</span></button>
                 </div>
             </div>
 
@@ -168,6 +171,7 @@
                 <div>
                     <h3>Privacy and Security</h3>
                     <p>Review privacy policies, permissions and data handling.</p>
+                    <button class="checklist-open-button" type="button" data-checklist-topic="04">View details <span aria-hidden="true">→</span></button>
                 </div>
             </div>
         </div>
@@ -194,6 +198,14 @@
         </p>
     </section>
 
+  <div class="guide-dialog-backdrop" id="guide-dialog" hidden>
+    <section class="guide-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="guide-dialog-title" aria-describedby="guide-dialog-description">
+      <button class="guide-dialog-close" type="button" aria-label="Close details">×</button>
+      <span class="guides-eyebrow" id="guide-dialog-label">SMARTPICK HUB GUIDE</span>
+      <h2 id="guide-dialog-title"></h2>
+      <div id="guide-dialog-description"></div>
+    </section>
+  </div>
 </main>
 
 <footer class="footer">
