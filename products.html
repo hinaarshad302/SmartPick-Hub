@@ -33,19 +33,43 @@
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="navbar">
-      <a class="logo" href="index.html">SmartPick <span>Hub</span></a>
-      <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="technology.html">Technology</a>
-        <a href="featured.html">Featured</a>
-        <a href="products.html" aria-current="page">Shop Products</a>
-        <a href="guides.html">Buying Guides</a>
-        <a href="about.html">About</a>
-      </nav>
-    </div>
-  </header>
+<header class="header">
+  <div class="navbar">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42">
+      <span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span>
+    </a>
+    <button aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menu-toggle" type="button">
+      <span class="menu-icon">☰</span>
+    </button>
+    <nav id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="technology.html">Technology</a>
+      <a href="featured.html">Featured</a>
+      <a href="products.html" aria-current="page">Shop Products</a>
+      <a href="guides.html">Buying Guides</a>
+      <a href="about.html">About</a>
+      <a href="auth.html" id="login-nav-link">Login / Sign Up</a>
+      <a href="subscribe.html" id="subscribe-nav-link">Subscribe</a>
+      <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" class="profile-trigger" id="profile-trigger" aria-expanded="false" aria-controls="profile-dropdown">
+          <span class="profile-avatar" id="profile-avatar">U</span>
+          <span class="profile-trigger-name" id="profile-name">Account</span>
+          <span class="profile-chevron">⌄</span>
+        </button>
+        <div class="profile-dropdown" id="profile-dropdown" hidden>
+          <div class="profile-dropdown-user">
+            <strong id="profile-dropdown-name">Account</strong>
+            <small id="profile-dropdown-email"></small>
+          </div>
+          <a href="profile.html">My Account</a>
+          <button type="button" id="logout-nav-button">Logout</button>
+        </div>
+      </div>
+      <a class="nav-cta" href="featured.html">Explore Picks →</a>
+    </nav>
+  </div>
+</header>
   <main class="shop-wrap">
     <section class="shop-heading">
       <span class="eyebrow">SMARTPICK HUB / PRODUCT DISCOVERY</span>
@@ -66,7 +90,11 @@
     <p>© <span id="year"></span> SmartPick Hub. All rights reserved.</p>
     <div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a></div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="auth-nav.js"></script>
+  <script src="script.js"></script>
   <script src="products.js"></script>
-<!-- SmartPick Hub affiliate shop page: GitHub Pages rebuild trigger. -->
+
 </body>
 </html>
