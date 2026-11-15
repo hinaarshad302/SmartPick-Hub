@@ -81,14 +81,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         const card = document.createElement("article");
         card.className = "catalog-product-card";
 
+        const imageFrame = document.createElement("div");
+        imageFrame.className = "catalog-image-frame";
+        const showImageFallback = () => {
+          imageFrame.replaceChildren();
+          imageFrame.classList.add("is-fallback");
+          imageFrame.textContent = "Product image unavailable";
+        };
         if (product.image) {
           const image = document.createElement("img");
           image.src = product.image;
           image.alt = product.name;
           image.loading = "lazy";
-          image.onerror = () => image.remove();
-          card.appendChild(image);
+          image.onerror = showImageFallback;
+          imageFrame.appendChild(image);
+        } else {
+          showImageFallback();
         }
+        card.appendChild(imageFrame);
 
         const body = document.createElement("div");
         body.className = "catalog-product-card-body";
