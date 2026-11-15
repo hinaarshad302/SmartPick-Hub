@@ -3590,3 +3590,20 @@ body:not(:has(section.hero#home)) main .btn:hover {
   .guide-dialog-backdrop { padding: 10px; align-items: end; }
   .guide-dialog-panel { max-height: 90vh; border-radius: 16px 16px 8px 8px; padding: 23px 17px; }
 }
+
+/* AI writing tools directory on Buying Guides */
+.ai-tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:22px;margin-top:28px}
+.ai-tool-card{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:24px;background:#fff;border:1px solid #d7e2d9;border-radius:18px;box-shadow:0 8px 24px rgba(20,45,32,.06);color:#111}
+.ai-tool-brand{display:flex;align-items:center;gap:10px;color:#496052;font-size:.82rem;font-weight:700}
+.ai-tool-brand img{width:36px;height:36px;object-fit:contain;border-radius:9px;background:#f5f7f3;padding:5px}
+.ai-tool-card h3{margin:0;color:#111;font-size:1.25rem}
+.ai-tool-card p{margin:0;color:#333;line-height:1.65}
+.ai-tool-card .ai-tool-plan{font-size:.9rem;color:#34443a}
+.ai-tool-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.ai-tool-actions .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.ai-tool-plans{color:#244638;font-weight:700;text-underline-offset:4px}
+.ai-tool-plans:hover,.ai-tool-plans:focus{color:#8b682e}
+.ai-tools-note{margin:24px 0 0;padding:18px 20px;border-left:4px solid #bd974d;background:#edf3ee;border-radius:8px;color:#17251c;line-height:1.7}
+.guide-dialog-tools-link{display:inline-flex;margin-top:12px;padding:12px 18px;border-radius:9px;background:#244638;color:#fff!important;text-decoration:none;font-weight:700}
+.guide-dialog-tools-link:hover,.guide-dialog-tools-link:focus{background:#183428}
+@media(max-width:600px){.ai-tool-grid{grid-template-columns:1fr;gap:16px}.ai-tool-card{padding:20px}.ai-tool-actions{gap:12px}}
