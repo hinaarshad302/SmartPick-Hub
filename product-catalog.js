@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const link = document.createElement("a");
         link.className = "catalog-buy";
-        link.href = affiliateUrl || productUrl;
+        link.href = window.smartPickOutboundUrl\n          ? window.smartPickOutboundUrl(product.id, affiliateUrl || productUrl)\n          : (affiliateUrl || productUrl);
         link.target = "_blank";
         link.rel = affiliateUrl ? "sponsored nofollow noopener" : "noopener";
         link.textContent = affiliateUrl ? "View Product" : "View on Manufacturer Site";
