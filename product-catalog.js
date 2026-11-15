@@ -10,12 +10,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
       .eq("status", "published")
       .order("name");
-    if (error) throw error;
-    const published = (data || []).map(product => ({
-      ...product,
-      affiliateUrl: product.affiliate_url || "",
-      productUrl: product.product_url || ""
-    })).filter(product => product.name && (product.affiliateUrl || product.productUrl));
+    let records;
+    if (error) {
+      console.warn("Supabase catalogue is not ready; using the temporary JSON catalogue.", error);
+      const fallback = await fetch("products.json");
+      if (!fallback.ok) throw error;
+      records = await fallback.json();
+    } else {
+      records = (data || []).map(product => ({
+        ...product,
+        affiliateUrl: product.affiliate_url || "",
+        productUrl: product.product_url || ""
+      }));
+    }
+    const published = records.filter(product =>
+      product.status === "published" && product.name && (product.affiliateUrl || product.productUrl)
+    );
 
     sections.forEach(section => {
       const grid = section.querySelector("[data-product-grid]");
