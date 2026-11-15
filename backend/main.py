@@ -11,7 +11,7 @@ from google import genai
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from pydantic import BaseModel, EmailStr, Field
 from supabase import create_client
 
@@ -102,6 +102,86 @@ def home():
         "status": "running"
     }
 
+
+
+
+
+@app.get("/out/{product_id}", include_in_schema=False)
+def outbound_product_click(product_id: str):
+    """Record a minimal product-click event, then redirect to its configured retailer."""
+    if not product_id or len(product_id) > 120:
+        raise HTTPException(status_code=404, detail="Product not found.")
+
+    product = None
+
+    # Prefer the central database record when one exists, so admin changes
+    # and unpublished status are respected. The reviewed JSON catalogue is
+    # the fallback for products not yet imported into Supabase.
+    try:
+        result = (
+            supabase.table("products")
+            .select("id,status,affiliate_url,product_url")
+            .eq("id", product_id)
+            .limit(1)
+            .execute()
+        )
+        if result.data:
+            product = result.data[0]
+            if product.get("status") != "published":
+                raise HTTPException(status_code=404, detail="Product not found.")
+    except HTTPException:
+        raise
+    except Exception:
+        product = None
+
+    if product is None:
+        catalogue_path = PROJECT / "products.json"
+        try:
+            import json
+            catalogue = json.loads(catalogue_path.read_text(encoding="utf-8"))
+            product = next(
+                (item for item in catalogue
+                 if isinstance(item, dict)
+                 and item.get("id") == product_id
+                 and item.get("status") == "published"),
+                None,
+            )
+        except (OSError, ValueError, TypeError):
+            product = None
+
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found.")
+
+    affiliate_url = product.get("affiliate_url") or product.get("affiliateUrl") or ""
+    retailer_url = product.get("product_url") or product.get("productUrl") or ""
+    destination = affiliate_url or retailer_url
+    parsed_destination = urlsplit(destination)
+
+    try:
+        parsed_destination.port
+    except ValueError:
+        raise HTTPException(status_code=404, detail="Product destination is invalid.")
+
+    if (
+        parsed_destination.scheme != "https"
+        or not parsed_destination.hostname
+        or parsed_destination.username
+        or parsed_destination.password
+    ):
+        raise HTTPException(status_code=404, detail="Product destination is invalid.")
+
+    # Do not collect IP addresses, user agents, account IDs, or referrers.
+    # A failed analytics insert must never prevent a visitor from reaching
+    # the retailer; the redirect remains useful if tracking is not configured.
+    try:
+        supabase.table("affiliate_click_events").insert({
+            "product_id": product_id,
+            "destination_type": "affiliate" if affiliate_url else "retailer",
+        }).execute()
+    except Exception:
+        pass
+
+    return RedirectResponse(url=destination, status_code=302)
 
 
 @app.get("/health")
