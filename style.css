@@ -3628,3 +3628,28 @@ body:not(:has(section.hero#home)) main .btn:hover {
   visibility: visible;
   text-decoration: none;
 }
+
+
+/* Home page product buttons: preserve readable labels on mouse hover. */
+#latest-products .catalog-product-card a.catalog-buy,
+#latest-products .catalog-product-card a.catalog-buy:link,
+#latest-products .catalog-product-card a.catalog-buy:visited {
+  background-color: #bd974d !important;
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#latest-products .catalog-product-card a.catalog-buy:hover,
+#latest-products .catalog-product-card a.catalog-buy:focus,
+#latest-products .catalog-product-card a.catalog-buy:focus-visible,
+#latest-products .catalog-product-card a.catalog-buy:active {
+  background-color: #244638 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,.18);
+}
