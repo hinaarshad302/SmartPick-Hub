@@ -21,7 +21,14 @@ async function loadProducts() {
       if (!fallback.ok) throw new Error("Could not load the JSON catalogue.");
       const jsonRecords = await fallback.json();
       const byId = new Map(jsonRecords.map(product => [product.id, product]));
-      databaseRecords.forEach(product => byId.set(product.id, product));
+      databaseRecords.forEach(product => {
+        const curated = byId.get(product.id) || {};
+        byId.set(product.id, {
+          ...curated,
+          ...product,
+          image: product.image || curated.image || ""
+        });
+      });
       records = [...byId.values()];
     } catch (fallbackError) {
       if (!databaseRecords.length) throw error || fallbackError;
