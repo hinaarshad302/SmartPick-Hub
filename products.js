@@ -26,7 +26,7 @@ async function loadProducts() {
         byId.set(product.id, {
           ...curated,
           ...product,
-          image: product.image || curated.image || ""
+          image: curated.image || product.image || ""
         });
       });
       records = [...byId.values()];
