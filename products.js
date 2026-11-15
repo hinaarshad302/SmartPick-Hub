@@ -105,7 +105,9 @@ function renderProducts(products) {
     const link = document.createElement("a");
     const isAffiliate = Boolean(product.affiliateUrl);
     link.className = "shop-buy";
-    link.href = window.smartPickOutboundUrl\n      ? window.smartPickOutboundUrl(product.id, product.affiliateUrl || product.productUrl)\n      : (product.affiliateUrl || product.productUrl);
+    link.href = window.smartPickOutboundUrl
+      ? window.smartPickOutboundUrl(product.id, product.affiliateUrl || product.productUrl)
+      : (product.affiliateUrl || product.productUrl);
     link.target = "_blank";
     link.rel = isAffiliate ? "sponsored nofollow noopener" : "noopener";
     link.textContent = isAffiliate ? "View Product" : "View on Manufacturer Site";
