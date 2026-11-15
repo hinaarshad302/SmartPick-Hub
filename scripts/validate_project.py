@@ -143,6 +143,17 @@ def main() -> int:
         if published_count and not departments:
             errors.append("products.json: published products must belong to a department.")
 
+
+    click_migration = ROOT / "database" / "migrations" / "004_affiliate_click_events.sql"
+    outbound_config = ROOT / "outbound-config.js"
+    backend_source = ROOT / "backend" / "main.py"
+    if not click_migration.is_file():
+        errors.append("Affiliate click-events database migration is missing.")
+    if not outbound_config.is_file():
+        errors.append("Optional outbound tracking configuration is missing.")
+    if not backend_source.is_file() or '"/out/{product_id}"' not in backend_source.read_text(encoding="utf-8"):
+        errors.append("Backend outbound product redirect endpoint is missing.")
+
     for page in pages:
         page_source = page.read_text(encoding="utf-8")
         if page_source.lower().count("<!doctype html>") != 1:
