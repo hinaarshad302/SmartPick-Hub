@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         byId.set(product.id, {
           ...curated,
           ...product,
-          image: product.image || curated.image || ""
+          image: curated.image || product.image || ""
         });
       });
       return [...byId.values()];
