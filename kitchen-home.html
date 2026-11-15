@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Discover practical kitchen tools, home essentials and useful products for everyday living.">
+<meta name="theme-color" content="#102D27">
+<title>Kitchen & Home | SmartPick Hub</title>
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <div class="navbar">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42">
+      <span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span>
+    </a>
+    <button aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menu-toggle" type="button"><span class="menu-icon">☰</span></button>
+    <nav id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="technology.html">Technology</a>
+      <a href="electronics-gadgets.html">Electronics</a>
+      <a href="kitchen-home.html">Kitchen &amp; Home</a>
+      <a href="beauty.html">Beauty</a>
+      <a href="fashion.html">Fashion</a>
+      <a href="health-fitness.html">Health &amp; Fitness</a>
+      <a href="daily-use.html">Daily Use</a>
+      <a href="products.html">Shop Products</a>
+      <a href="auth.html" id="login-nav-link">Login / Sign Up</a>
+      <a href="subscribe.html" id="subscribe-nav-link">Subscribe</a>
+      <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" class="profile-trigger" id="profile-trigger" aria-expanded="false" aria-controls="profile-dropdown">
+          <span class="profile-avatar" id="profile-avatar">U</span><span class="profile-trigger-name" id="profile-name">Account</span><span class="profile-chevron">⌄</span>
+        </button>
+        <div class="profile-dropdown" id="profile-dropdown" hidden>
+          <div class="profile-dropdown-user"><strong id="profile-dropdown-name">Account</strong><small id="profile-dropdown-email"></small></div>
+          <a href="profile.html">My Account</a>
+          <button type="button" id="logout-nav-button">Logout</button>
+        </div>
+      </div>
+      <a class="nav-cta" href="products.html">Explore Products →</a>
+    </nav>
+  </div>
+</header>
+<main class="technology-page" id="main-content">
+  <section class="tech-page-hero">
+    <div class="tech-page-hero-content">
+      <span class="eyebrow">SMARTPICK HUB / KITCHEN & HOME</span>
+      <h1>Smarter Ideas for Your Home</h1>
+      <p>Explore useful kitchen and home products selected to make everyday tasks simpler. New product picks will appear here as they are added to SmartPick Hub.</p>
+      <div class="tech-hero-actions">
+        <a class="btn" href="#category-products">Explore Products</a>
+        <a class="btn btn-outline" href="products.html">View All Products</a>
+      </div>
+    </div>
+    <div class="tech-hero-visual">
+      <span class="tech-visual-icon">✦</span>
+      <strong>Explore. Compare. Choose.</strong>
+      <p>Helpful information for smarter everyday decisions.</p>
+    </div>
+  </section>
+  <section class="section tech-section product-catalog-section" id="category-products" data-product-catalog="Kitchen & Home">
+    <div class="section-heading">
+      <span class="eyebrow">KITCHEN & HOME PRODUCT PICKS</span>
+      <h2>Kitchen & Home Products</h2>
+      <p>Only published products assigned to this category will appear here.</p>
+    </div>
+    <div class="catalog-product-grid" data-product-grid aria-live="polite">
+      <p class="catalog-loading">Loading products...</p>
+    </div>
+  </section>
+  <section class="section tech-section">
+    <div class="section-heading">
+      <span class="eyebrow">SMARTPICK HUB</span>
+      <h2>Choose with Confidence</h2>
+      <p>Review product details, compare your options and check the seller's terms before purchasing. Some links may be affiliate links and will be identified where applicable.</p>
+      <a class="btn" href="affiliate-disclosure.html">Affiliate Disclosure</a>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <div class="footer-main">
+    <a class="logo footer-logo" href="index.html"><img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42"><span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span></a>
+    <p>Discover smarter choices for technology, products and everyday living.</p>
+    <div class="footer-links"><a href="index.html">Home</a><a href="technology.html">Technology</a><a href="products.html">Shop Products</a><a href="guides.html">Buying Guides</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 SmartPick Hub. All rights reserved.</p><p>Smart Choices. Better Living.</p></div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="auth-nav.js"></script>
+<script src="script.js"></script>
+<script src="product-catalog.js"></script>
+</body>
+</html>
