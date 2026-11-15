@@ -98,7 +98,8 @@
     "productUrl": "https://www.jbl.com/JBLFLIP6BLKAM.html?ged=off",
     "isAffiliate": false,
     "status": "published",
-    "department": "Electronics & Gadgets"
+    "department": "Electronics & Gadgets",
+    "image": "https://cdn.shopware.store/N/R/R/AlrFq/media/28/4a/02/1772707448/e00116fd8aea4c83b7e16a629cb670ec.jpeg?ts=1772707448"
   },
   {
     "id": "tp-link-tapo-c210-camera",
@@ -199,7 +200,8 @@
     "productUrl": "https://herschel.com/shop/backpacks/classic-backpack",
     "isAffiliate": false,
     "status": "published",
-    "department": "Fashion"
+    "department": "Fashion",
+    "image": "https://cdn.intersport.se/productimages/1080/159407202000_10.jpg"
   },
   {
     "id": "casio-gshock-dw5600",
@@ -249,7 +251,8 @@
     "productUrl": "https://www.manduka.com/products/manduka-pro-yoga-mat",
     "isAffiliate": false,
     "status": "published",
-    "department": "Health & Fitness"
+    "department": "Health & Fitness",
+    "image": "https://m.media-amazon.com/images/I/81JoIFDuBlL._AC_SR736%2C920_.jpg"
   },
   {
     "id": "owala-freesip-bottle",
@@ -282,7 +285,8 @@
     "productUrl": "https://www.hydroflask.com/32-oz-wide-mouth",
     "isAffiliate": false,
     "status": "published",
-    "department": "Daily Use"
+    "department": "Daily Use",
+    "image": "https://www.oribags.com/cdn/shop/products/hydro-flask-wide-mouth-32oz-13-23331738320959_800x.jpg?v=1695968807"
   },
   {
     "id": "sony-wh-ch720n-headphones",
@@ -332,7 +336,8 @@
     "productUrl": "https://www.logitech.com/en-us/shop/p/mx-master-3s",
     "isAffiliate": false,
     "status": "published",
-    "department": "Electronics & Gadgets"
+    "department": "Electronics & Gadgets",
+    "image": "https://resource.logitech.com/c_fill%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/migration-assets-for-delorean-2025/gallery/mx-master-3s-front-view-graphite.png"
   },
   {
     "id": "oxo-good-grips-salad-spinner",
@@ -348,7 +353,8 @@
     "productUrl": "https://www.oxo.com/good-grips-salad-spinner.html",
     "isAffiliate": false,
     "status": "published",
-    "department": "Kitchen & Home"
+    "department": "Kitchen & Home",
+    "image": "https://cdn11.bigcommerce.com/s-21zzsq2bal/images/stencil/1280x1280/products/1200/1025/48102_a__23054.1597628536.jpg?c=1%3Fimbypass%3Don"
   },
   {
     "id": "kitchenaid-5-speed-hand-blender",
@@ -381,7 +387,8 @@
     "productUrl": "https://www.cuisinart.com/shopping/appliances/food_processors/dfp-14bcny/",
     "isAffiliate": false,
     "status": "published",
-    "department": "Kitchen & Home"
+    "department": "Kitchen & Home",
+    "image": "https://www.cuisinart.ca/dw/image/v2/ABAF_PRD/on/demandware.static/-/Sites-master-ca/default/dwf960db6d/DFP-14BCNYC_5.jpg"
   },
   {
     "id": "revlon-one-step-volumizer-plus",
@@ -397,7 +404,8 @@
     "productUrl": "https://www.revlonhairtools.com/dryers/one-step-volumizer-plus/",
     "isAffiliate": false,
     "status": "published",
-    "department": "Beauty"
+    "department": "Beauty",
+    "image": "https://www.ibeautypanama.com/cdn/shop/products/1193875_R_SET_1200x.jpg?v=1680974868"
   },
   {
     "id": "foreo-luna-4",
@@ -413,7 +421,8 @@
     "productUrl": "https://www.foreo.com/luna-4",
     "isAffiliate": false,
     "status": "published",
-    "department": "Beauty"
+    "department": "Beauty",
+    "image": "https://i5.walmartimages.com/asr/91ec1805-fc40-419f-beaa-3c23c1500735.7278f08582bf27bf3d722619deff8835.jpeg"
   },
   {
     "id": "panasonic-nanoe-hair-dryer",
@@ -463,7 +472,8 @@
     "productUrl": "https://www.adidas.com/us/classic-3-stripes-backpack",
     "isAffiliate": false,
     "status": "published",
-    "department": "Fashion"
+    "department": "Fashion",
+    "image": "https://brandpresent.ru/shop/project/1000/BP_10206.30_1_1000x1000.jpg"
   },
   {
     "id": "new-balance-574-core",
@@ -479,7 +489,8 @@
     "productUrl": "https://www.newbalance.com/pd/574-core/ML574V3-40348.html",
     "isAffiliate": false,
     "status": "published",
-    "department": "Fashion"
+    "department": "Fashion",
+    "image": "https://newbalance.ua/img/photos/photo49517.jpg"
   },
   {
     "id": "bowflex-selecttech-552-dumbbells",
@@ -529,7 +540,8 @@
     "productUrl": "https://www.trxtraining.com/products/trx-all-in-one-suspension-training-system",
     "isAffiliate": false,
     "status": "published",
-    "department": "Health & Fitness"
+    "department": "Health & Fitness",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/trx-suspension-training-system-1545074592.jpg?crop=1xw%3A1xh%3Bcenter%2Ctop&resize=980%3A%2A"
   },
   {
     "id": "stanley-quencher-h2o-40oz",
