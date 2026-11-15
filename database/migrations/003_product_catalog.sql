@@ -12,7 +12,7 @@ create table if not exists public.smartpick_admins (
 
 alter table public.smartpick_admins enable row level security;
 revoke all on table public.smartpick_admins from public, anon, authenticated;
-grant select on table public.smartpick_admins to authenticated;
+grant select on table public.smartpick_admins to anon, authenticated;
 
 drop policy if exists "Admins can read their own admin record" on public.smartpick_admins;
 create policy "Admins can read their own admin record"
