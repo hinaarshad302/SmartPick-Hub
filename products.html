@@ -48,23 +48,28 @@
     .shop-wrap .shop-heading .eyebrow {
       color: #000000 !important;
     }
-    .shop-wrap .shop-buy {
-      color: #000000 !important;
-      background: #bd974d;
+    /* High-specificity rules override the shared inner-page link colour. */
+    body:not(:has(section.hero#home)) .shop-wrap a.shop-buy,
+    body:not(:has(section.hero#home)) .shop-wrap a.shop-buy:visited {
+      color: #111111 !important;
+      background: #bd974d !important;
+      -webkit-text-fill-color: #111111 !important;
       transition: background-color .22s ease, color .22s ease, transform .22s ease, box-shadow .22s ease;
     }
-    .shop-wrap .shop-buy:hover,
-    .shop-wrap .shop-buy:focus-visible {
+    body:not(:has(section.hero#home)) .shop-wrap a.shop-buy:hover,
+    body:not(:has(section.hero#home)) .shop-wrap a.shop-buy:focus-visible {
       background: #244638 !important;
       color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
       transform: translateY(-2px);
       box-shadow: 0 7px 16px rgba(36,70,56,.2);
       outline: 2px solid #bd974d;
       outline-offset: 3px;
     }
-    .shop-wrap .shop-buy:active {
+    body:not(:has(section.hero#home)) .shop-wrap a.shop-buy:active {
       background: #18382d !important;
       color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
       transform: translateY(0);
     }
   </style>
