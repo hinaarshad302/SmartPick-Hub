@@ -70,6 +70,79 @@ def main() -> int:
                 )
                 break
 
+    catalogue_path = ROOT / "products.json"
+    if not catalogue_path.is_file():
+        errors.append("Product catalogue products.json is missing.")
+    else:
+        import json
+
+        try:
+            catalogue = json.loads(catalogue_path.read_text(encoding="utf-8"))
+            if not isinstance(catalogue, list):
+                errors.append("products.json: expected a JSON array of products.")
+                catalogue = []
+        except (json.JSONDecodeError, OSError) as exc:
+            errors.append(f"products.json: could not read valid JSON: {exc}")
+            catalogue = []
+
+        product_ids: set[str] = set()
+        published_count = 0
+        departments: set[str] = set()
+        required_fields = ("id", "name", "category", "department", "description", "merchant", "image", "productUrl", "status", "markets")
+
+        for index, product in enumerate(catalogue, start=1):
+            label = f"products.json product #{index}"
+            if not isinstance(product, dict):
+                errors.append(f"{label}: expected a JSON object.")
+                continue
+
+            missing = [field for field in required_fields if product.get(field) in (None, "", [])]
+            if missing:
+                errors.append(f"{label}: missing required fields: {', '.join(missing)}.")
+
+            product_id = product.get("id")
+            if isinstance(product_id, str) and product_id:
+                if product_id in product_ids:
+                    errors.append(f"{label}: duplicate product id '{product_id}'.")
+                product_ids.add(product_id)
+
+            status = product.get("status")
+            if status not in {"published", "draft", "archived"}:
+                errors.append(f"{label}: unsupported status '{status}'.")
+
+            if status == "published":
+                published_count += 1
+                department = product.get("department")
+                if isinstance(department, str) and department:
+                    departments.add(department)
+
+                for field in ("image", "productUrl"):
+                    value = product.get(field)
+                    parsed = urlsplit(value if isinstance(value, str) else "")
+                    if parsed.scheme != "https" or not parsed.netloc:
+                        errors.append(f"{label}: '{field}' must be a valid HTTPS URL.")
+
+                markets = product.get("markets")
+                if not isinstance(markets, list) or not markets or not all(isinstance(market, str) and market.strip() for market in markets):
+                    errors.append(f"{label}: published products must list at least one valid market.")
+
+                affiliate_url = product.get("affiliateUrl") or ""
+                if affiliate_url:
+                    parsed_affiliate = urlsplit(affiliate_url)
+                    if parsed_affiliate.scheme != "https" or not parsed_affiliate.netloc:
+                        errors.append(f"{label}: 'affiliateUrl' must be a valid HTTPS URL when provided.")
+                if not isinstance(product.get("isAffiliate"), bool):
+                    errors.append(f"{label}: 'isAffiliate' must be true or false.")
+                elif bool(affiliate_url) != product.get("isAffiliate"):
+                    errors.append(f"{label}: 'isAffiliate' must match whether 'affiliateUrl' is populated.")
+
+        if not catalogue:
+            errors.append("products.json: catalogue must contain at least one product.")
+        if catalogue and published_count == 0:
+            errors.append("products.json: at least one product must be published.")
+        if published_count and not departments:
+            errors.append("products.json: published products must belong to a department.")
+
     for page in pages:
         page_source = page.read_text(encoding="utf-8")
         if page_source.lower().count("<!doctype html>") != 1:
