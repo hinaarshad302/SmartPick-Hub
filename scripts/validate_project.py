@@ -149,6 +149,9 @@ def main() -> int:
     backend_source = ROOT / "backend" / "main.py"
     if not click_migration.is_file():
         errors.append("Affiliate click-events database migration is missing.")
+    click_security_test = ROOT / "database" / "tests" / "004_affiliate_click_events_security.sql"
+    if not click_security_test.is_file():
+        errors.append("Affiliate click-events security verification script is missing.")
     if not outbound_config.is_file():
         errors.append("Optional outbound tracking configuration is missing.")
     if not backend_source.is_file() or '"/out/{product_id}"' not in backend_source.read_text(encoding="utf-8"):
