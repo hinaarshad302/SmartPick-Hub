@@ -1,0 +1,2 @@
+[functions.outbound-click]
+verify_jwt = false
