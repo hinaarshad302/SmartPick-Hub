@@ -6,7 +6,7 @@ SmartPick Hub is being developed as a bilingual (English and Urdu/Roman Urdu), A
 
 The goal is to help visitors make informed decisions by explaining products, comparing suitable options, and considering budget, needs, availability, and important limitations. The business model may include affiliate links. Affiliate relationships must be disclosed clearly, and recommendations must remain relevant to the visitor rather than being ranked only by commission.
 
-> **Project status:** Early development. The current repository contains a static HTML/CSS/JavaScript website, a Supabase browser-authentication integration, and a FastAPI backend prototype for newsletter subscriptions. The homepage now includes a SmartPick AI search interface and a configurable OpenAI-compatible LLM endpoint prototype. Verified live product search, specialist agents, and affiliate-network conversion reporting are not yet implemented. A privacy-minimal outbound click-tracking foundation is now in the codebase, but it is inactive until its SQL migration is applied and the FastAPI backend is deployed and configured. Do not treat this repository as production-ready.
+> **Project status:** Early development. The repository contains a static HTML/CSS/JavaScript website, Supabase authentication/database integration, a FastAPI prototype for newsletter and AI services, and a Supabase Edge Function foundation for outbound product-click tracking. Click tracking remains inactive until the SQL migration is applied and the Edge Function is deployed and tested. Verified live product search, specialist agents, and affiliate-network conversion reporting are not yet implemented. Do not treat this repository as production-ready.
 
 ## Confirmed product direction
 
@@ -234,3 +234,10 @@ The current privacy and service terms drafts are published as `privacy.html` and
 Security issues should follow the private reporting guidance in `SECURITY.md`. Dependabot is configured to propose weekly updates for Python dependencies and GitHub Actions.
 
 Work in a feature branch first, review the diff, test the affected feature, and merge only after verification. Avoid replacing working files wholesale when a small, reviewed change is sufficient.
+
+
+## Supabase outbound click-tracking deployment
+
+Outbound product clicks are designed to use a **Supabase Edge Function**, not a separate Vercel backend. The function source is in `supabase/functions/outbound-click/index.ts`; its deployment guide is `supabase/DEPLOYMENT.md`. Apply `database/migrations/004_affiliate_click_events.sql` in the existing Supabase SQL Editor, then deploy the function to project `jimatgwmcasnbrhqhkbc` using the Supabase CLI. The function uses Supabase's server-side service-role environment variable and never accepts a destination URL from the browser. The website setting `SMARTPICK_OUTBOUND_FUNCTION_URL` in `outbound-config.js` must remain blank until the function is deployed and verified; then set it to the public function URL. Until configured, product links continue to go directly to their retailer pages.
+
+This Edge Function handles only outbound product redirects and click events. The existing FastAPI prototype remains separate for newsletter and AI endpoints; it is not required for product-click tracking.
