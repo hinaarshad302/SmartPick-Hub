@@ -11,17 +11,23 @@ async function loadProducts() {
       .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
       .eq("status", "published")
       .order("name");
-    let records;
-    if (error || !data || !data.length) {
-      console.warn("Supabase catalogue is empty or unavailable; using the JSON catalogue.", error);
+    const databaseRecords = (data || []).map(p => ({
+      ...p, affiliateUrl: p.affiliate_url || p.affiliateUrl || "",
+      productUrl: p.product_url || p.productUrl || ""
+    }));
+    let records = databaseRecords;
+    try {
       const fallback = await fetch("products.json", { cache: "no-store" });
-      if (!fallback.ok) throw error || new Error("Could not load products.");
-      records = await fallback.json();
-    } else {
-      records = data.map(p => ({
-        ...p, affiliateUrl: p.affiliate_url || "", productUrl: p.product_url || ""
-      }));
+      if (!fallback.ok) throw new Error("Could not load the JSON catalogue.");
+      const jsonRecords = await fallback.json();
+      const byId = new Map(jsonRecords.map(product => [product.id, product]));
+      databaseRecords.forEach(product => byId.set(product.id, product));
+      records = [...byId.values()];
+    } catch (fallbackError) {
+      if (!databaseRecords.length) throw error || fallbackError;
+      console.warn("Using the available database products; JSON catalogue could not be loaded.", fallbackError);
     }
+    if (error) console.warn("Supabase catalogue unavailable; using JSON products where available.", error);
     const liveProducts = records.filter(p =>
       p.status === "published" && p.name && (p.affiliateUrl || p.productUrl)
     );
