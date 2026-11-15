@@ -9,7 +9,7 @@ async function loadProducts() {
     const response = await fetch("products.json");
     if (!response.ok) throw new Error("Product list could not be loaded.");
     const products = await response.json();
-    const liveProducts = products.filter(p => p.status === "published" && p.name && p.affiliateUrl);
+    const liveProducts = products.filter(p => p.status === "published" && p.name && (p.affiliateUrl || p.productUrl));
     [...new Set(liveProducts.map(p => p.category).filter(Boolean))].sort().forEach(category => {
       const option = document.createElement("option");
       option.value = category;
@@ -69,7 +69,7 @@ function renderProducts(products) {
     link.rel = "sponsored nofollow noopener";
     link.textContent = "View Product";
     body.append(categoryLabel, title, description, meta, link);
-    card.append(image, body);
+    if (product.image) card.append(image);\n    card.append(body);
     grid.appendChild(card);
   });
 }
