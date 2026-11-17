@@ -1,5 +1,5 @@
-/* Supabase Edge Function URL. Keep blank until the function is deployed and tested. */
-window.SMARTPICK_OUTBOUND_FUNCTION_URL = "";
+/* Supabase Edge Function URL for tracked product redirects. */
+window.SMARTPICK_OUTBOUND_FUNCTION_URL = "https://jimatgwmcasnbrhqhkbc.supabase.co/functions/v1/outbound-click";
 
 window.smartPickOutboundUrl = function (productId, fallbackUrl) {
   const endpoint = String(window.SMARTPICK_OUTBOUND_FUNCTION_URL || "").trim();
