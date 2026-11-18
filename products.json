@@ -58,7 +58,7 @@
       "USA"
     ],
     "description": "A compact USB-C hub that adds multiple connections, including HDMI, USB and card access. The manufacturer lists 4K at 60Hz HDMI output and up to 85W charging; verify your laptop's USB-C capabilities.",
-    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/image_11_3f856f3b-1d0b-4609-974f-af0ea4ca2d12.png?v=1764833041&width=3840&width=600",
+    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/image_11_3f856f3b-1d0b-4609-974f-af0ea4ca2d12.png?v=1764833041&width=600&width=600",
     "price": "",
     "merchant": "Anker",
     "affiliateUrl": "",
@@ -320,7 +320,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Electronics & Gadgets",
-    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1289011-Anker_737_Power_Bank_PowerCore_24K_1.png?v=1775967275&width=1600&width=600"
+    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1289011-Anker_737_Power_Bank_PowerCore_24K_1.png?v=1775967275&width=600&width=600"
   },
   {
     "id": "logitech-mx-master-3s",
@@ -524,7 +524,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Health & Fitness",
-    "image": "https://www.therabody.com/cdn/shop/files/Mini-Gen-3-Black-PLP-Thumbnail-1.png?v=1741752124&width=1445&width=600"
+    "image": "https://www.therabody.com/cdn/shop/files/Mini-Gen-3-Black-PLP-Thumbnail-1.png?v=1741752124&width=600&width=600"
   },
   {
     "id": "trx-all-in-one-suspension-trainer",
@@ -558,7 +558,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Daily Use",
-    "image": "https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Black2.0-Front.png?v=1770327737&width=990&width=600"
+    "image": "https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Black2.0-Front.png?v=1770327737&width=600&width=600"
   },
   {
     "id": "tile-mate-bluetooth-tracker",
