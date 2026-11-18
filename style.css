@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-
 :root{--green:#102D27;--green-light:#1D493D;--gold:#D6AD55;--cream:#F7F5EF;--white:#fff;--dark:#202824;--muted:#68736d;--border:#e6e7e1;--shadow:0 15px 40px rgba(16,45,39,.09)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
