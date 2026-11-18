@@ -109,6 +109,20 @@
       outline: 2px solid #bd974d !important;
       outline-offset: 3px !important;
     }
+    /* Final override: beat the shared inner-page main-link !important rule. */
+    body:not(:has(section.hero#home)) main.shop-wrap #product-grid a.shop-buy:hover,
+    body:not(:has(section.hero#home)) main.shop-wrap #product-grid a.shop-buy:focus,
+    body:not(:has(section.hero#home)) main.shop-wrap #product-grid a.shop-buy:focus-visible {
+      background: #244638 !important;
+      background-color: #244638 !important;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 18px rgba(36,70,56,.24) !important;
+      outline: 2px solid #bd974d !important;
+      outline-offset: 3px !important;
+      text-decoration: none !important;
+    }
   </style>
 </head>
 <body>
