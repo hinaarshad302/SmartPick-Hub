@@ -135,4 +135,34 @@ function renderProducts(products) {
     grid.appendChild(card);
   });
 }
+// Reliable delegated hover handling for every product link, including dynamically filtered cards.
+const productGrid = document.getElementById("product-grid");
+if (productGrid) {
+  const setProductHover = (link) => {
+    if (!link || !link.matches("a.shop-buy")) return;
+    link.style.setProperty("background-color", "#244638", "important");
+    link.style.setProperty("color", "#ffffff", "important");
+    link.style.setProperty("-webkit-text-fill-color", "#ffffff", "important");
+    link.style.setProperty("transform", "translateY(-3px)", "important");
+    link.style.setProperty("box-shadow", "0 8px 18px rgba(36,70,56,.24)", "important");
+    link.style.setProperty("outline", "2px solid #bd974d", "important");
+    link.style.setProperty("outline-offset", "3px", "important");
+  };
+  const clearProductHover = (link) => {
+    if (!link || !link.matches("a.shop-buy")) return;
+    ["background-color", "color", "-webkit-text-fill-color", "transform",
+     "box-shadow", "outline", "outline-offset"].forEach(property => link.style.removeProperty(property));
+  };
+  productGrid.addEventListener("mouseover", event => {
+    const link = event.target.closest("a.shop-buy");
+    if (link && !link.contains(event.relatedTarget)) setProductHover(link);
+  });
+  productGrid.addEventListener("mouseout", event => {
+    const link = event.target.closest("a.shop-buy");
+    if (link && !link.contains(event.relatedTarget)) clearProductHover(link);
+  });
+  productGrid.addEventListener("focusin", event => setProductHover(event.target.closest("a.shop-buy")));
+  productGrid.addEventListener("focusout", event => clearProductHover(event.target.closest("a.shop-buy")));
+}
+
 loadProducts();
