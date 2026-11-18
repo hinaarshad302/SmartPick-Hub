@@ -1,11 +1,4 @@
 User-agent: *
 Allow: /
 
-# Account and utility pages are not intended for search results.
-Disallow: /SmartPick-Hub/auth.html
-Disallow: /SmartPick-Hub/profile.html
-Disallow: /SmartPick-Hub/reset-password.html
-Disallow: /SmartPick-Hub/products-admin.html
-Disallow: /SmartPick-Hub/subscribe.html
-
 Sitemap: https://hinaarshad302.github.io/SmartPick-Hub/sitemap.xml
