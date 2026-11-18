@@ -41,7 +41,7 @@
       "USA"
     ],
     "description": "A low-profile wireless keyboard with smart backlighting, programmable keys and multi-device switching. Designed for comfortable, precise typing at a desk.",
-    "image": "https://www.allithypermarket.com.my/cdn/shop/files/my-11134207-7qul1-lj5gjp923qrq34.jpg?v=1689827529",
+    "image": "https://www.allithypermarket.com.my/cdn/shop/files/my-11134207-7qul1-lj5gjp923qrq34.jpg?v=1689827529&width=600",
     "price": "",
     "merchant": "Logitech",
     "affiliateUrl": "",
@@ -58,7 +58,7 @@
       "USA"
     ],
     "description": "A compact USB-C hub that adds multiple connections, including HDMI, USB and card access. The manufacturer lists 4K at 60Hz HDMI output and up to 85W charging; verify your laptop's USB-C capabilities.",
-    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/image_11_3f856f3b-1d0b-4609-974f-af0ea4ca2d12.png?v=1764833041&width=3840",
+    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/image_11_3f856f3b-1d0b-4609-974f-af0ea4ca2d12.png?v=1764833041&width=3840&width=600",
     "price": "",
     "merchant": "Anker",
     "affiliateUrl": "",
@@ -99,7 +99,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Electronics & Gadgets",
-    "image": "https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw08652a69/3_JBL_FLIP6_FRONT_BLACK_29509_x2.png?sh=1605&sw=1605"
+    "image": "https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw08652a69/3_JBL_FLIP6_FRONT_BLACK_29509_x2.png?sh=600&sw=600"
   },
   {
     "id": "tp-link-tapo-c210-camera",
@@ -133,7 +133,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Kitchen & Home",
-    "image": "https://i.ebayimg.com/images/g/HCYAAeSwi7FpG7Qv/s-l1600.jpg"
+    "image": "https://i.ebayimg.com/images/g/HCYAAeSwi7FpG7Qv/s-l600.jpg"
   },
   {
     "id": "instant-pot-duo-7-in-1",
@@ -218,7 +218,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Fashion",
-    "image": "https://legacyjewellery.ca/cdn/shop/files/DW-5600UE-1_1445x.png?v=1740330067"
+    "image": "https://legacyjewellery.ca/cdn/shop/files/DW-5600UE-1_1445x.png?v=1740330067&width=600"
   },
   {
     "id": "fitbit-charge-6",
@@ -235,7 +235,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Health & Fitness",
-    "image": "https://irwinsmegastore.ie/cdn/shop/files/79-GA05183-GB-2_5000x_20597c64-ba18-4e57-917c-c5c143f934ea_700x700.webp?v=1700152229"
+    "image": "https://irwinsmegastore.ie/cdn/shop/files/79-GA05183-GB-2_5000x_20597c64-ba18-4e57-917c-c5c143f934ea_700x700.webp?v=1700152229&width=600"
   },
   {
     "id": "manduka-pro-yoga-mat",
@@ -269,7 +269,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Daily Use",
-    "image": "https://media.kitchenwarehouse.com.au/kitchenwarehouse/image/upload/w_3840%2Cf_auto%2Cq_auto%3Abest/c_fill%2Cg_face%2Cw_auto%2Cf_auto%2Cq_auto/Supplier%20Images%20/2000px/Owala-FreeSip-Insulated-Water-Bottle-710ml-24oz-Out-of-the-Blue_1_2000px.jpg"
+    "image": "https://media.kitchenwarehouse.com.au/kitchenwarehouse/image/upload/w_600%2Cf_auto%2Cq_auto%3Agood/c_fill%2Cg_face%2Cw_auto%2Cf_auto%2Cq_auto/Supplier%20Images%20/2000px/Owala-FreeSip-Insulated-Water-Bottle-710ml-24oz-Out-of-the-Blue_1_2000px.jpg"
   },
   {
     "id": "hydro-flask-wide-mouth-32oz",
@@ -286,7 +286,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Daily Use",
-    "image": "https://balsasurf.co.uk/cdn/shop/files/hydro-flask-flasks-32oz-hydro-flask-946ml-cascade-40781469122778.jpg?v=1724361844"
+    "image": "https://balsasurf.co.uk/cdn/shop/files/hydro-flask-flasks-32oz-hydro-flask-946ml-cascade-40781469122778.jpg?v=1724361844&width=600"
   },
   {
     "id": "sony-wh-ch720n-headphones",
@@ -320,7 +320,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Electronics & Gadgets",
-    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1289011-Anker_737_Power_Bank_PowerCore_24K_1.png?v=1775967275&width=1600"
+    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1289011-Anker_737_Power_Bank_PowerCore_24K_1.png?v=1775967275&width=1600&width=600"
   },
   {
     "id": "logitech-mx-master-3s",
@@ -354,7 +354,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Kitchen & Home",
-    "image": "https://oxoaustralia.com.au/cdn/shop/files/48102_a__23054.1597628536.1280.1280.jpg?v=1775776601"
+    "image": "https://oxoaustralia.com.au/cdn/shop/files/48102_a__23054.1597628536.1280.1280.jpg?v=1775776601&width=600"
   },
   {
     "id": "kitchenaid-5-speed-hand-blender",
@@ -405,7 +405,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Beauty",
-    "image": "https://www.ibeautypanama.com/cdn/shop/products/1193875_R_SET_1200x.jpg?v=1680974868"
+    "image": "https://www.ibeautypanama.com/cdn/shop/products/1193875_R_SET_1200x.jpg?v=1680974868&width=600"
   },
   {
     "id": "foreo-luna-4",
@@ -456,7 +456,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Fashion",
-    "image": "https://lscoglobal.scene7.com/is/image/lscoglobal/MB_00501-0114_GLO_CM_DA?fit=crop%2C1&fmt=jpeg&hei=1200&op_usm=0.6%2C0.6%2C8&qlt=80&resMode=sharp2&wid=960"
+    "image": "https://lscoglobal.scene7.com/is/image/lscoglobal/MB_00501-0114_GLO_CM_DA?fit=crop%2C1&fmt=jpeg&hei=750&op_usm=0.6%2C0.6%2C8&qlt=80&resMode=sharp2&wid=600"
   },
   {
     "id": "adidas-classic-3-stripes-backpack",
@@ -524,7 +524,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Health & Fitness",
-    "image": "https://www.therabody.com/cdn/shop/files/Mini-Gen-3-Black-PLP-Thumbnail-1.png?v=1741752124&width=1445"
+    "image": "https://www.therabody.com/cdn/shop/files/Mini-Gen-3-Black-PLP-Thumbnail-1.png?v=1741752124&width=1445&width=600"
   },
   {
     "id": "trx-all-in-one-suspension-trainer",
@@ -558,7 +558,7 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Daily Use",
-    "image": "https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Black2.0-Front.png?v=1770327737&width=990"
+    "image": "https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Black2.0-Front.png?v=1770327737&width=990&width=600"
   },
   {
     "id": "tile-mate-bluetooth-tracker",
@@ -592,6 +592,6 @@
     "isAffiliate": false,
     "status": "published",
     "department": "Daily Use",
-    "image": "https://www.simplehuman.co.uk/cdn/shop/files/ECOM_9oz_PUMP_ANGLED_POLISHED_2_e9087ef6-6aa7-4897-85f3-fb0064376f1f_900x900.png?v=1779403085"
+    "image": "https://www.simplehuman.co.uk/cdn/shop/files/ECOM_9oz_PUMP_ANGLED_POLISHED_2_e9087ef6-6aa7-4897-85f3-fb0064376f1f_900x900.png?v=1779403085&width=600"
   }
 ]
