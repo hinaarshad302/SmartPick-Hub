@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  console.log("SmartPick Hub loaded successfully!");
-
   // Automatic copyright year
   const copyright = document.querySelector(".footer-bottom p:first-child");
 

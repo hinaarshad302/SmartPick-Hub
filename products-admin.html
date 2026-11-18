@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Private SmartPick Hub product catalogue administration.">
+  <title>Product Admin | SmartPick Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-wrap{max-width:1100px;margin:48px auto;padding:0 20px 70px;color:#111}
+    .admin-head{margin-bottom:26px}.admin-head h1{color:#244638;margin-bottom:8px}
+    .admin-panel{background:#fff;border:1px solid #d7e2d9;border-radius:14px;padding:24px;margin:18px 0}
+    .admin-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .admin-field{display:flex;flex-direction:column;gap:6px}.admin-field.full{grid-column:1/-1}
+    .admin-field label{font-weight:700;font-size:13px;color:#111}
+    .admin-field input,.admin-field select,.admin-field textarea{width:100%;padding:11px 12px;border:1px solid #cbd8ce;border-radius:7px;background:#fff;color:#111;font:inherit}
+    .admin-field textarea{min-height:90px;resize:vertical}
+    .admin-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .admin-actions button{border:0;border-radius:7px;padding:11px 17px;background:#244638;color:#fff;font-weight:700;cursor:pointer}
+    .admin-actions button.secondary{background:#edf3ee;color:#244638;border:1px solid #cbd8ce}
+    .admin-actions button.danger{background:#8b2929}
+    .admin-actions button:disabled{opacity:.55;cursor:not-allowed}
+    #admin-message{padding:10px 0;min-height:24px;color:#244638}
+    .admin-note{font-size:13px;color:#4a554d;line-height:1.6}
+    @media(max-width:650px){.admin-grid{grid-template-columns:1fr}.admin-field.full{grid-column:auto}.admin-panel{padding:17px}}
+  </style>
+</head>
+<body>
+<header class="header"><div class="navbar">
+  <a class="logo" href="index.html"><img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42"><span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span></a>
+  <a href="index.html">View Website</a>
+</div></header>
+<main class="admin-wrap">
+  <div class="admin-head"><p class="eyebrow">PRIVATE ADMIN AREA</p><h1>Product Catalogue Manager</h1><p>Add, edit, publish or archive products. Changes are saved to the Supabase catalogue.</p></div>
+  <section class="admin-panel" id="admin-login-panel">
+    <h2>Admin sign in</h2>
+    <p class="admin-note">Sign in with the account that has been approved as a SmartPick Hub administrator.</p>
+    <form id="admin-login-form" class="admin-grid">
+      <div class="admin-field"><label for="admin-email">Email</label><input id="admin-email" type="email" autocomplete="username" required></div>
+      <div class="admin-field"><label for="admin-password">Password</label><input id="admin-password" type="password" autocomplete="current-password" required></div>
+      <div class="admin-actions full"><button type="submit" id="admin-login-button">Sign in</button></div>
+    </form>
+  </section>
+  <section class="admin-panel" id="admin-editor-panel" hidden>
+    <div class="admin-field"><label for="product-picker">Choose a product to edit</label><select id="product-picker"><option value="">＋ Add a new product</option></select></div>
+    <form id="product-form">
+      <div class="admin-grid" style="margin-top:18px">
+        <div class="admin-field"><label for="product-id">Product ID (URL-safe)</label><input id="product-id" pattern="[a-z0-9]+(-[a-z0-9]+)*" required placeholder="example-product-id"></div>
+        <div class="admin-field"><label for="product-name">Product name</label><input id="product-name" maxlength="180" required></div>
+        <div class="admin-field"><label for="product-department">Department</label><select id="product-department" required><option>Technology</option><option>Electronics &amp; Gadgets</option><option>Kitchen &amp; Home</option><option>Beauty</option><option>Fashion</option><option>Health &amp; Fitness</option><option>Daily Use</option></select></div>
+        <div class="admin-field"><label for="product-category">Product category</label><input id="product-category" maxlength="80" required placeholder="e.g. Webcams"></div>
+        <div class="admin-field"><label for="product-merchant">Brand / Merchant</label><input id="product-merchant"></div>
+        <div class="admin-field"><label for="product-price">Price (optional)</label><input id="product-price" placeholder="Only enter a verified current price"></div>
+        <div class="admin-field full"><label for="product-description">Description</label><textarea id="product-description"></textarea></div>
+        <div class="admin-field full"><label for="product-image">Image URL (HTTPS)</label><input id="product-image" type="url" placeholder="https://..."></div>
+        <div class="admin-field"><label for="product-url">Manufacturer / retailer URL (HTTPS)</label><input id="product-url" type="url" placeholder="https://..."></div>
+        <div class="admin-field"><label for="product-affiliate">Approved affiliate URL (optional)</label><input id="product-affiliate" type="url" placeholder="https://..."></div>
+        <div class="admin-field"><label for="product-markets">Markets (comma separated)</label><input id="product-markets" placeholder="Pakistan, USA, UK"></div>
+        <div class="admin-field"><label for="product-status">Publication status</label><select id="product-status"><option value="draft">Draft</option><option value="published">Published</option><option value="archived">Archived</option></select></div>
+      </div>
+      <div class="admin-actions">
+        <button type="submit" id="product-save-button">Save product</button>
+        <button type="button" class="secondary" id="product-new-button">Clear / New</button>
+        <button type="button" class="danger" id="product-delete-button" disabled>Delete selected</button>
+        <button type="button" class="secondary" id="admin-logout-button">Sign out</button>
+      </div>
+    </form>
+    <p class="admin-note">Affiliate links should only be used after approval by the relevant affiliate programme. If only a normal product URL is supplied, the product is shown as a manufacturer/retailer link, not an affiliate link.</p>
+  </section>
+  <p id="admin-message" role="status" aria-live="polite"></p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="products-admin.js"></script>
+</body>
+</html>

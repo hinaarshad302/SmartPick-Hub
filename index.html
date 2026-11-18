@@ -2,18 +2,31 @@
 
 <html lang="en">
 <head>
+<meta name="google-site-verification" content="ZACm24LAmTcvbR9Sr0QQCYFprbRiqGS3bvZnKPw7Vh8" />
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="SmartPick Hub helps you discover useful AI tools, technology products and practical buying guides for smarter decisions." name="description"/>
+<meta name="description" content="Discover useful AI tools, practical technology products and clear buying guides. Compare options, understand key features and make smarter choices with SmartPick Hub.">
 <meta content="#102D27" name="theme-color"/>
-<title>SmartPick Hub | Smart Choices. Better Living.</title>
+<title>SmartPick Hub | AI Tools, Technology & Smart Buying Guides</title>
+<link rel="canonical" href="https://hinaarshad302.github.io/SmartPick-Hub/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartPick Hub">
+<meta property="og:title" content="SmartPick Hub | AI Tools, Technology & Smart Buying Guides">
+<meta property="og:description" content="Discover useful AI tools, practical technology products and clear buying guides. Compare options, understand key features and make smarter choices with SmartPick Hub.">
+<meta property="og:url" content="https://hinaarshad302.github.io/SmartPick-Hub/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SmartPick Hub | AI Tools, Technology & Smart Buying Guides">
+<meta name="twitter:description" content="Discover useful AI tools, practical technology products and clear buying guides. Compare options, understand key features and make smarter choices with SmartPick Hub.">
 <link href="style.css" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://hinaarshad302.github.io/SmartPick-Hub/#organization","name":"SmartPick Hub","url":"https://hinaarshad302.github.io/SmartPick-Hub/","logo":"https://hinaarshad302.github.io/SmartPick-Hub/assets/smartpick-hub-sh-logo.webp","description":"An information and discovery platform for AI tools, technology products and practical buying guidance."},{"@type":"WebSite","@id":"https://hinaarshad302.github.io/SmartPick-Hub/#website","url":"https://hinaarshad302.github.io/SmartPick-Hub/","name":"SmartPick Hub","publisher":{"@id":"https://hinaarshad302.github.io/SmartPick-Hub/#organization"},"inLanguage":"en"}]}</script>
 </head>
 <body>
 <header class="header">
 <div class="navbar">
 <a class="logo" href="index.html">
-<span class="logo-mark">SH</span>
+<img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42">
 <span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span>
 </a>
 <button aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menu-toggle" type="button">
@@ -23,6 +36,7 @@
 <a href="index.html">Home</a>
 <a href="technology.html">Technology</a>
 <a href="featured.html">Featured</a>
+<a href="products.html">Shop Products</a>
 <a href="guides.html">Buying Guides</a>
 <a href="about.html">About</a>
 
@@ -63,29 +77,58 @@
 <a class="nav-cta" href="featured.html">Explore Picks →</a>
 </nav>
 </div>
+
+<div class="ai-search-section" aria-label="SmartPick AI shopping assistant">
+  <div class="ai-search-inner">
+    <div class="ai-search-heading">
+      <span class="ai-search-spark" aria-hidden="true">✦</span>
+      <span class="ai-search-kicker">SMARTPICK AI</span>
+      <span class="ai-search-caption">Tell us what you are looking for</span>
+    </div>
+    <form class="ai-search-form" id="ai-search-form">
+      <label class="sr-only" for="ai-search-input">Search with SmartPick AI</label>
+      <span class="ai-search-icon" aria-hidden="true">⌕</span>
+      <input id="ai-search-input" name="query" type="search" maxlength="1200"
+        placeholder="Ask anything… e.g. Best laptop under PKR 150,000 for AI study"
+        autocomplete="off" required>
+      <button type="submit" id="ai-search-submit">
+        <span aria-hidden="true">✦</span> Ask AI
+      </button>
+    </form>
+    <div class="ai-search-suggestions" aria-label="Try asking">
+      <button type="button" data-prompt="Suggest a reliable laptop for university study within my budget.">Laptop for study</button>
+      <button type="button" data-prompt="Help me compare AI writing tools for a beginner.">Compare AI tools</button>
+      <button type="button" data-prompt="What should I check before buying a smartphone?">Buying advice</button>
+    </div>
+    <div class="ai-search-result" id="ai-search-result" role="status" aria-live="polite" hidden>
+      <div class="ai-result-label"><span>✦</span> SMARTPICK AI RESPONSE</div>
+      <div class="ai-result-content" id="ai-search-result-content"></div>
+    </div>
+  </div>
+</div>
 </header>
 <main id="main-content">
 <section class="hero" id="home">
 <div class="hero-content">
-<span class="hero-eyebrow">WELCOME TO SMARTPICK HUB</span>
+<span class="eyebrow">WELCOME TO SMARTPICK HUB</span>
 <h1>Choose Smarter. <span>Live Better.</span></h1>
 <p>
         Discover useful technology, explore helpful ideas, and make
         smarter choices for your everyday life.
       </p>
-<div class="hero-actions">
-<a class="btn" href="technology.html">Explore Technology</a>
+<div class="hero-buttons">
+<a class="btn btn-gold" href="technology.html">Explore Technology</a>
 <a class="btn btn-outline" href="guides.html">Browse Buying Guides</a>
 </div>
-<div class="hero-trust">
+<div class="trust">
 <span>Helpful Information</span>
 <span>Smart Recommendations</span>
 <span>Clear Guidance</span>
 </div>
 </div>
 <div class="hero-visual">
-<div class="hero-visual-card">
-<span class="hero-visual-label">SMARTER EVERYDAY CHOICES</span>
+<div class="visual-card">
+<small>SMARTER EVERYDAY CHOICES</small>
 <h2>Find What Fits Your Needs.</h2>
 <p>Explore ideas, tools, and practical guides.</p>
 </div>
@@ -99,25 +142,58 @@
 </div>
 <div class="card-grid">
 <article class="category-card">
-<h3>AI Tools</h3>
-<p>Explore AI tools that can support creativity, learning, and productivity.</p>
-<a href="technology.html">Explore AI Tools →</a>
-</article>
-<article class="category-card">
-<h3>Technology</h3>
-<p>Discover technology topics, digital tools, and useful innovations.</p>
+<h3>AI &amp; Technology</h3>
+<p>Explore AI tools, software, computers and useful technology products.</p>
 <a href="technology.html">Explore Technology →</a>
 </article>
 <article class="category-card">
+<h3>Electronics &amp; Gadgets</h3>
+<p>Discover practical electronics, smart devices and everyday gadgets.</p>
+<a href="electronics-gadgets.html">Explore Electronics →</a>
+</article>
+<article class="category-card">
 <h3>Kitchen &amp; Home</h3>
-<p>Practical ideas and helpful discoveries for everyday living.</p>
-<a href="technology.html">Explore Category →</a>
+<p>Find useful kitchen tools, home essentials and everyday solutions.</p>
+<a href="kitchen-home.html">Explore Kitchen &amp; Home →</a>
+</article>
+<article class="category-card">
+<h3>Beauty</h3>
+<p>Explore beauty tools and personal-care product picks.</p>
+<a href="beauty.html">Explore Beauty →</a>
+</article>
+<article class="category-card">
+<h3>Fashion</h3>
+<p>Discover fashion accessories and useful style products.</p>
+<a href="fashion.html">Explore Fashion →</a>
+</article>
+<article class="category-card">
+<h3>Health &amp; Fitness</h3>
+<p>Explore fitness equipment and everyday wellness products.</p>
+<a href="health-fitness.html">Explore Health &amp; Fitness →</a>
+</article>
+<article class="category-card">
+<h3>Daily Use</h3>
+<p>Browse practical products for daily routines and everyday needs.</p>
+<a href="daily-use.html">Explore Daily Use →</a>
 </article>
 </div>
 <div class="section-cta">
 <a class="btn" href="technology.html">Explore All Categories</a>
 </div>
 </section>
+
+<section class="section product-catalog-section" id="latest-products" data-product-catalog="all">
+  <div class="section-heading">
+    <span class="eyebrow">SMARTPICK HUB PRODUCT PICKS</span>
+    <h2>Explore All Products</h2>
+    <p>Discover the latest products across every SmartPick Hub category.</p>
+  </div>
+  <div class="catalog-product-grid" data-product-grid aria-live="polite">
+    <p class="catalog-loading">Loading products...</p>
+  </div>
+  <div class="section-cta"><a class="btn" href="products.html">View All Products</a></div>
+</section>
+
 <section class="section featured" id="featured">
 <div class="section-heading">
 <span class="eyebrow">FEATURED TOPICS</span>
@@ -160,14 +236,22 @@
 </div>
 </section>
 <section class="about" id="about">
-<div class="section-heading">
+<div class="about-content">
 <span class="eyebrow">ABOUT US</span>
-<h2>Our Purpose Is Simple</h2>
+<h2>Our Purpose Is <span>Simple</span></h2>
 <p>
         SmartPick Hub aims to make discovering technology and useful
-        products easier through clear, helpful information.
+        products easier through clear, helpful information. We focus on
+        practical guidance so visitors can compare options and choose
+        what fits their needs and budget.
       </p>
-<a class="btn" href="about.html">Learn About Us</a>
+<a class="btn btn-gold" href="about.html">Learn About Us</a>
+</div>
+<div class="about-highlight">
+<span>OUR COMMITMENT</span>
+<h3>Helpful first. Honest always.</h3>
+<p>Recommendations should be clear, useful and transparent—including
+        when a link may earn us an affiliate commission.</p>
 </div>
 </section>
 <section class="disclosure" id="disclosure">
@@ -184,15 +268,19 @@
 </main>
 <footer class="footer">
 <div class="footer-main">
-<a class="logo footer-logo" href="index.html"><span class="logo-mark">SH</span><span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span></a>
+<a class="logo footer-logo" href="index.html"><img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42"><span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span></a>
 <p>Discover smarter choices for technology, software and everyday living.</p>
-<div class="footer-links"><a href="index.html">Home</a><a href="technology.html">Technology</a><a href="featured.html">Featured</a><a href="guides.html">Buying Guides</a><a href="about.html">About</a></div>
+<div class="footer-links"><a href="index.html">Home</a><a href="technology.html">Technology</a><a href="featured.html">Featured</a><a href="guides.html">Buying Guides</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a></div>
 </div>
 <div class="footer-bottom"><p>© 2026 SmartPick Hub. All rights reserved.</p><p>Smart Choices. Better Living.</p></div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
+<script src="api-config.js"></script>
+<script src="assistant.js"></script>
 <script src="auth-nav.js"></script>
 <script src="script.js"></script>
+<script src="outbound-config.js"></script>
+<script src="product-catalog.js"></script>
 </body>
 </html>

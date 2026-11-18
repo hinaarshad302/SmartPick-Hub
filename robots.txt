@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hinaarshad302.github.io/SmartPick-Hub/sitemap.xml

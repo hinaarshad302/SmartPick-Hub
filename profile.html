@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="Manage your SmartPick Hub account and profile.">
     <title>My Account | SmartPick Hub</title>
 
@@ -86,9 +87,9 @@
             display: grid;
             place-items: center;
             border-radius: 50%;
-            background: var(--profile-green);
-            color: var(--profile-gold);
-            border: 3px solid #ead9ad;
+            background: #e8f0e8;
+            color: #244638;
+            border: 3px solid #d6ad55;
             font-size: 29px;
             font-weight: 700;
         }
@@ -245,6 +246,86 @@
             color: var(--profile-green);
         }
 
+        .profile-edit-card h3 {
+            margin: 0 0 18px;
+            color: var(--profile-green);
+            font-size: 17px;
+        }
+
+        #profile-edit-form {
+            display: grid;
+            gap: 10px;
+            max-width: 520px;
+        }
+
+        #profile-edit-form label {
+            color: var(--profile-green);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        #profile-edit-form input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 13px;
+            border: 1px solid var(--profile-border);
+            border-radius: 8px;
+            font: inherit;
+        }
+
+        #profile-edit-form input:focus {
+            outline: 2px solid var(--profile-gold);
+            outline-offset: 2px;
+        }
+
+        #profile-save-button {
+            justify-self: start;
+            padding: 11px 20px;
+            border: 0;
+            border-radius: 7px;
+            background: var(--profile-green);
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        #profile-save-button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        .security-action-button {
+            margin-top: 14px;
+            padding: 11px 18px;
+            border: 1px solid #a33b32;
+            border-radius: 7px;
+            background: #fff;
+            color: #a33b32;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .security-action-button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        #security-message {
+            min-height: 20px;
+            margin: 10px 0 0;
+            color: var(--profile-muted);
+            font-size: 13px;
+        }
+
+        #profile-edit-message {
+            min-height: 20px;
+            margin: 2px 0 0;
+            color: var(--profile-green);
+            font-size: 13px;
+        }
+
         .account-error {
             display: none;
             max-width: 700px;
@@ -287,7 +368,7 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
+    .logo-mark { width:48px;height:48px;display:block;flex:0 0 48px;object-fit:contain;border-radius:0;box-shadow:none; }</style>
 </head>
 
 <body>
@@ -295,7 +376,7 @@
 <header class="header">
     <div class="navbar">
         <a class="logo" href="index.html">
-            <span class="logo-mark">SH</span>
+            <img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42">
             <span class="logo-text">
                 <strong>SmartPick Hub</strong>
                 <small>SMART CHOICES. BETTER LIVING.</small>
@@ -312,6 +393,7 @@
             <a href="index.html">Home</a>
             <a href="technology.html">Technology</a>
             <a href="featured.html">Featured</a>
+<a href="products.html">Shop Products</a>
             <a href="guides.html">Buying Guides</a>
             <a href="about.html">About</a>
             <a href="auth.html" id="login-nav-link">Login / Sign Up</a>
@@ -404,6 +486,41 @@
         </div>
 
         <div class="section-heading">
+            <h2>Edit Your Profile</h2>
+            <p>Update the name shown in your SmartPick Hub account.</p>
+        </div>
+
+        <section class="account-card profile-edit-card" aria-labelledby="profile-edit-title">
+            <h3 id="profile-edit-title">Personal details</h3>
+            <form id="profile-edit-form">
+                <label for="profile-display-name">Display name</label>
+                <input id="profile-display-name" name="display_name" type="text"
+                       minlength="2" maxlength="60" autocomplete="name"
+                       required placeholder="Enter your name">
+                <button type="submit" id="profile-save-button">Save changes</button>
+                <p id="profile-edit-message" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <div class="section-heading">
+            <h2>Account Security</h2>
+            <p>Manage access to your SmartPick Hub account.</p>
+        </div>
+
+        <section class="account-card profile-edit-card" aria-labelledby="security-title">
+            <h3 id="security-title">Sign out of all devices</h3>
+            <p class="card-description">
+                Use this if you signed in on a shared or lost device.
+                This will end your active sessions and require you to log in again.
+            </p>
+            <button type="button" id="global-signout-button"
+                    class="security-action-button">
+                Sign out of all devices
+            </button>
+            <p id="security-message" role="status" aria-live="polite"></p>
+        </section>
+
+        <div class="section-heading">
             <h2>Explore SmartPick Hub</h2>
             <p>Continue discovering useful products, tools and information.</p>
         </div>
@@ -443,7 +560,7 @@
 <footer class="footer">
     <div class="footer-bottom">
         <p>© 2026 SmartPick Hub. All rights reserved.</p>
-        <p>Smart Choices. Better Living.</p>
+        <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="affiliate-disclosure.html">Affiliate Disclosure</a></p>
     </div>
 </footer>
 
@@ -499,7 +616,98 @@
                     { year: "numeric", month: "long", day: "numeric" }
                   )
                 : "Not available";
+
+        document.getElementById("profile-display-name").value = displayName;
     }
+
+    profilePageClient.auth.onAuthStateChange((event) => {
+        if (event === "SIGNED_OUT") {
+            window.location.replace("auth.html");
+        }
+    });
+
+    const globalSignoutButton =
+        document.getElementById("global-signout-button");
+    const securityMessage = document.getElementById("security-message");
+
+    globalSignoutButton.addEventListener("click", async () => {
+        const confirmed = window.confirm(
+            "Sign out of SmartPick Hub on all devices? You will need to log in again."
+        );
+
+        if (!confirmed) return;
+
+        globalSignoutButton.disabled = true;
+        globalSignoutButton.textContent = "Signing out...";
+        securityMessage.textContent = "";
+
+        try {
+            const { error } = await profilePageClient.auth.signOut({
+                scope: "global"
+            });
+
+            if (error) throw error;
+
+            securityMessage.textContent =
+                "You have been signed out. Redirecting to login...";
+            window.location.replace("auth.html");
+        } catch (error) {
+            securityMessage.textContent =
+                "We could not sign out all devices. Please try again.";
+            globalSignoutButton.disabled = false;
+            globalSignoutButton.textContent = "Sign out of all devices";
+        }
+    });
+
+    const profileEditForm = document.getElementById("profile-edit-form");
+    const profileSaveButton = document.getElementById("profile-save-button");
+    const profileEditMessage = document.getElementById("profile-edit-message");
+
+    profileEditForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        profileEditMessage.textContent = "";
+
+        const displayName = document
+            .getElementById("profile-display-name")
+            .value.trim();
+
+        if (displayName.length < 2 || displayName.length > 60) {
+            profileEditMessage.textContent =
+                "Name must be between 2 and 60 characters.";
+            return;
+        }
+
+        profileSaveButton.disabled = true;
+        profileSaveButton.textContent = "Saving...";
+
+        try {
+            const { data, error } = await profilePageClient.auth.updateUser({
+                data: { full_name: displayName }
+            });
+
+            if (error) throw error;
+
+            const savedName =
+                data.user?.user_metadata?.full_name || displayName;
+            const initial = savedName.trim().charAt(0).toUpperCase() || "U";
+
+            document.getElementById("account-name").textContent = savedName;
+            document.getElementById("account-avatar").textContent = initial;
+            profileEditMessage.textContent = "Your profile name was updated.";
+
+            if (typeof updateSmartPickNavigation === "function") {
+                const { data: sessionData } =
+                    await profilePageClient.auth.getSession();
+                updateSmartPickNavigation(sessionData.session);
+            }
+        } catch (error) {
+            profileEditMessage.textContent =
+                "We could not save your changes. Please try again.";
+        } finally {
+            profileSaveButton.disabled = false;
+            profileSaveButton.textContent = "Save changes";
+        }
+    });
 
     loadAccountProfile().catch(error => {
         console.error("Profile loading error:", error);

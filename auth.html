@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <meta name="description" content="Sign in or create your SmartPick Hub account.">
     <title>Login / Sign Up | SmartPick Hub</title>
     <link rel="stylesheet" href="style.css">
@@ -11,7 +12,7 @@
 
 <header class="header">
     <div class="navbar">
-        <a class="logo" href="index.html">SmartPick Hub</a>
+        <a class="logo" href="index.html"><img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42"><span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span></a>
         <a href="index.html">Back to Home</a>
     </div>
 </header>
@@ -51,16 +52,29 @@
                 </div>
             </div>
 
+            <div id="auth-consent-group" hidden>
+                <label class="auth-consent-label" for="auth-consent">
+                    <input type="checkbox" id="auth-consent">
+                    I agree to the <a href="terms.html" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+                    and have read the <a href="privacy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>.
+                </label>
+            </div>
+
             <button type="submit" id="auth-submit">Login</button>
         </form>
 
         <p id="auth-message" role="status" aria-live="polite"></p>
+
+        <p id="forgot-password-row">
+            <button type="button" id="forgot-password">Forgot password?</button>
+        </p>
 
         <p>
             <span id="auth-switch-text">Don't have an account?</span>
             <button type="button" id="auth-switch">Sign Up</button>
         </p>
 
+        <p class="auth-legal-links"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a></p>
         <a href="index.html">Return to Homepage</a>
     </section>
 </main>

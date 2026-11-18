@@ -7,7 +7,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--dark);background:var(--white);
 a{text-decoration:none;color:inherit}
 .header{background:var(--green);position:sticky;top:0;z-index:20;box-shadow:0 4px 20px #071b1630}
 .navbar{max-width:1200px;margin:auto;padding:15px 28px;display:flex;align-items:center;justify-content:space-between;gap:25px}
-.logo{display:flex;align-items:center;gap:12px;color:white;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:12px;color:white;flex-shrink:0}.logo-mark{width:48px;height:48px;display:block;flex:0 0 48px;object-fit:contain;border-radius:0;box-shadow:none}
 
 .logo-text{display:flex;flex-direction:column;line-height:1.3}
 .logo-text strong{font-size:18px;letter-spacing:.2px}
@@ -1990,4 +1990,1666 @@ button:focus-visible {
 /* Hide only profile dropdown arrow */
 .profile-chevron {
     display: none !important;
+}
+
+
+/* Consent controls */
+.auth-consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 14px 0;
+  color: #58665f;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+}
+.auth-consent-label input {
+  flex: 0 0 auto;
+  width: auto;
+  margin: 3px 0 0;
+}
+.auth-consent-label a,
+.auth-legal-links a {
+  color: #1D493D;
+  text-decoration: underline;
+}
+.auth-legal-links {
+  font-size: 13px;
+}
+.newsletter-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 16px 0 8px;
+  text-align: left;
+  color: #58665f;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.newsletter-consent input {
+  width: auto;
+  flex: 0 0 auto;
+  margin: 3px 0 0;
+}
+.newsletter-consent a {
+  color: #1D493D;
+  text-decoration: underline;
+}
+
+
+/* =========================================
+   SMARTPICK AI SEARCH - LIGHT HEADER PANEL
+========================================= */
+.header{background:#fff;color:var(--green);box-shadow:0 5px 24px rgba(16,45,39,.07)}
+.header .navbar{border-bottom:1px solid #edf0eb}
+.header .logo{color:var(--green)}
+.header nav{color:#34453e}
+.header nav a:hover{color:#9a762c}
+.header .menu-toggle{border-color:var(--gold);color:var(--green)}
+.ai-search-section{background:linear-gradient(180deg,#fff 0%,#fbfaf6 100%);padding:18px 22px 22px;border-bottom:1px solid #eeeae1}
+.ai-search-inner{max-width:930px;margin:0 auto}
+.ai-search-heading{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.ai-search-spark{color:#bd9140;font-size:17px}
+.ai-search-kicker{font-size:11px;font-weight:800;letter-spacing:1.8px;color:var(--green)}
+.ai-search-caption{font-size:12px;color:#7b857e}
+.ai-search-form{display:flex;align-items:center;gap:12px;min-height:66px;padding:8px 9px 8px 19px;background:#fff;border:1.5px solid #d9c28d;border-radius:16px;box-shadow:0 7px 22px rgba(16,45,39,.07);transition:border-color .2s,box-shadow .2s}
+.ai-search-form:focus-within{border-color:#b68a37;box-shadow:0 0 0 4px rgba(214,173,85,.15),0 9px 25px rgba(16,45,39,.08)}
+.ai-search-icon{font-size:27px;line-height:1;color:#9a762c}
+.ai-search-form input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#24332d;font:500 15px 'DM Sans',sans-serif}
+.ai-search-form input::placeholder{color:#929b95}
+.ai-search-form button{border:0;border-radius:10px;background:var(--green);color:#fff;padding:13px 23px;font:700 13px 'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;transition:background .2s,transform .2s}
+.ai-search-form button:hover{background:#1d493d;transform:translateY(-1px)}
+.ai-search-form button:disabled{opacity:.65;cursor:wait;transform:none}
+.ai-search-suggestions{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:11px}
+.ai-search-suggestions button{border:1px solid #e8e4d9;background:#fff;color:#59665f;border-radius:999px;padding:6px 12px;font:500 11px 'DM Sans',sans-serif;cursor:pointer}
+.ai-search-suggestions button:hover{border-color:#c6a45e;color:var(--green);background:#fffdf8}
+.ai-search-result{margin-top:16px;padding:18px 20px;background:#fff;border:1px solid #e9e3d5;border-left:3px solid var(--gold);border-radius:12px;box-shadow:0 8px 24px rgba(16,45,39,.05)}
+.ai-result-label{font-size:10px;letter-spacing:1.2px;font-weight:800;color:#8b6b2e;margin-bottom:10px}
+.ai-result-content{color:#34443c;font-size:14px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}
+.ai-search-result.is-error{border-left-color:#b65a4a}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:650px){
+ .ai-search-section{padding:15px 14px 18px}
+ .ai-search-caption{width:100%;text-align:center}
+ .ai-search-form{min-height:58px;padding:7px 7px 7px 13px;gap:8px;border-radius:12px}
+ .ai-search-form input{font-size:13px}
+ .ai-search-form input::placeholder{font-size:12px}
+ .ai-search-form button{padding:12px 13px;font-size:12px}
+ .ai-search-suggestions{justify-content:flex-start}
+ .ai-search-suggestions button{font-size:10px}
+}
+
+
+/* =========================================
+   SMARTPICK HUB - LIGHT, COMPACT HOMEPAGE
+   Alibaba-inspired layout; original branding
+========================================= */
+
+:root {
+  --green: #315b49;
+  --green-light: #4f7964;
+  --gold: #c6a45e;
+  --cream: #f3f7f3;
+  --dark: #26352e;
+  --muted: #68776e;
+}
+
+/* Compact navigation header */
+.header {
+  background: #ffffff !important;
+  box-shadow: 0 3px 16px rgba(39, 77, 59, .07) !important;
+}
+.navbar {
+  min-height: 62px !important;
+  padding: 8px 24px !important;
+  gap: 18px !important;
+}
+.logo-mark {
+  width: 38px !important;
+  height: 38px !important;
+  flex-basis: 38px !important;
+}
+.logo {
+  gap: 9px !important;
+}
+.logo-text strong {
+  font-size: 16px !important;
+}
+.logo-text small {
+  font-size: 8px !important;
+  letter-spacing: 1px !important;
+  color: #87998d !important;
+}
+.header nav {
+  gap: 17px !important;
+  font-size: 12px !important;
+}
+.header nav a {
+  color: #40564a;
+}
+.header .nav-cta {
+  padding: 8px 13px !important;
+  border-radius: 6px !important;
+  background: #e5eee7 !important;
+  color: #315b49 !important;
+}
+
+/* Slimmer, more balanced AI search area */
+.ai-search-section {
+  padding: 10px 20px 13px !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8f4 100%) !important;
+  border-bottom: 1px solid #e7eee8 !important;
+}
+.ai-search-inner {
+  max-width: 820px !important;
+}
+.ai-search-heading {
+  margin-bottom: 7px !important;
+  gap: 7px !important;
+}
+.ai-search-kicker {
+  color: #315b49 !important;
+  font-size: 10px !important;
+}
+.ai-search-caption {
+  color: #829087 !important;
+  font-size: 11px !important;
+}
+.ai-search-form {
+  min-height: 48px !important;
+  padding: 5px 6px 5px 14px !important;
+  gap: 9px !important;
+  border: 1px solid #d5e2d8 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 3px 12px rgba(49, 91, 73, .06) !important;
+}
+.ai-search-form:focus-within {
+  border-color: #91b29c !important;
+  box-shadow: 0 0 0 3px rgba(91, 139, 106, .11) !important;
+}
+.ai-search-icon {
+  font-size: 22px !important;
+  color: #668b72 !important;
+}
+.ai-search-form input {
+  font-size: 13px !important;
+}
+.ai-search-form button {
+  padding: 9px 15px !important;
+  border-radius: 7px !important;
+  background: #47765b !important;
+  font-size: 12px !important;
+}
+.ai-search-form button:hover {
+  background: #365f49 !important;
+}
+.ai-search-suggestions {
+  margin-top: 8px !important;
+  gap: 7px !important;
+}
+.ai-search-suggestions button {
+  padding: 5px 10px !important;
+  border-color: #e1e9e1 !important;
+  background: #ffffff !important;
+  color: #64766a !important;
+  font-size: 10px !important;
+}
+.ai-search-suggestions button:hover {
+  background: #edf4ee !important;
+  border-color: #bfd2c2 !important;
+  color: #315b49 !important;
+}
+
+/* Lighter green theme across homepage feature sections */
+.hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(198, 164, 94, .13), transparent 32%),
+    linear-gradient(120deg, #e8f1e9, #f3f7f1) !important;
+  color: #263b30 !important;
+}
+.hero h1,
+.hero h1 span {
+  color: #315b49 !important;
+}
+.hero h1 span {
+  color: #668b72 !important;
+}
+.hero-content > p,
+.trust {
+  color: #607267 !important;
+}
+.btn-outline {
+  border-color: #9ab5a0 !important;
+  color: #315b49 !important;
+}
+.btn-gold {
+  background: #c6a45e !important;
+  color: #263b30 !important;
+}
+.visual-card {
+  background: rgba(255, 255, 255, .82) !important;
+  border: 1px solid #dce8dd !important;
+  box-shadow: 0 16px 40px rgba(49, 91, 73, .10) !important;
+  color: #315b49 !important;
+}
+.visual-card small,
+.visual-card p {
+  color: #6b7e71 !important;
+}
+.visual-card h2 {
+  color: #315b49 !important;
+}
+.about {
+  background: #eaf2eb !important;
+  color: #2d4034 !important;
+}
+.about-content > p,
+.about-highlight p {
+  color: #617368 !important;
+}
+.about h2,
+.about-highlight h3 {
+  color: #315b49 !important;
+}
+.about-highlight {
+  background: #ffffff !important;
+  border-color: #dce8dd !important;
+}
+.about-highlight span {
+  color: #9a783c !important;
+}
+.footer {
+  background: #dfeae1 !important;
+  color: #315b49 !important;
+}
+.footer-main > p,
+.footer-links,
+.footer-bottom {
+  color: #617368 !important;
+}
+.footer-links a:hover {
+  color: #9a783c !important;
+}
+.footer-bottom {
+  border-top-color: #cbd9ce !important;
+}
+
+/* Keep the compact header usable on tablets and phones */
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 60px !important;
+    padding: 9px 18px !important;
+  }
+  .header nav {
+    gap: 12px !important;
+  }
+}
+@media (max-width: 650px) {
+  .navbar {
+    padding: 9px 15px !important;
+  }
+  .logo-mark {
+    width: 36px !important;
+    height: 36px !important;
+    flex-basis: 36px !important;
+  }
+  .ai-search-section {
+    padding: 10px 14px 12px !important;
+  }
+  .ai-search-form {
+    min-height: 45px !important;
+    padding: 5px 6px 5px 10px !important;
+  }
+  .ai-search-form button {
+    padding: 8px 11px !important;
+  }
+  .hero {
+    background: linear-gradient(145deg, #e8f1e9, #f5f8f3) !important;
+  }
+}
+
+
+/* Final size refinement: extra-compact header and search */
+.navbar {
+  min-height: 50px !important;
+  padding: 5px 22px !important;
+  gap: 14px !important;
+}
+.logo-mark {
+  width: 32px !important;
+  height: 32px !important;
+  flex-basis: 32px !important;
+}
+.logo-text strong {
+  font-size: 14px !important;
+}
+.logo-text small {
+  font-size: 7px !important;
+}
+.header nav {
+  gap: 14px !important;
+  font-size: 11px !important;
+}
+.header .nav-cta {
+  padding: 6px 10px !important;
+  font-size: 11px !important;
+}
+.ai-search-section {
+  padding: 7px 18px 9px !important;
+}
+.ai-search-heading {
+  margin-bottom: 5px !important;
+}
+.ai-search-kicker {
+  font-size: 9px !important;
+}
+.ai-search-caption {
+  font-size: 10px !important;
+}
+.ai-search-form {
+  min-height: 40px !important;
+  padding: 4px 5px 4px 11px !important;
+  gap: 7px !important;
+  border-radius: 8px !important;
+}
+.ai-search-icon {
+  font-size: 19px !important;
+}
+.ai-search-form input {
+  font-size: 12px !important;
+}
+.ai-search-form button {
+  padding: 7px 12px !important;
+  font-size: 11px !important;
+  border-radius: 6px !important;
+}
+.ai-search-suggestions {
+  margin-top: 6px !important;
+  gap: 6px !important;
+}
+.ai-search-suggestions button {
+  padding: 4px 8px !important;
+  font-size: 9px !important;
+}
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 48px !important;
+    padding: 5px 16px !important;
+  }
+}
+@media (max-width: 650px) {
+  .navbar {
+    min-height: 46px !important;
+    padding: 5px 13px !important;
+  }
+  .logo-mark {
+    width: 30px !important;
+    height: 30px !important;
+    flex-basis: 30px !important;
+  }
+  .ai-search-section {
+    padding: 7px 12px 8px !important;
+  }
+  .ai-search-form {
+    min-height: 38px !important;
+    padding: 4px 5px 4px 9px !important;
+  }
+  .ai-search-form button {
+    padding: 7px 9px !important;
+  }
+}
+
+
+/* Professional final proportions for desktop and mobile */
+.navbar {
+  min-height: 56px !important;
+  padding: 7px 24px !important;
+  gap: 18px !important;
+}
+.logo {
+  gap: 8px !important;
+}
+.logo-mark {
+  width: 34px !important;
+  height: 34px !important;
+  flex-basis: 34px !important;
+}
+.logo-text strong {
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+}
+.logo-text small {
+  font-size: 7.5px !important;
+  letter-spacing: .9px !important;
+}
+.header nav {
+  gap: 16px !important;
+  font-size: 12px !important;
+}
+.header .nav-cta {
+  padding: 7px 12px !important;
+  font-size: 11px !important;
+}
+.ai-search-section {
+  padding: 8px 18px 10px !important;
+}
+.ai-search-inner {
+  max-width: 760px !important;
+}
+.ai-search-heading {
+  margin-bottom: 5px !important;
+}
+.ai-search-kicker {
+  font-size: 9px !important;
+  letter-spacing: 1.3px !important;
+}
+.ai-search-caption {
+  font-size: 10px !important;
+}
+.ai-search-form {
+  min-height: 42px !important;
+  padding: 4px 5px 4px 12px !important;
+  gap: 8px !important;
+  border-radius: 8px !important;
+}
+.ai-search-icon {
+  font-size: 18px !important;
+}
+.ai-search-form input {
+  font-size: 12px !important;
+}
+.ai-search-form button {
+  padding: 7px 13px !important;
+  font-size: 11px !important;
+}
+.ai-search-suggestions {
+  margin-top: 6px !important;
+  gap: 6px !important;
+}
+.ai-search-suggestions button {
+  padding: 4px 8px !important;
+  font-size: 9px !important;
+}
+@media (max-width: 900px) {
+  .navbar {
+    min-height: 54px !important;
+    padding: 7px 17px !important;
+  }
+  .header nav {
+    gap: 12px !important;
+  }
+}
+@media (max-width: 650px) {
+  .navbar {
+    min-height: 52px !important;
+    padding: 7px 13px !important;
+  }
+  .logo-mark {
+    width: 32px !important;
+    height: 32px !important;
+    flex-basis: 32px !important;
+  }
+  .ai-search-section {
+    padding: 7px 12px 9px !important;
+  }
+  .ai-search-form {
+    min-height: 40px !important;
+    padding: 4px 5px 4px 9px !important;
+  }
+  .ai-search-form button {
+    padding: 7px 10px !important;
+  }
+}
+
+
+/* =========================================
+   SMARTPICK HUB — REFINED BRAND CONTRAST
+   Preserve compact layout; deepen brand colors
+========================================= */
+:root {
+  --green: #244638;
+  --green-light: #3f6a53;
+  --gold: #bd974d;
+  --cream: #edf3ee;
+  --dark: #26342d;
+  --muted: #5d6c62;
+  --border: #dce5dd;
+  --shadow: 0 14px 34px rgba(27, 62, 46, .10);
+}
+
+/* Stronger readable text and balanced pale-green surfaces */
+body {
+  color: #26342d;
+  background: #ffffff;
+}
+.header nav,
+.header nav a {
+  color: #34483c;
+}
+.header nav a:hover {
+  color: #987331;
+}
+.header .nav-cta {
+  background: #e1ebe3 !important;
+  color: #244638 !important;
+}
+.hero {
+  background:
+    radial-gradient(circle at 85% 20%, rgba(189,151,77,.14), transparent 32%),
+    linear-gradient(120deg, #e2ece4 0%, #edf3ed 100%) !important;
+  color: #263b30 !important;
+}
+.hero h1,
+.hero h1 span,
+.visual-card h2 {
+  color: #244638 !important;
+}
+.hero h1 span {
+  color: #527b60 !important;
+}
+.hero-content > p,
+.trust {
+  color: #53675a !important;
+}
+.eyebrow,
+.dark-eyebrow,
+.tag {
+  color: #987331;
+}
+.btn-gold {
+  background: #bd974d !important;
+  color: #1f3529 !important;
+}
+.btn-gold:hover {
+  background: #c9a65f !important;
+}
+.btn-outline {
+  border-color: #8eaa96 !important;
+  color: #244638 !important;
+}
+.visual-card {
+  border-color: #d3e0d5 !important;
+  box-shadow: 0 16px 38px rgba(36,70,56,.12) !important;
+}
+.visual-card small,
+.visual-card p {
+  color: #5d7163 !important;
+}
+.featured,
+.disclosure {
+  background: #edf3ee !important;
+}
+.category-card,
+.topic-card,
+.guide-placeholder,
+.about-highlight {
+  border-color: #dce5dd;
+}
+.category-card p,
+.topic-card p,
+.section-heading p,
+.disclosure p {
+  color: #5d6c62;
+}
+.category-card > a,
+.topic-card > a {
+  color: #315a45;
+}
+.about {
+  background: #e2ece4 !important;
+  color: #263b30 !important;
+}
+.about-content > p,
+.about-highlight p {
+  color: #52675a !important;
+}
+.about h2,
+.about-highlight h3 {
+  color: #244638 !important;
+}
+.about-highlight {
+  background: #ffffff !important;
+  border-color: #d5e1d7 !important;
+}
+.about-highlight span {
+  color: #987331 !important;
+}
+
+/* A deeper footer creates a clear, premium page finish */
+.footer {
+  background: #244638 !important;
+  color: #f5f7f3 !important;
+}
+.footer-main > p,
+.footer-links {
+  color: #e0e9e1 !important;
+}
+.footer-links a:hover {
+  color: #e0bd73 !important;
+}
+.footer-bottom {
+  color: #d0ded2 !important;
+  border-top-color: rgba(255,255,255,.22) !important;
+}
+.ai-search-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f5f8f5 100%) !important;
+}
+.ai-search-kicker {
+  color: #244638 !important;
+}
+.ai-search-form {
+  border-color: #cbdace !important;
+}
+.ai-search-form button {
+  background: #315b49 !important;
+}
+.ai-search-form button:hover {
+  background: #244638 !important;
+}
+
+
+/* Readability refinement: near-black typography on light surfaces */
+body {
+  color: #171d19 !important;
+}
+.section-heading h2,
+.disclosure h2,
+.category-card h3,
+.topic-card h3,
+.guide-placeholder h3 {
+  color: #171d19 !important;
+}
+.section-heading p,
+.category-card p,
+.topic-card p,
+.disclosure p,
+.guide-placeholder p,
+.affiliate-note {
+  color: #303b34 !important;
+}
+.category-card > a,
+.topic-card > a,
+.section-cta a {
+  color: #244638;
+}
+.about,
+.about h2,
+.about-highlight h3 {
+  color: #171d19 !important;
+}
+.about-content > p,
+.about-highlight p {
+  color: #303b34 !important;
+}
+/* Keep the dark footer readable with light text */
+.footer {
+  color: #f5f7f3 !important;
+}
+.footer-main > p,
+.footer-links,
+.footer-bottom {
+  color: #e0e9e1 !important;
+}
+
+
+/* =========================================
+   HOMEPAGE TYPOGRAPHY — CLEARER HIERARCHY
+   Larger reading text; keep header compact
+========================================= */
+body {
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Main hero: confident, readable first impression */
+.hero h1 {
+  font-size: clamp(44px, 5.2vw, 62px) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -1.1px !important;
+}
+.hero-content > p {
+  font-size: 16px !important;
+  line-height: 1.85 !important;
+}
+.visual-card h2 {
+  font-size: clamp(30px, 3vw, 36px) !important;
+}
+.visual-card p {
+  font-size: 13px !important;
+  line-height: 1.75 !important;
+}
+
+/* Clear section-heading hierarchy */
+.section-heading h2,
+.disclosure h2 {
+  font-size: clamp(34px, 3.4vw, 40px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.45px;
+}
+.section-heading p,
+.disclosure p {
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+}
+.eyebrow,
+.dark-eyebrow {
+  font-size: 10px !important;
+  letter-spacing: 1.8px !important;
+}
+
+/* Cards: stronger titles and comfortable paragraph size */
+.category-card h3,
+.topic-card h3 {
+  font-size: 21px !important;
+  line-height: 1.35 !important;
+  margin-bottom: 12px !important;
+}
+.category-card p,
+.topic-card p {
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+  min-height: 76px;
+}
+.category-card > a,
+.topic-card > a {
+  font-size: 13px !important;
+}
+.guide-placeholder h3 {
+  font-size: 27px !important;
+}
+.guide-placeholder p {
+  font-size: 14px !important;
+  line-height: 1.8 !important;
+}
+.affiliate-note {
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+
+/* About and footer text should not look like fine print */
+.about-content > p,
+.about-highlight p {
+  font-size: 14px !important;
+  line-height: 1.85 !important;
+}
+.about-highlight h3 {
+  font-size: 26px !important;
+  line-height: 1.3 !important;
+}
+.footer-main > p,
+.footer-links {
+  font-size: 13px !important;
+}
+.footer-bottom {
+  font-size: 12px !important;
+}
+
+/* Search remains compact, with readable input */
+.ai-search-form input {
+  font-size: 13px !important;
+}
+.ai-search-suggestions button {
+  font-size: 10px !important;
+}
+
+/* Tablet and mobile typography */
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: clamp(40px, 5.4vw, 50px) !important;
+  }
+  .category-card h3,
+  .topic-card h3 {
+    font-size: 19px !important;
+  }
+}
+@media (max-width: 650px) {
+  body {
+    font-size: 14.5px !important;
+  }
+  .hero h1 {
+    font-size: clamp(38px, 10vw, 46px) !important;
+    line-height: 1.15 !important;
+  }
+  .hero-content > p {
+    font-size: 15px !important;
+  }
+  .section-heading h2,
+  .disclosure h2 {
+    font-size: 32px !important;
+  }
+  .section-heading p,
+  .category-card p,
+  .topic-card p,
+  .disclosure p,
+  .guide-placeholder p {
+    font-size: 14px !important;
+  }
+  .category-card h3,
+  .topic-card h3 {
+    font-size: 20px !important;
+  }
+  .category-card p,
+  .topic-card p {
+    min-height: 0;
+  }
+  .about-content > p,
+  .about-highlight p {
+    font-size: 14px !important;
+  }
+}
+
+
+/* AI search text: darker, clearer contrast */
+.ai-search-kicker,
+.ai-search-caption,
+.ai-search-form input,
+.ai-search-form input::placeholder,
+.ai-search-suggestions button {
+  color: #171d19 !important;
+}
+.ai-search-form input::placeholder {
+  opacity: 1 !important;
+  color: #303b34 !important;
+}
+.ai-search-suggestions button {
+  color: #202a23 !important;
+}
+.ai-search-suggestions button:hover {
+  color: #111a14 !important;
+}
+.ai-search-form button {
+  color: #ffffff !important;
+}
+
+
+/* Homepage: use dark charcoal/black for primary typography */
+.hero h1,
+.hero h1 span,
+.visual-card h2,
+.section-heading h2,
+.disclosure h2,
+.category-card h3,
+.topic-card h3,
+.guide-placeholder h3,
+.about h2,
+.about-highlight h3 {
+  color: #171a18 !important;
+}
+.hero-content > p,
+.trust,
+.visual-card small,
+.visual-card p,
+.section-heading p,
+.category-card p,
+.topic-card p,
+.guide-placeholder p,
+.disclosure p,
+.about-content > p,
+.about-highlight p {
+  color: #252c27 !important;
+}
+.eyebrow,
+.dark-eyebrow,
+.tag,
+.about-highlight span,
+.ai-search-kicker {
+  color: #252c27 !important;
+}
+.ai-search-caption,
+.ai-search-form input,
+.ai-search-suggestions button {
+  color: #252c27 !important;
+}
+
+
+/* HOMEPAGE STRICT REQUEST: all visible website typography in dark black */
+body:has(main#main-content) {
+  color: #111111 !important;
+}
+body:has(main#main-content) .header,
+body:has(main#main-content) .header *,
+body:has(main#main-content) main *,
+body:has(main#main-content) .footer,
+body:has(main#main-content) .footer * {
+  color: #111111 !important;
+}
+
+/* Keep all areas light so black typography remains readable */
+body:has(main#main-content) .header {
+  background: #ffffff !important;
+}
+body:has(main#main-content) .hero,
+body:has(main#main-content) .about,
+body:has(main#main-content) .featured,
+body:has(main#main-content) .disclosure {
+  background: #edf3ee !important;
+}
+body:has(main#main-content) .footer {
+  background: #e2ece4 !important;
+}
+body:has(main#main-content) .ai-search-form button,
+body:has(main#main-content) .btn-gold,
+body:has(main#main-content) .nav-cta {
+  background: #bd974d !important;
+  color: #111111 !important;
+}
+body:has(main#main-content) .btn-outline {
+  color: #111111 !important;
+  border-color: #52675a !important;
+}
+
+
+/* Hero trust points: explicitly force all three labels to black */
+body:has(main#main-content) .hero .trust,
+body:has(main#main-content) .hero .trust span {
+  color: #000000 !important;
+}
+
+
+/* INTERACTIVE HOVER — navigation links and main action buttons */
+body:has(main#main-content) .header nav > a:not(.nav-cta) {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transition: color .22s ease, transform .22s ease;
+}
+body:has(main#main-content) .header nav > a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: -5px;
+  height: 2px;
+  border-radius: 99px;
+  background: #bd974d;
+  transition: left .22s ease, right .22s ease;
+}
+body:has(main#main-content) .header nav > a:not(.nav-cta):hover {
+  color: #a77d32 !important;
+  transform: translateY(-2px);
+}
+body:has(main#main-content) .header nav > a:not(.nav-cta):hover::after {
+  left: 0;
+  right: 0;
+}
+body:has(main#main-content) .header nav > a.nav-cta,
+body:has(main#main-content) .hero-buttons .btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: color .25s ease, background-color .25s ease,
+              border-color .25s ease, transform .25s ease,
+              box-shadow .25s ease;
+}
+body:has(main#main-content) .header nav > a.nav-cta::before,
+body:has(main#main-content) .hero-buttons .btn::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -35%;
+  opacity: 0;
+  transform: scale(.55);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 25% 40%, rgba(255,255,255,.75) 0 4px, transparent 5px),
+    radial-gradient(circle at 65% 28%, rgba(255,255,255,.55) 0 3px, transparent 4px),
+    radial-gradient(circle at 76% 70%, rgba(255,255,255,.65) 0 5px, transparent 6px),
+    radial-gradient(circle at 38% 78%, rgba(255,255,255,.45) 0 3px, transparent 4px);
+  transition: opacity .25s ease, transform .35s ease;
+  pointer-events: none;
+}
+body:has(main#main-content) .header nav > a.nav-cta:hover,
+body:has(main#main-content) .hero-buttons .btn:hover {
+  color: #ffffff !important;
+  background-color: #244638 !important;
+  border-color: #244638 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px rgba(36,70,56,.22);
+}
+body:has(main#main-content) .header nav > a.nav-cta:hover::before,
+body:has(main#main-content) .hero-buttons .btn:hover::before {
+  opacity: 1;
+  transform: scale(1);
+  animation: smartpick-bubbles .8s ease-out both;
+}
+@keyframes smartpick-bubbles {
+  0% { transform: scale(.55) translateY(10px); opacity: 0; }
+  45% { opacity: .9; }
+  100% { transform: scale(1.08) translateY(-5px); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(main#main-content) .header nav > a,
+  body:has(main#main-content) .header nav > a::after,
+  body:has(main#main-content) .header nav > a.nav-cta,
+  body:has(main#main-content) .hero-buttons .btn {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* FINAL HOVER POLISH — visible color shift + floating bubble effect */
+@keyframes sh-nav-bubble-rise {
+  0%   { transform: translateY(8px) scale(.35); opacity: 0; }
+  35%  { opacity: .85; }
+  100% { transform: translateY(-13px) scale(1.15); opacity: 0; }
+}
+@keyframes sh-button-bubble {
+  0%   { background-position: 12% 115%, 42% 120%, 72% 112%, 90% 118%; }
+  100% { background-position: 12% -25%, 42% -35%, 72% -20%, 90% -30%; }
+}
+body:has(main#main-content) #site-nav > a:not(.nav-cta) {
+  isolation: isolate;
+  overflow: visible;
+  border-radius: 6px;
+  transition: color .2s ease, background-color .2s ease, transform .2s ease;
+}
+body:has(main#main-content) #site-nav > a:not(.nav-cta)::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: -3px;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle, rgba(189,151,77,.85) 0 3px, transparent 4px) 12% 100% / 9px 9px no-repeat,
+    radial-gradient(circle, rgba(189,151,77,.65) 0 2px, transparent 3px) 48% 100% / 7px 7px no-repeat,
+    radial-gradient(circle, rgba(189,151,77,.8) 0 3px, transparent 4px) 82% 100% / 9px 9px no-repeat;
+}
+body:has(main#main-content) #site-nav > a:not(.nav-cta):hover {
+  color: #a77d32 !important;
+  background-color: rgba(189,151,77,.10);
+  transform: translateY(-2px);
+}
+body:has(main#main-content) #site-nav > a:not(.nav-cta):hover::before {
+  opacity: 1;
+  animation: sh-nav-bubble-rise .75s ease-out both;
+}
+body:has(main#main-content) #site-nav > a.nav-cta,
+body:has(main#main-content) .hero-buttons a.btn {
+  overflow: hidden;
+  isolation: isolate;
+  transition: color .22s ease, background-color .22s ease, border-color .22s ease,
+              transform .22s ease, box-shadow .22s ease;
+}
+body:has(main#main-content) #site-nav > a.nav-cta::before,
+body:has(main#main-content) .hero-buttons a.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(circle, rgba(255,255,255,.85) 0 3px, transparent 4px) 12% 110% / 10px 10px no-repeat,
+    radial-gradient(circle, rgba(255,255,255,.65) 0 2px, transparent 3px) 38% 115% / 8px 8px no-repeat,
+    radial-gradient(circle, rgba(255,255,255,.8) 0 3px, transparent 4px) 67% 112% / 10px 10px no-repeat,
+    radial-gradient(circle, rgba(255,255,255,.6) 0 2px, transparent 3px) 88% 118% / 8px 8px no-repeat;
+}
+body:has(main#main-content) #site-nav > a.nav-cta:hover,
+body:has(main#main-content) .hero-buttons a.btn:hover {
+  color: #fff !important;
+  background-color: #244638 !important;
+  border-color: #244638 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(36,70,56,.25);
+}
+body:has(main#main-content) #site-nav > a.nav-cta:hover::before,
+body:has(main#main-content) .hero-buttons a.btn:hover::before {
+  opacity: 1;
+  animation: sh-button-bubble .85s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(main#main-content) #site-nav > a,
+  body:has(main#main-content) #site-nav > a::before,
+  body:has(main#main-content) .hero-buttons a.btn,
+  body:has(main#main-content) .hero-buttons a.btn::before {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+
+/* =========================================
+   SMARTPICK HUB — SHARED BRAND THEME
+   Align every page with the homepage palette
+   Forest green, warm gold, soft green surfaces
+========================================= */
+:root {
+  --sh-green: #244638;
+  --sh-green-deep: #18382d;
+  --sh-green-soft: #edf3ee;
+  --sh-gold: #bd974d;
+  --sh-ink: #111111;
+  --sh-muted: #303b34;
+  --sh-page: #f5f7f3;
+  --sh-card: #ffffff;
+  --sh-border: #d7e2d9;
+}
+body {
+  background: var(--sh-page);
+  color: var(--sh-ink);
+}
+body:not(:has(main#main-content)) .header {
+  background: #ffffff !important;
+  color: var(--sh-ink) !important;
+  border-bottom: 1px solid var(--sh-border);
+}
+body:not(:has(main#main-content)) .header nav a,
+body:not(:has(main#main-content)) .header .logo-text,
+body:not(:has(main#main-content)) .header .logo-text strong {
+  color: var(--sh-ink) !important;
+}
+body:not(:has(main#main-content)) .header nav a:hover,
+body:not(:has(main#main-content)) .header nav a[aria-current="page"] {
+  color: #a77d32 !important;
+}
+body:not(:has(main#main-content)) .header nav .nav-cta {
+  background: var(--sh-gold) !important;
+  color: #111111 !important;
+  border-color: var(--sh-gold) !important;
+}
+body:not(:has(main#main-content)) .header nav .nav-cta:hover {
+  background: var(--sh-green) !important;
+  color: #ffffff !important;
+  border-color: var(--sh-green) !important;
+}
+
+/* Page hero panels use the same soft green background */
+.technology-page .tech-page-hero,
+.featured-page .featured-hero,
+.guides-page .guides-hero,
+.about-page .about-hero,
+.account-hero {
+  background: var(--sh-green-soft) !important;
+  color: var(--sh-ink) !important;
+}
+.tech-page-hero h1, .featured-hero h1, .guides-hero h1,
+.about-hero h1, .account-hero h1 {
+  color: var(--sh-ink) !important;
+}
+.tech-page-hero p, .featured-hero p, .guides-hero p,
+.about-hero p, .account-hero p {
+  color: var(--sh-muted) !important;
+}
+.tech-page-hero .eyebrow, .featured-eyebrow,
+.guides-eyebrow, .about-eyebrow, .account-eyebrow {
+  color: #8a682d !important;
+}
+.tech-page-hero .btn, .featured-hero .btn,
+.guides-hero .btn, .about-hero .btn {
+  background: var(--sh-gold) !important;
+  color: #111111 !important;
+  border-color: var(--sh-gold) !important;
+}
+.tech-page-hero .btn:hover, .featured-hero .btn:hover,
+.guides-hero .btn:hover, .about-hero .btn:hover {
+  background: var(--sh-green) !important;
+  color: #ffffff !important;
+  border-color: var(--sh-green) !important;
+}
+
+/* Content areas and cards */
+.technology-page, .featured-page, .guides-page, .about-page,
+.auth-container {
+  background: var(--sh-page);
+  color: var(--sh-ink);
+}
+.tech-section, .featured-topics, .guides-section,
+.about-section, .about-mission, .about-approach,
+.featured-value-section, .featured-cta {
+  background: var(--sh-green-soft) !important;
+  color: var(--sh-ink) !important;
+}
+.tech-feature-card, .featured-topic-card, .guide-card,
+.about-value-card, .auth-card, .account-card, .profile-summary {
+  background: var(--sh-card) !important;
+  color: var(--sh-ink) !important;
+  border: 1px solid var(--sh-border) !important;
+  box-shadow: 0 8px 24px rgba(24,56,45,.07);
+}
+.tech-feature-card h3, .featured-topic-card h3,
+.guide-card h3, .about-value-card h3,
+.tech-section h2, .featured-heading h2,
+.guides-heading h2, .about-page h2,
+.auth-card h1, .account-container h2 {
+  color: var(--sh-ink) !important;
+}
+.tech-feature-card p, .featured-topic-card p,
+.guide-card p, .about-value-card p,
+.tech-section p, .featured-heading p,
+.guides-heading p, .about-page p,
+.auth-card p {
+  color: var(--sh-muted);
+}
+.tech-feature-card a, .featured-topic-card a,
+.guides-page a:not(.btn), .about-page a:not(.btn),
+.auth-card a {
+  color: var(--sh-green) !important;
+}
+.tech-card-icon, .featured-card-number, .guide-number,
+.about-value-number {
+  color: #9a742f !important;
+}
+
+/* Account, login and subscription surfaces */
+.auth-container { background: var(--sh-green-soft) !important; }
+.auth-card { border-radius: 16px; }
+.auth-card button[type="submit"], #auth-submit,
+.account-container button, .quick-link {
+  background: var(--sh-green) !important;
+  color: #ffffff !important;
+  border-color: var(--sh-green) !important;
+}
+.auth-card button[type="submit"]:hover, #auth-submit:hover,
+.account-container button:hover, .quick-link:hover {
+  background: var(--sh-gold) !important;
+  color: #111111 !important;
+  border-color: var(--sh-gold) !important;
+}
+.account-status {
+  background: #eaf2eb !important;
+  color: var(--sh-green) !important;
+}
+.account-hero .account-eyebrow { color: #8a682d !important; }
+.account-hero p { color: var(--sh-muted) !important; }
+.account-hero h1 { color: var(--sh-ink) !important; }
+.account-container .section-heading h2,
+.account-container .summary-info h2,
+.account-container .card-value { color: var(--sh-ink) !important; }
+
+/* Same soft green footer treatment as the homepage */
+body:not(:has(main#main-content)) .footer {
+  background: #e2ece4 !important;
+  color: var(--sh-ink) !important;
+}
+body:not(:has(main#main-content)) .footer *,
+body:not(:has(main#main-content)) .footer p,
+body:not(:has(main#main-content)) .footer a {
+  color: var(--sh-ink) !important;
+}
+body:not(:has(main#main-content)) .footer a:hover {
+  color: #9a742f !important;
+}
+
+/* Consistent hover response on content cards */
+.tech-feature-card, .featured-topic-card, .guide-card,
+.about-value-card, .account-card, .quick-link {
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.tech-feature-card:hover, .featured-topic-card:hover,
+.guide-card:hover, .about-value-card:hover,
+.account-card:hover, .quick-link:hover {
+  transform: translateY(-4px);
+  border-color: var(--sh-gold) !important;
+  box-shadow: 0 13px 28px rgba(24,56,45,.12);
+}
+@media (max-width: 650px) {
+  .tech-page-hero, .featured-hero, .guides-hero,
+  .about-hero, .account-hero {
+    background: var(--sh-green-soft) !important;
+  }
+}
+
+
+/* =========================================
+   DEFINITIVE NON-HOMEPAGE THEME OVERRIDE
+   Homepage is identified by .hero#home.
+   Every other page now uses the same homepage palette.
+========================================= */
+body:not(:has(section.hero#home)) {
+  background: #f5f7f3 !important;
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .header,
+body:not(:has(section.hero#home)) header.header {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-bottom: 1px solid #d7e2d9 !important;
+}
+body:not(:has(section.hero#home)) .header *,
+body:not(:has(section.hero#home)) .header nav a,
+body:not(:has(section.hero#home)) .header .logo-text,
+body:not(:has(section.hero#home)) .header .logo-text strong {
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .header nav a:hover,
+body:not(:has(section.hero#home)) .header nav a[aria-current="page"] {
+  color: #a77d32 !important;
+}
+body:not(:has(section.hero#home)) .header nav a.nav-cta {
+  background: #bd974d !important;
+  color: #111111 !important;
+  border: 1px solid #bd974d !important;
+}
+body:not(:has(section.hero#home)) .header nav a.nav-cta:hover {
+  background: #244638 !important;
+  color: #ffffff !important;
+  border-color: #244638 !important;
+}
+
+/* Force every page canvas and main content to the homepage light palette */
+body:not(:has(section.hero#home)) main,
+body:not(:has(section.hero#home)) .technology-page,
+body:not(:has(section.hero#home)) .featured-page,
+body:not(:has(section.hero#home)) .guides-page,
+body:not(:has(section.hero#home)) .about-page,
+body:not(:has(section.hero#home)) .auth-container,
+body:not(:has(section.hero#home)) .account-container {
+  background: #f5f7f3 !important;
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) main > section,
+body:not(:has(section.hero#home)) .tech-page-hero,
+body:not(:has(section.hero#home)) .featured-hero,
+body:not(:has(section.hero#home)) .featured-value-section,
+body:not(:has(section.hero#home)) .featured-cta,
+body:not(:has(section.hero#home)) .guides-hero,
+body:not(:has(section.hero#home)) .guides-section,
+body:not(:has(section.hero#home)) .about-hero,
+body:not(:has(section.hero#home)) .about-section,
+body:not(:has(section.hero#home)) .about-mission,
+body:not(:has(section.hero#home)) .about-approach,
+body:not(:has(section.hero#home)) .tech-section {
+  background: #edf3ee !important;
+  color: #111111 !important;
+}
+
+/* Matching white cards, black typography and green links */
+body:not(:has(section.hero#home)) article,
+body:not(:has(section.hero#home)) .tech-feature-card,
+body:not(:has(section.hero#home)) .featured-topic-card,
+body:not(:has(section.hero#home)) .guide-card,
+body:not(:has(section.hero#home)) .about-value-card,
+body:not(:has(section.hero#home)) .auth-card,
+body:not(:has(section.hero#home)) .account-card,
+body:not(:has(section.hero#home)) .profile-summary,
+body:not(:has(section.hero#home)) .quick-link {
+  background: #ffffff !important;
+  color: #111111 !important;
+  border-color: #d7e2d9 !important;
+}
+body:not(:has(section.hero#home)) main h1,
+body:not(:has(section.hero#home)) main h2,
+body:not(:has(section.hero#home)) main h3,
+body:not(:has(section.hero#home)) main h4,
+body:not(:has(section.hero#home)) main p,
+body:not(:has(section.hero#home)) main li,
+body:not(:has(section.hero#home)) .account-container *,
+body:not(:has(section.hero#home)) .auth-card * {
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .tech-page-hero .eyebrow,
+body:not(:has(section.hero#home)) .featured-eyebrow,
+body:not(:has(section.hero#home)) .guides-eyebrow,
+body:not(:has(section.hero#home)) .about-eyebrow,
+body:not(:has(section.hero#home)) .account-eyebrow,
+body:not(:has(section.hero#home)) .tech-card-icon,
+body:not(:has(section.hero#home)) .featured-card-number,
+body:not(:has(section.hero#home)) .guide-number,
+body:not(:has(section.hero#home)) .about-value-number {
+  color: #8a682d !important;
+}
+body:not(:has(section.hero#home)) main a:not(.btn),
+body:not(:has(section.hero#home)) .auth-card a {
+  color: #244638 !important;
+}
+body:not(:has(section.hero#home)) main .btn,
+body:not(:has(section.hero#home)) #auth-submit,
+body:not(:has(section.hero#home)) .auth-card button[type="submit"],
+body:not(:has(section.hero#home)) .account-container button {
+  background: #bd974d !important;
+  color: #111111 !important;
+  border-color: #bd974d !important;
+}
+body:not(:has(section.hero#home)) main .btn:hover,
+body:not(:has(section.hero#home)) #auth-submit:hover,
+body:not(:has(section.hero#home)) .auth-card button[type="submit"]:hover,
+body:not(:has(section.hero#home)) .account-container button:hover {
+  background: #244638 !important;
+  color: #ffffff !important;
+  border-color: #244638 !important;
+}
+
+/* Same pale green footer and black footer text on every inner page */
+body:not(:has(section.hero#home)) .footer {
+  background: #e2ece4 !important;
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .footer *,
+body:not(:has(section.hero#home)) .footer p,
+body:not(:has(section.hero#home)) .footer a {
+  color: #111111 !important;
+}
+body:not(:has(section.hero#home)) .footer a:hover {
+  color: #9a742f !important;
+}
+
+/* Matching navigation and button hover animation across inner pages */
+body:not(:has(section.hero#home)) #site-nav > a:not(.nav-cta) {
+  position: relative;
+  transition: color .2s ease, transform .2s ease;
+}
+body:not(:has(section.hero#home)) #site-nav > a:not(.nav-cta):hover {
+  color: #a77d32 !important;
+  transform: translateY(-2px);
+}
+body:not(:has(section.hero#home)) #site-nav > a.nav-cta,
+body:not(:has(section.hero#home)) main .btn {
+  transition: color .22s ease, background-color .22s ease,
+              border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+}
+body:not(:has(section.hero#home)) #site-nav > a.nav-cta:hover,
+body:not(:has(section.hero#home)) main .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px rgba(36,70,56,.2);
+}
+
+
+/* Shared product catalogue cards used on Home and category pages */
+.product-catalog-section { padding-top: 64px; padding-bottom: 64px; }
+.catalog-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+.catalog-product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #d7e2d9;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(16,45,39,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.catalog-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(16,45,39,.12);
+}
+.catalog-product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  padding: 16px;
+  background: #edf3ee;
+}
+.catalog-product-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+.catalog-product-card .catalog-category {
+  color: #8a682d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.catalog-product-card h3 { margin: 8px 0; color: #111111; font-size: 18px; }
+.catalog-product-card p { color: #303b34; font-size: 14px; line-height: 1.6; }
+.catalog-product-card .catalog-meta { margin: 0 0 14px; font-size: 12px; color: #555; }
+.catalog-product-card .catalog-buy {
+  display: block;
+  margin-top: auto;
+  padding: 11px 14px;
+  border-radius: 7px;
+  background: #bd974d;
+  color: #111111 !important;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+}
+.catalog-product-card .catalog-buy:hover { background: #244638; color: #ffffff !important; }
+.catalog-loading, .catalog-empty { grid-column: 1/-1; text-align: center; padding: 22px; color: #303b34; }
+
+
+/* Interactive Buying Guide topic and checklist details */
+.guide-open-button,
+.checklist-open-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 10px 15px;
+  border: 1px solid #bd974d;
+  border-radius: 7px;
+  background: #bd974d;
+  color: #111111 !important;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.guide-open-button:hover,
+.checklist-open-button:hover {
+  background: #244638;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+.guides-check-item { position: relative; }
+.guides-check-item .checklist-open-button { margin-top: 12px; }
+.guide-dialog-open { overflow: hidden; }
+.guide-dialog-backdrop[hidden] { display: none !important; }
+.guide-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(8, 22, 17, .68);
+  overflow-y: auto;
+}
+.guide-dialog-panel {
+  position: relative;
+  width: min(100%, 760px);
+  max-height: min(86vh, 900px);
+  overflow-y: auto;
+  padding: clamp(24px, 5vw, 42px);
+  border: 1px solid #d7e2d9;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 24px 80px rgba(0,0,0,.25);
+}
+.guide-dialog-close {
+  position: sticky;
+  float: right;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  margin: -10px -10px 0 12px;
+  border: 1px solid #d7e2d9;
+  border-radius: 50%;
+  background: #edf3ee;
+  color: #111111;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+.guide-dialog-panel > .guides-eyebrow { display: block; margin: 8px 0 10px; color: #8a682d !important; }
+.guide-dialog-panel h2 { margin: 0 0 12px; color: #111111 !important; font-size: clamp(25px, 4vw, 34px); line-height: 1.2; }
+.guide-dialog-intro { margin: 0 0 22px; color: #303b34 !important; }
+.guide-dialog-points { display: grid; gap: 14px; }
+.guide-dialog-point { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 15px; border: 1px solid #d7e2d9; border-radius: 10px; background: #f5f7f3; }
+.guide-dialog-point-number { color: #8a682d; font-weight: 700; }
+.guide-dialog-point h3 { margin: 0 0 4px; color: #111111 !important; font-size: 16px; }
+.guide-dialog-point p { margin: 0; color: #303b34 !important; font-size: 14px; line-height: 1.6; }
+.guide-dialog-tip { margin: 20px 0 0; padding: 15px 17px; border-left: 4px solid #bd974d; border-radius: 5px; background: #edf3ee; color: #18382d !important; font-weight: 600; }
+@media(max-width:600px) {
+  .guide-dialog-backdrop { padding: 10px; align-items: end; }
+  .guide-dialog-panel { max-height: 90vh; border-radius: 16px 16px 8px 8px; padding: 23px 17px; }
+}
+
+/* AI writing tools directory on Buying Guides */
+.ai-tool-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:22px;margin-top:28px}
+.ai-tool-card{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:24px;background:#fff;border:1px solid #d7e2d9;border-radius:18px;box-shadow:0 8px 24px rgba(20,45,32,.06);color:#111}
+.ai-tool-brand{display:flex;align-items:center;gap:10px;color:#496052;font-size:.82rem;font-weight:700}
+.ai-tool-brand img{width:36px;height:36px;object-fit:contain;border-radius:9px;background:#f5f7f3;padding:5px}
+.ai-tool-card h3{margin:0;color:#111;font-size:1.25rem}
+.ai-tool-card p{margin:0;color:#333;line-height:1.65}
+.ai-tool-card .ai-tool-plan{font-size:.9rem;color:#34443a}
+.ai-tool-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.ai-tool-actions .btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.ai-tool-plans{color:#244638;font-weight:700;text-underline-offset:4px}
+.ai-tool-plans:hover,.ai-tool-plans:focus{color:#8b682e}
+.ai-tools-note{margin:24px 0 0;padding:18px 20px;border-left:4px solid #bd974d;background:#edf3ee;border-radius:8px;color:#17251c;line-height:1.7}
+.guide-dialog-tools-link{display:inline-flex;margin-top:12px;padding:12px 18px;border-radius:9px;background:#244638;color:#fff!important;text-decoration:none;font-weight:700}
+.guide-dialog-tools-link:hover,.guide-dialog-tools-link:focus{background:#183428}
+@media(max-width:600px){.ai-tool-grid{grid-template-columns:1fr;gap:16px}.ai-tool-card{padding:20px}.ai-tool-actions{gap:12px}}
+
+
+/* Keep product action labels readable in every hover state. */
+.catalog-product-card .catalog-buy,
+.catalog-product-card .catalog-buy:link,
+.catalog-product-card .catalog-buy:visited {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  opacity: 1;
+  visibility: visible;
+}
+.catalog-product-card .catalog-buy:hover,
+.catalog-product-card .catalog-buy:focus-visible,
+.catalog-product-card .catalog-buy:active {
+  background: #244638 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1;
+  visibility: visible;
+  text-decoration: none;
+}
+
+
+/* Home page product buttons: preserve readable labels on mouse hover. */
+#latest-products .catalog-product-card a.catalog-buy,
+#latest-products .catalog-product-card a.catalog-buy:link,
+#latest-products .catalog-product-card a.catalog-buy:visited {
+  background-color: #bd974d !important;
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#latest-products .catalog-product-card a.catalog-buy:hover,
+#latest-products .catalog-product-card a.catalog-buy:focus,
+#latest-products .catalog-product-card a.catalog-buy:focus-visible,
+#latest-products .catalog-product-card a.catalog-buy:active {
+  background-color: #244638 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-decoration: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: 0 1px 1px rgba(0,0,0,.18);
 }

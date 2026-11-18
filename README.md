@@ -1,2 +1,243 @@
-# SmartPick-Hub
-SmartPick Hub — AI-powered affiliate shopping platform
+# SmartPick Hub
+
+**Smart choices. Better living.**
+
+SmartPick Hub is being developed as a bilingual (English and Urdu/Roman Urdu), AI-assisted product discovery and affiliate shopping platform for people in Pakistan and international markets.
+
+The goal is to help visitors make informed decisions by explaining products, comparing suitable options, and considering budget, needs, availability, and important limitations. The business model may include affiliate links. Affiliate relationships must be disclosed clearly, and recommendations must remain relevant to the visitor rather than being ranked only by commission.
+
+> **Project status:** Early development. The repository contains a static HTML/CSS/JavaScript website, Supabase authentication/database integration, a FastAPI prototype for newsletter and AI services, and a Supabase Edge Function foundation for outbound product-click tracking. Click tracking remains inactive until the SQL migration is applied and the Edge Function is deployed and tested. Verified live product search, specialist agents, and affiliate-network conversion reporting are not yet implemented. Do not treat this repository as production-ready.
+
+## Confirmed product direction
+
+- **Audience:** Pakistan and international users.
+- **Categories:** Broad product and service categories, introduced gradually after data sources and quality checks are ready.
+- **Languages:** English and Urdu/Roman Urdu.
+- **Priority:** Balanced user experience, sustainable affiliate revenue, and user trust.
+
+## Planned user experience
+
+1. Discover products and useful buying guides by category.
+2. Tell the shopping assistant what they need, their budget, country/region, and preferences.
+3. Receive clear explanations and a shortlist of relevant options.
+4. Compare products on price, key specifications, availability, limitations, warranty/returns where verifiable, and suitability.
+5. Open retailer pages using clearly identified affiliate links where available.
+6. Manage an account and optional saved preferences. Personalisation must be consent-based and privacy-aware.
+
+The assistant must explain uncertainty, avoid fabricated specifications or reviews, and direct users to the retailer or manufacturer to verify changing prices and availability.
+
+## Planned AI and automation architecture
+
+A central shopping assistant will coordinate focused services. These are roadmap items, not currently available features:
+
+- **Product Research:** Gather product facts from approved APIs, feeds, or reviewed sources.
+- **Comparison:** Compare verified attributes and explain meaningful differences.
+- **Budget Advisor:** Filter and rank options against a user's stated budget.
+- **Reviews & Quality:** Summarise authentic, attributable feedback when a permitted source is available; never invent reviews or ratings.
+- **Recommendation:** Suggest options based on user needs and transparent ranking criteria.
+- **Verification:** Check required product fields, source freshness, destination URLs, and disclosure before publishing.
+- **Business-side tools:** Assist with draft buying guides, product catalogue maintenance, broken-link checks, and performance reporting. Human review is required before publication.
+
+Initial implementation should be one reliable assistant backed by modular services. Separate autonomous agents will be introduced only when a clear task, data source, permission boundary, and measurable benefit exist.
+
+## Planned affiliate and business features
+
+- Affiliate programme and retailer integrations, subject to each programme's approval and terms.
+- Product cards with source, last-checked date, relevant attributes, and clear affiliate disclosure.
+- Click tracking that records only necessary analytics and does not expose personal data.
+- Conversion reporting where a programme provides reliable reporting or postbacks.
+- Buying guides, category landing pages, search-engine optimisation, and useful editorial content.
+- Admin tools for product review, source freshness, link health, content approval, and analytics.
+- Email updates only with explicit subscription consent and a working unsubscribe process.
+
+Affiliate commission must not be the sole ranking signal. Do not fabricate discounts, product testing, customer reviews, prices, or availability.
+
+## Current repository structure
+
+```text
+.
+├── .github/
+│   ├── workflows/
+│   │   ├── quality-checks.yml
+│   └── cloudflare-pages-deploy.yml
+│   └── dependabot.yml
+├── backend/
+│   └── main.py
+├── SECURITY.md
+├── assets/
+├── database/
+├── models/
+├── pages/
+├── services/
+├── index.html
+├── technology.html
+├── featured.html
+├── guides.html
+├── about.html
+├── affiliate-disclosure.html
+├── privacy.html
+├── terms.html
+├── 404.html
+├── auth.html
+├── auth.js
+├── auth-nav.js
+├── profile.html
+├── reset-password.html
+├── reset-password.js
+├── subscribe.html
+├── script.js
+├── style.css
+├── supabase-config.js
+├── _headers
+├── robots.txt
+└── requirements.txt
+```
+
+The tree above is an orientation guide; some folders may be empty or still under development. `backend/main.py` is the canonical FastAPI entry point. The previous candidate implementation has been consolidated into it; do not deploy a second backend process.
+
+## SmartPick AI search setup
+
+The homepage search interface sends questions to `POST /assistant/search`. The canonical FastAPI backend uses Google's official `google-genai` Python SDK.
+
+Server-side environment variables:
+
+- `GEMINI_API_KEY`: Gemini API key created in Google AI Studio. Store it only in the backend host's secret/environment settings.
+- `GEMINI_MODEL`: Gemini model ID. Defaults to `gemini-2.5-flash`.
+
+Install backend dependencies from `requirements.txt`. For local development, copy `.env.example` to `.env` and add the real key to the local `.env` file. Never commit `.env`.
+
+Set `SMARTPICK_API_BASE_URL` in the public `api-config.js` to the deployed HTTPS backend origin. This URL is public configuration; it must not contain a Gemini API key.
+
+The AI endpoint provides general shopping guidance only. It does not perform live retailer/product retrieval, price checks, stock checks, or verified product comparisons. Those require approved product data sources and retrieval services before launch.
+
+## Technology currently present
+
+- Frontend: HTML, CSS, and browser JavaScript.
+- Authentication/database provider: Supabase (browser client configuration is present).
+- Account flow: email/password signup and login, required Terms/Privacy acknowledgement at signup, protected profile-page session check, editable display name stored in the signed-in user's Supabase Auth metadata, local logout, account-wide sign-out, and email-based password recovery.
+- Backend prototype: Python and FastAPI.
+- Newsletter email delivery: Resend integration in the canonical FastAPI backend (`backend/main.py`). The email confirmation page requires a user click and a POST request; simply opening the email link does not activate the subscription.
+- Newsletter database: SQL migration at `database/migrations/001_newsletter_subscribers.sql`.
+- Newsletter frontend: `api-config.js` and `newsletter.js`; explicit email-marketing consent is required, and the backend URL must be configured after deployment.
+- Configuration: environment variables loaded with `python-dotenv`.
+- Static hosting: Cloudflare Pages serves a curated static output folder. `_headers` applies browser security headers; the FastAPI API remains a separate deployment.
+- Quality checks: GitHub Actions checks local HTML file references, duplicate IDs, Python syntax, and JavaScript syntax.
+
+## Development roadmap
+
+### Phase 1 — Foundation and audit
+- Review every existing page, script, backend route, and configuration file.
+- Use one maintainable FastAPI entry point (`backend/main.py`).
+- Resolve dependency, navigation, accessibility, and responsive-layout issues.
+- Keep database migrations and least-privilege access rules in version control.
+
+### Phase 2 — Secure accounts and data
+- Verify Supabase Auth settings and Row Level Security (RLS).
+- A least-privilege `user_profiles` migration and SQL security test are prepared in `database/migrations/002_user_profiles.sql` and `database/tests/002_user_profiles_security.sql`. Apply and test them in Supabase before connecting the frontend to this table.
+- Let signed-in users update their own display name through Supabase Auth user metadata; do not use client-editable metadata for permissions or privileged decisions.
+- Provide a user-initiated global sign-out control for lost/shared-device scenarios. Verify session revocation behavior in a real browser before launch.
+- Configure the deployed frontend URL in Supabase Auth's allowed redirect URLs, including `profile.html` and `reset-password.html`.
+- Test signup email confirmation, login, logout, protected profile access, password reset, and expired recovery links in a real browser.
+- Define user profiles, saved preferences, product, retailer, affiliate-click, and content schemas.
+- Keep service-role/secret keys only in backend environment variables.
+- Add consent and privacy controls.
+
+### Phase 3 — Product catalogue and affiliate foundation
+- Start with a small number of categories and approved, reliable data sources.
+- Define a normalised product and retailer data model.
+- Validate destination URLs and affiliate programme requirements.
+- Add transparent disclosures and privacy-conscious click analytics.
+
+### Phase 4 — Shopping assistant
+- Build the FastAPI product-search and comparison endpoints.
+- Add bilingual intent handling and structured responses.
+- Ground product answers in retrieved data; show when information is missing or stale.
+- Add budget and country/availability filters.
+
+### Phase 5 — Specialist agents and admin tools
+- Add focused research, comparison, budget, review-quality, and verification workflows.
+- Add editorial approval and audit logs.
+- Introduce automation gradually with rate limits, cost controls, and human review.
+
+### Phase 6 — Growth and launch
+- Publish useful category pages and evidence-based buying guides.
+- Add SEO metadata, analytics, consent-based email, and conversion reporting.
+- Test mobile usability, security, accessibility, performance, and failure cases.
+- Deploy the static frontend and Python backend to suitable hosting services; configure secrets in the hosting provider, not in Git.
+- Connect a custom domain only after deployment and security checks.
+
+## Preview and deployment
+
+The static frontend is prepared for **manual Cloudflare Pages Direct Upload** through the GitHub Actions workflow `.github/workflows/cloudflare-pages-deploy.yml`. This does not install the Cloudflare GitHub App or grant Cloudflare direct repository access. The workflow runs only when manually started from GitHub Actions and uploads a curated `dist/` folder containing public website HTML, CSS, JavaScript, `robots.txt`, and security headers. It deliberately excludes the FastAPI backend, SQL migrations, environment files, and project documentation from the public deployment.
+
+Before the first deployment, create a Cloudflare API token with **Cloudflare Pages: Edit** permission for the intended Cloudflare account. Add it to this private GitHub repository as the Actions secret `CLOUDFLARE_API_TOKEN`, and add the Cloudflare account ID as `CLOUDFLARE_ACCOUNT_ID`. The workflow creates the Pages project `smartpick-hub` if needed and deploys the `project-foundation` branch as a **preview**, not the production branch. Never put the token in source code, commit history, or chat. The generated `*.pages.dev` URL will be available in the successful deployment log.
+
+The frontend can be previewed without a live newsletter API, but newsletter signup remains unavailable until the FastAPI backend is separately deployed and `api-config.js` is configured. Authentication also requires the actual Pages preview URL to be added to Supabase Auth's allowed redirect URLs. A public preview URL makes the website content publicly reachable even while the GitHub repository remains private.
+
+## Local development notes
+
+The backend dependencies are listed in `requirements.txt`. A backend deployment needs environment variables configured in the hosting platform. Never commit a real `.env` file or paste secret keys into issues, chat, screenshots, or frontend JavaScript.
+
+## FastAPI deployment on Vercel
+
+The repository now includes a root `main.py` entry point that imports the canonical application from `backend/main.py`, plus `vercel.json` to package `products.json` for the click-redirect catalogue fallback. This keeps one backend implementation for local development and hosting.
+
+To deploy the backend as a separate Vercel project:
+
+1. Create a Vercel project linked to this GitHub repository. Use the repository root as the project root; do not set `backend/` as the root directory.
+2. Set the production branch to `main` after the reviewed changes have been merged. Preview deployments can use the feature branch.
+3. Add the environment variables listed below in Vercel Project Settings → Environment Variables. Never put secret values in Git or chat.
+4. Deploy a preview first and test `/`, `/health`, and a known published product's `/out/{product_id}` route. The health route checks the Supabase connection.
+5. Set `PUBLIC_API_URL` to the exact HTTPS Vercel backend origin. Set `FRONTEND_URL` to the public GitHub Pages origin `https://hinaarshad302.github.io/SmartPick-Hub`.
+6. After the backend preview is verified, configure `SMARTPICK_API_BASE_URL` in `api-config.js` and `SMARTPICK_BACKEND_BASE_URL` in `outbound-config.js` with the backend HTTPS origin. Then redeploy the static frontend.
+
+Required Vercel environment variables:
+
+- `SUPABASE_URL` — the Supabase project URL.
+- `SUPABASE_SECRET_KEY` — the server-side Supabase secret/service key. Keep it private.
+- `FRONTEND_URL` — the exact deployed frontend URL (the backend derives its CORS origin from this).
+- `PUBLIC_API_URL` — the exact HTTPS URL of the deployed backend.
+
+Optional variables, depending on enabled features:
+
+- `GEMINI_API_KEY` and `GEMINI_MODEL` — SmartPick AI responses.
+- `RESEND_API_KEY` and `RESEND_FROM_EMAIL` — newsletter email delivery.
+
+Do not configure the frontend to call the backend until the preview is deployed and tested. Vercel project creation, environment-variable setup, and public backend deployment are still pending; this repository change alone does not activate click tracking or newsletter/AI APIs.
+
+The current backend prototype expects configuration such as:
+
+- `SUPABASE_URL`
+- `SUPABASE_SECRET_KEY` (server-side only; never expose in the browser)
+- `RESEND_API_KEY` (server-side only)
+- `RESEND_FROM_EMAIL` (a sender address/domain verified in Resend)
+- `PUBLIC_API_URL`
+- `FRONTEND_URL` (used by the canonical FastAPI backend for CORS and confirmation links)
+
+Outbound click tracking setup: apply `database/migrations/004_affiliate_click_events.sql` and verify it with `database/tests/004_affiliate_click_events_security.sql`. Deploy the existing FastAPI backend with its server-side Supabase secret key, then set `window.SMARTPICK_BACKEND_BASE_URL` in `outbound-config.js` to that backend's HTTPS origin. Until all three steps are complete, product cards continue linking directly to their retailer destinations and no click events are recorded. The endpoint logs only product ID, destination type, and timestamp; it does not store visitor IP addresses, user agents, account IDs, or referrers. This is click analytics only, not commission or conversion reporting.\n\nApply `database/migrations/001_newsletter_subscribers.sql` to create the newsletter table with RLS enabled and browser-role access revoked. Then run `database/tests/001_newsletter_security.sql` in the Supabase SQL Editor to verify the expected grants. The separate user-profile migration `database/migrations/002_user_profiles.sql` creates a row per authenticated user with owner-only RLS policies; run `database/tests/002_user_profiles_security.sql` after applying it. Do not connect profile editing to this table until the migration and security test have been completed in the target Supabase project. The backend uses a server-side Supabase secret key. The frontend also needs `window.SMARTPICK_API_BASE_URL` set in `api-config.js` to the deployed HTTPS API origin. Configure `RESEND_FROM_EMAIL` with a sender domain verified in Resend before sending real messages.
+
+## Trust, privacy, and security principles
+
+The current privacy and service terms drafts are published as `privacy.html` and `terms.html`. They describe the features currently present and distinguish them from planned product features. Review them for the final hosting providers, legal jurisdiction, and operational retention practices before public launch.
+
+- Never expose Supabase secret/service-role keys or email-provider keys in frontend files.
+- Apply least-privilege database policies and test them with separate user accounts.
+- Collect only data required for the feature and explain its use.
+- Ask before saving optional preferences or sending marketing email.
+- Clearly label affiliate links and sponsored placements.
+- Keep product facts attributable to sources and show freshness where possible.
+- Do not claim personal product testing unless it actually happened.
+- Provide a way to report incorrect information and broken links.
+
+## Contribution and change policy
+
+Security issues should follow the private reporting guidance in `SECURITY.md`. Dependabot is configured to propose weekly updates for Python dependencies and GitHub Actions.
+
+Work in a feature branch first, review the diff, test the affected feature, and merge only after verification. Avoid replacing working files wholesale when a small, reviewed change is sufficient.
+
+
+## Supabase outbound click-tracking deployment
+
+Outbound product clicks are designed to use a **Supabase Edge Function**, not a separate Vercel backend. The function source is in `supabase/functions/outbound-click/index.ts`; its deployment guide is `supabase/DEPLOYMENT.md`. Apply `database/migrations/004_affiliate_click_events.sql` in the existing Supabase SQL Editor, then deploy the function to project `jimatgwmcasnbrhqhkbc` using the Supabase CLI. The function uses Supabase's server-side service-role environment variable and never accepts a destination URL from the browser. The website setting `SMARTPICK_OUTBOUND_FUNCTION_URL` in `outbound-config.js` must remain blank until the function is deployed and verified; then set it to the public function URL. Until configured, product links continue to go directly to their retailer pages.
+
+This Edge Function handles only outbound product redirects and click events. The existing FastAPI prototype remains separate for newsletter and AI endpoints; it is not required for product-click tracking.

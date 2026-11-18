@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover and compare useful technology and everyday products. Review product details and follow retailer links to check current availability and prices.">
+  <title>Technology & Everyday Products | SmartPick Hub</title>
+<link rel="canonical" href="https://hinaarshad302.github.io/SmartPick-Hub/products.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SmartPick Hub">
+<meta property="og:title" content="Technology & Everyday Products | SmartPick Hub">
+<meta property="og:description" content="Discover and compare useful technology and everyday products. Review product details and follow retailer links to check current availability and prices.">
+<meta property="og:url" content="https://hinaarshad302.github.io/SmartPick-Hub/products.html">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Technology & Everyday Products | SmartPick Hub">
+<meta name="twitter:description" content="Discover and compare useful technology and everyday products. Review product details and follow retailer links to check current availability and prices.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .shop-wrap{max-width:1180px;margin:0 auto;padding:56px 24px 80px}
+    .shop-heading{text-align:center;margin-bottom:30px}.shop-heading .eyebrow{color:#987438;font-weight:700;letter-spacing:.13em;font-size:12px}
+    .shop-heading h1{font-family:'Playfair Display',serif;color:#244638;font-size:clamp(32px,5vw,48px);margin:12px 0}
+    .shop-heading p{color:#111;max-width:680px;margin:0 auto}
+    .shop-controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:28px 0}
+    .shop-controls input,.shop-controls select{min-height:46px;padding:0 14px;border:1px solid #d7e2d9;border-radius:8px;background:#fff;color:#111;font:inherit}
+    .shop-controls input{width:min(100%,390px)}
+    .shop-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+    .shop-card{background:#fff;border:1px solid #d7e2d9;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 5px 18px #102d2708}
+    .shop-image-frame{width:100%;height:180px;display:grid;place-items:center;background:#edf3ee;overflow:hidden}
+    .shop-image-frame img{width:100%;height:180px;object-fit:contain;padding:16px}
+    .shop-image-frame.is-fallback{padding:16px;color:#52645a;font-size:13px;font-weight:600;text-align:center}
+    .shop-card-body{padding:18px;display:flex;flex:1;flex-direction:column}
+    .shop-category{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#987438;font-weight:700}
+    .shop-card h2{font-size:19px;color:#244638;margin:8px 0}
+    .shop-card p{font-size:14px;color:#333;line-height:1.6}
+    .shop-meta{font-size:12px;color:#555;margin:0 0 14px}
+    .shop-buy{margin-top:auto;display:inline-block;text-align:center;padding:11px 16px;border-radius:7px;background:#bd974d;color:#102d27;font-weight:700;text-decoration:none}
+    .shop-buy:hover{background:#244638;color:#fff}
+    .shop-empty{grid-column:1/-1;text-align:center;padding:38px 20px;background:#edf3ee;border-radius:12px;color:#244638}
+    .shop-disclosure{font-size:12px;color:#444;margin:28px auto 0;max-width:850px;text-align:center}
+    @media(max-width:600px){.shop-wrap{padding:38px 16px 60px}.shop-controls{align-items:stretch}.shop-controls input,.shop-controls select{width:100%}}
+
+    /* Shop Products typography: use black text consistently */
+    .shop-wrap,
+    .shop-wrap h1,
+    .shop-wrap h2,
+    .shop-wrap p,
+    .shop-wrap .shop-card,
+    .shop-wrap .shop-card h2,
+    .shop-wrap .shop-card p,
+    .shop-wrap .shop-meta,
+    .shop-wrap .shop-empty,
+    .shop-wrap .shop-disclosure {
+      color: #000000 !important;
+    }
+    .shop-wrap .shop-category,
+    .shop-wrap .shop-heading .eyebrow {
+      color: #000000 !important;
+    }
+    /* High-specificity rules override the shared inner-page link colour. */
+    body:not(:has(section.hero#home)) .shop-wrap a.shop-buy,
+    body:not(:has(section.hero#home)) .shop-wrap a.shop-buy:visited {
+      color: #111111 !important;
+      background: #bd974d !important;
+      -webkit-text-fill-color: #111111 !important;
+      transition: background-color .22s ease, color .22s ease, transform .22s ease, box-shadow .22s ease;
+    }
+    body:not(:has(section.hero#home)) main#main-content .shop-wrap .shop-card a.shop-buy:hover,
+    body:not(:has(section.hero#home)) main#main-content .shop-wrap .shop-card a.shop-buy:focus,
+    body:not(:has(section.hero#home)) main#main-content .shop-wrap .shop-card a.shop-buy:focus-visible {
+      background: #244638 !important;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,.35) !important;
+      font-weight: 800 !important;
+      transform: translateY(-2px);
+      box-shadow: 0 7px 16px rgba(36,70,56,.2);
+      outline: 2px solid #bd974d;
+      outline-offset: 3px;
+    }
+    body:not(:has(section.hero#home)) .shop-wrap a.shop-buy:active {
+      background: #18382d !important;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+<header class="header">
+  <div class="navbar">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42">
+      <span class="logo-text"><strong>SmartPick Hub</strong><small>SMART CHOICES. BETTER LIVING.</small></span>
+    </a>
+    <button aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation menu" class="menu-toggle" id="menu-toggle" type="button">
+      <span class="menu-icon">☰</span>
+    </button>
+    <nav id="site-nav">
+      <a href="index.html">Home</a>
+      <a href="technology.html">Technology</a>
+      <a href="featured.html">Featured</a>
+      <a href="products.html" aria-current="page">Shop Products</a>
+      <a href="guides.html">Buying Guides</a>
+      <a href="about.html">About</a>
+      <a href="auth.html" id="login-nav-link">Login / Sign Up</a>
+      <a href="subscribe.html" id="subscribe-nav-link">Subscribe</a>
+      <div class="profile-menu" id="profile-menu" hidden>
+        <button type="button" class="profile-trigger" id="profile-trigger" aria-expanded="false" aria-controls="profile-dropdown">
+          <span class="profile-avatar" id="profile-avatar">U</span>
+          <span class="profile-trigger-name" id="profile-name">Account</span>
+          <span class="profile-chevron">⌄</span>
+        </button>
+        <div class="profile-dropdown" id="profile-dropdown" hidden>
+          <div class="profile-dropdown-user">
+            <strong id="profile-dropdown-name">Account</strong>
+            <small id="profile-dropdown-email"></small>
+          </div>
+          <a href="profile.html">My Account</a>
+          <button type="button" id="logout-nav-button">Logout</button>
+        </div>
+      </div>
+      <a class="nav-cta" href="featured.html">Explore Picks →</a>
+    </nav>
+  </div>
+</header>
+  <main class="shop-wrap">
+    <section class="shop-heading">
+      <span class="eyebrow">SMARTPICK HUB / PRODUCT DISCOVERY</span>
+      <h1>Find Products Worth Choosing</h1>
+      <p>Explore useful products across technology, home, lifestyle and more. Compare details and choose what fits your needs.</p>
+    </section>
+    <div class="shop-controls">
+      <input id="product-search" type="search" placeholder="Search products..." aria-label="Search products">
+      <select id="category-filter" aria-label="Filter by category"><option value="">All categories</option></select>
+      <select id="market-filter" aria-label="Filter by market"><option value="">All markets</option><option>USA</option><option>UK</option><option>Canada</option><option>Europe</option><option>Pakistan</option></select>
+    </div>
+    <section class="shop-grid" id="product-grid" aria-live="polite">
+      <div class="shop-empty">Our product collection is being prepared. Please check back soon.</div>
+    </section>
+    <p class="shop-disclosure">Some listings may use affiliate links, which are identified on the product card. SmartPick Hub may earn a commission from qualifying purchases at no extra cost to you. Other listings link directly to the manufacturer or retailer.</p>
+  </main>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> SmartPick Hub. All rights reserved.</p>
+    <div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a></div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="auth-nav.js"></script>
+  <script src="script.js"></script>
+  <script src="outbound-config.js"></script>
+  <script src="products.js"></script>
+
+</body>
+</html>

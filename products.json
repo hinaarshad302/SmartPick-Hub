@@ -1,0 +1,597 @@
+[
+  {
+    "id": "logitech-c920s-webcam",
+    "name": "Logitech C920s Pro HD Webcam",
+    "category": "Webcams",
+    "markets": [
+      "USA"
+    ],
+    "description": "A Full HD 1080p webcam with autofocus, automatic light correction, dual stereo microphones and a privacy shutter. A practical option for online classes and video meetings.",
+    "image": "https://www.unicom.mx/ecommerce/uploads/VICAMLOGC920S.jpg",
+    "price": "",
+    "merchant": "Logitech",
+    "affiliateUrl": "",
+    "productUrl": "https://www.logitech.com/en-us/shop/p/c920s-pro-hd-webcam.960-001252",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Technology"
+  },
+  {
+    "id": "dell-pro-3-webcam-2k",
+    "name": "Dell Pro 3 Webcam 2K (WB3023)",
+    "category": "Webcams",
+    "markets": [
+      "USA"
+    ],
+    "description": "A 2K QHD webcam supporting up to 2560 × 1440 resolution at 60 fps, with a 78° field of view, autofocus and built-in microphone. Check device and software compatibility before buying.",
+    "price": "",
+    "merchant": "Dell",
+    "affiliateUrl": "",
+    "productUrl": "https://www.dell.com/en-us/shop/clientaudiovideo/apd/dell-pro-3-webcam-2k-wb3023/dp1x1/-",
+    "isAffiliate": false,
+    "status": "published",
+    "image": "https://i.dell.com/sites/csimages/Video_Imagery/all/dell-webcam-wb3023-thumbnail.jpg",
+    "department": "Technology"
+  },
+  {
+    "id": "logitech-mx-keys-s",
+    "name": "Logitech MX Keys S Wireless Keyboard",
+    "category": "Keyboards",
+    "markets": [
+      "USA"
+    ],
+    "description": "A low-profile wireless keyboard with smart backlighting, programmable keys and multi-device switching. Designed for comfortable, precise typing at a desk.",
+    "image": "https://www.allithypermarket.com.my/cdn/shop/files/my-11134207-7qul1-lj5gjp923qrq34.jpg?v=1689827529",
+    "price": "",
+    "merchant": "Logitech",
+    "affiliateUrl": "",
+    "productUrl": "https://www.logitech.com/en-us/shop/p/mx-keys-s",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Technology"
+  },
+  {
+    "id": "anker-usb-c-hub-7-in-1",
+    "name": "Anker USB-C Hub (7-in-1)",
+    "category": "Connectivity",
+    "markets": [
+      "USA"
+    ],
+    "description": "A compact USB-C hub that adds multiple connections, including HDMI, USB and card access. The manufacturer lists 4K at 60Hz HDMI output and up to 85W charging; verify your laptop's USB-C capabilities.",
+    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/files/image_11_3f856f3b-1d0b-4609-974f-af0ea4ca2d12.png?v=1764833041&width=3840",
+    "price": "",
+    "merchant": "Anker",
+    "affiliateUrl": "",
+    "productUrl": "https://www.anker.com/products/a83d2-usb-c-hub-7-in-1",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Technology"
+  },
+  {
+    "id": "samsung-t7-shield-1tb",
+    "name": "Samsung T7 Shield Portable SSD (1TB)",
+    "category": "Storage",
+    "markets": [
+      "USA"
+    ],
+    "description": "A rugged 1TB portable SSD with USB 3.2 Gen 2, IP65-rated protection and advertised sequential read/write speeds of up to 1,050/1,000 MB/s. Actual speeds depend on the connected device and setup.",
+    "image": "https://images.samsung.com/is/image/samsung/p6pim/us/mu-pe1t0s-am/gallery/us-portable-ssd-t7-shield-mu-pe1t0s-am-552408700?$product-details-jpg$=",
+    "price": "",
+    "merchant": "Samsung",
+    "affiliateUrl": "",
+    "productUrl": "https://www.samsung.com/us/memory-storage/portable-ssd/portable-ssd-t7-shield-usb-3-2-1tb-black-sku-mu-pe1t0s-am/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Technology"
+  },
+  {
+    "id": "jbl-flip-6-speaker",
+    "name": "JBL Flip 6 Portable Bluetooth Speaker",
+    "category": "Portable Speakers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A compact Bluetooth speaker with IP67 water and dust resistance and up to 12 hours of advertised playtime. A practical pick for travel and everyday listening.",
+    "price": "",
+    "merchant": "JBL",
+    "affiliateUrl": "",
+    "productUrl": "https://www.jbl.com/JBLFLIP6BLKAM.html?ged=off",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets",
+    "image": "https://in.jbl.com/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw08652a69/3_JBL_FLIP6_FRONT_BLACK_29509_x2.png?sh=1605&sw=1605"
+  },
+  {
+    "id": "tp-link-tapo-c210-camera",
+    "name": "TP-Link Tapo C210 Pan/Tilt Home Security Camera",
+    "category": "Smart Home Cameras",
+    "markets": [
+      "USA"
+    ],
+    "description": "An indoor pan-and-tilt Wi-Fi camera with 2K resolution, motion detection and two-way audio. Check local privacy rules and storage options before purchase.",
+    "price": "",
+    "merchant": "TP-Link",
+    "affiliateUrl": "",
+    "productUrl": "https://www.tp-link.com/us/home-networking/cloud-camera/tapo-c210/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets",
+    "image": "https://www.proshop.de/Images/915x900/2983714_b10b34e6c0ab.jpg"
+  },
+  {
+    "id": "ninja-af101-air-fryer",
+    "name": "Ninja Air Fryer (AF101)",
+    "category": "Air Fryers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A compact air fryer designed for air frying, roasting, reheating and dehydrating. Check basket capacity and counter space to make sure it suits your household.",
+    "price": "",
+    "merchant": "Ninja",
+    "affiliateUrl": "",
+    "productUrl": "https://www.ninjakitchen.com/products/ninja-air-fryer-zidAF101",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home",
+    "image": "https://i.ebayimg.com/images/g/HCYAAeSwi7FpG7Qv/s-l1600.jpg"
+  },
+  {
+    "id": "instant-pot-duo-7-in-1",
+    "name": "Instant Pot Duo 7-in-1 Electric Pressure Cooker",
+    "category": "Multi-Cookers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A multi-cooker that combines pressure cooking, slow cooking, steaming, sautéing, rice cooking, yogurt making and warming. Choose the capacity that fits your family size.",
+    "price": "",
+    "merchant": "Instant Pot",
+    "affiliateUrl": "",
+    "productUrl": "https://instantpot.com/products/instant-pot-duo-7-in-1-electric-pressure-cooker",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home",
+    "image": "https://m.media-amazon.com/images/I/71lONZDrnyL.jpg"
+  },
+  {
+    "id": "oral-b-io-series-5",
+    "name": "Oral-B iO Series 5 Electric Toothbrush",
+    "category": "Personal Care",
+    "markets": [
+      "USA"
+    ],
+    "description": "An electric toothbrush with a pressure sensor and app-connected brushing guidance. Brush-head replacements and regional availability should be checked before buying.",
+    "price": "",
+    "merchant": "Oral-B",
+    "affiliateUrl": "",
+    "productUrl": "https://oralb.com/en-us/products/electric-toothbrushes/io-series/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty",
+    "image": "https://m.media-amazon.com/images/I/71cn2L60vBL.jpg"
+  },
+  {
+    "id": "philips-oneblade",
+    "name": "Philips OneBlade Hybrid Trimmer",
+    "category": "Grooming Tools",
+    "markets": [
+      "USA"
+    ],
+    "description": "A rechargeable grooming tool designed to trim, edge and shave facial hair. Check the exact model and included attachments, as kits vary by market.",
+    "price": "",
+    "merchant": "Philips",
+    "affiliateUrl": "",
+    "productUrl": "https://www.usa.philips.com/c-m-pe/oneblade-trim-edge-and-shave",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty",
+    "image": "https://m.media-amazon.com/images/I/61rYHRVdsdL.jpg"
+  },
+  {
+    "id": "herschel-classic-backpack",
+    "name": "Herschel Classic Backpack",
+    "category": "Bags & Backpacks",
+    "markets": [
+      "USA"
+    ],
+    "description": "A simple everyday backpack for commuting, study and travel. Compare the selected size, laptop sleeve details and fabric before ordering.",
+    "price": "",
+    "merchant": "Herschel",
+    "affiliateUrl": "",
+    "productUrl": "https://herschel.com/shop/backpacks/classic-backpack",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion",
+    "image": "https://cdn.intersport.se/productimages/1080/159407202000_10.jpg"
+  },
+  {
+    "id": "casio-gshock-dw5600",
+    "name": "Casio G-Shock DW-5600 Digital Watch",
+    "category": "Watches",
+    "markets": [
+      "USA"
+    ],
+    "description": "A durable digital watch with shock resistance, stopwatch, countdown timer and water resistance. Confirm the exact DW-5600 variant and dimensions before purchase.",
+    "price": "",
+    "merchant": "Casio",
+    "affiliateUrl": "",
+    "productUrl": "https://www.casio.com/us/watches/gshock/product.DW-5600E-1V/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion",
+    "image": "https://legacyjewellery.ca/cdn/shop/files/DW-5600UE-1_1445x.png?v=1740330067"
+  },
+  {
+    "id": "fitbit-charge-6",
+    "name": "Google Fitbit Charge 6 Fitness Tracker",
+    "category": "Fitness Trackers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A fitness tracker with activity and heart-rate tracking, built-in GPS and up to 7 days of advertised battery life. Feature availability and some insights may depend on app, phone and subscription.",
+    "price": "",
+    "merchant": "Google Fitbit",
+    "affiliateUrl": "",
+    "productUrl": "https://store.google.com/us/product/fitbit_charge_6?hl=en-US",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness",
+    "image": "https://irwinsmegastore.ie/cdn/shop/files/79-GA05183-GB-2_5000x_20597c64-ba18-4e57-917c-c5c143f934ea_700x700.webp?v=1700152229"
+  },
+  {
+    "id": "manduka-pro-yoga-mat",
+    "name": "Manduka PRO Yoga Mat",
+    "category": "Yoga & Exercise Mats",
+    "markets": [
+      "USA"
+    ],
+    "description": "A dense, durable yoga mat designed for regular practice and studio use. It is a premium, heavier mat, so check dimensions and weight before ordering.",
+    "price": "",
+    "merchant": "Manduka",
+    "affiliateUrl": "",
+    "productUrl": "https://www.manduka.com/products/manduka-pro-yoga-mat",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness",
+    "image": "https://m.media-amazon.com/images/I/81JoIFDuBlL._AC_SR736%2C920_.jpg"
+  },
+  {
+    "id": "owala-freesip-bottle",
+    "name": "Owala FreeSip Insulated Water Bottle",
+    "category": "Water Bottles",
+    "markets": [
+      "USA"
+    ],
+    "description": "An insulated stainless-steel bottle with a dual-purpose FreeSip spout for sipping or using the built-in straw. Check size, lid care and colour availability.",
+    "price": "",
+    "merchant": "Owala",
+    "affiliateUrl": "",
+    "productUrl": "https://owalalife.com/products/freesip",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use",
+    "image": "https://media.kitchenwarehouse.com.au/kitchenwarehouse/image/upload/w_3840%2Cf_auto%2Cq_auto%3Abest/c_fill%2Cg_face%2Cw_auto%2Cf_auto%2Cq_auto/Supplier%20Images%20/2000px/Owala-FreeSip-Insulated-Water-Bottle-710ml-24oz-Out-of-the-Blue_1_2000px.jpg"
+  },
+  {
+    "id": "hydro-flask-wide-mouth-32oz",
+    "name": "Hydro Flask 32 oz Wide Mouth Bottle",
+    "category": "Reusable Bottles",
+    "markets": [
+      "USA"
+    ],
+    "description": "A reusable insulated bottle for everyday hydration, commuting and outdoor use. Check lid compatibility and bottle dimensions before purchase.",
+    "price": "",
+    "merchant": "Hydro Flask",
+    "affiliateUrl": "",
+    "productUrl": "https://www.hydroflask.com/32-oz-wide-mouth",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use",
+    "image": "https://balsasurf.co.uk/cdn/shop/files/hydro-flask-flasks-32oz-hydro-flask-946ml-cascade-40781469122778.jpg?v=1724361844"
+  },
+  {
+    "id": "sony-wh-ch720n-headphones",
+    "name": "Sony WH-CH720N Wireless Noise Canceling Headphones",
+    "category": "Headphones",
+    "markets": [
+      "USA"
+    ],
+    "description": "Lightweight wireless over-ear headphones with noise cancelling, ambient sound modes and multipoint Bluetooth connectivity. Check regional availability and included accessories.",
+    "price": "",
+    "merchant": "Sony",
+    "affiliateUrl": "",
+    "productUrl": "https://electronics.sony.com/audio/headphones/headband/p/whch720n-b",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets",
+    "image": "https://ee-emma.s3.us-east-1.amazonaws.com/ebay/WHCH720NB/207858.jpg"
+  },
+  {
+    "id": "anker-737-power-bank",
+    "name": "Anker 737 Power Bank (PowerCore 24K)",
+    "category": "Power Banks",
+    "markets": [
+      "USA"
+    ],
+    "description": "A high-capacity portable charger with USB-C Power Delivery and a display for charging information. Confirm laptop and device compatibility, airline limits and regional model specifications.",
+    "price": "",
+    "merchant": "Anker",
+    "affiliateUrl": "",
+    "productUrl": "https://www.anker.com/products/a1289",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets",
+    "image": "https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1289011-Anker_737_Power_Bank_PowerCore_24K_1.png?v=1775967275&width=1600"
+  },
+  {
+    "id": "logitech-mx-master-3s",
+    "name": "Logitech MX Master 3S Wireless Mouse",
+    "category": "Computer Mice",
+    "markets": [
+      "USA"
+    ],
+    "description": "An ergonomic productivity mouse with quiet clicks, a high-precision sensor and customizable controls. Check hand size, operating-system support and receiver compatibility.",
+    "price": "",
+    "merchant": "Logitech",
+    "affiliateUrl": "",
+    "productUrl": "https://www.logitech.com/en-us/shop/p/mx-master-3s",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Electronics & Gadgets",
+    "image": "https://resource.logitech.com/c_fill%2Cq_auto%2Cf_auto%2Cdpr_1.0/d_transparent.gif/content/dam/logitech/en/products/mice/mx-master-3s/migration-assets-for-delorean-2025/gallery/mx-master-3s-front-view-graphite.png"
+  },
+  {
+    "id": "oxo-good-grips-salad-spinner",
+    "name": "OXO Good Grips Salad Spinner",
+    "category": "Kitchen Tools",
+    "markets": [
+      "USA"
+    ],
+    "description": "A countertop salad spinner with a pump mechanism and a non-slip base, designed to wash and dry leafy greens. Check dimensions and storage space.",
+    "price": "",
+    "merchant": "OXO",
+    "affiliateUrl": "",
+    "productUrl": "https://www.oxo.com/good-grips-salad-spinner.html",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home",
+    "image": "https://oxoaustralia.com.au/cdn/shop/files/48102_a__23054.1597628536.1280.1280.jpg?v=1775776601"
+  },
+  {
+    "id": "kitchenaid-5-speed-hand-blender",
+    "name": "KitchenAid 5-Speed Hand Blender",
+    "category": "Blenders & Food Prep",
+    "markets": [
+      "USA"
+    ],
+    "description": "A versatile immersion blender with multiple speed settings for blending soups, smoothies and sauces. Review included attachments and jar capacity for the exact model.",
+    "price": "",
+    "merchant": "KitchenAid",
+    "affiliateUrl": "",
+    "productUrl": "https://www.kitchenaid.com/countertop-appliances/hand-blenders/hand-blender-products/p.5-speed-hand-blender.khbv53er.html",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home",
+    "image": "https://media.binglee.com.au/d/3/6/c/d36cfd115142ebb9b373d50a70c4ec28390f4ad3_Hero2.jpg"
+  },
+  {
+    "id": "cuisinart-custom-14-cup-food-processor",
+    "name": "Cuisinart Custom 14-Cup Food Processor",
+    "category": "Food Processors",
+    "markets": [
+      "USA"
+    ],
+    "description": "A full-size food processor for chopping, slicing, shredding and mixing larger batches. Consider its countertop footprint and included discs before choosing.",
+    "price": "",
+    "merchant": "Cuisinart",
+    "affiliateUrl": "",
+    "productUrl": "https://www.cuisinart.com/shopping/appliances/food_processors/dfp-14bcny/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Kitchen & Home",
+    "image": "https://www.cuisinart.ca/dw/image/v2/ABAF_PRD/on/demandware.static/-/Sites-master-ca/default/dwf960db6d/DFP-14BCNYC_5.jpg"
+  },
+  {
+    "id": "revlon-one-step-volumizer-plus",
+    "name": "Revlon One-Step Volumizer PLUS",
+    "category": "Hair Styling Tools",
+    "markets": [
+      "USA"
+    ],
+    "description": "A hot-air styling brush with an oval head, multiple heat settings and a detachable design for blowout-style results. Use heat protection and follow the manufacturer's hair-type guidance.",
+    "price": "",
+    "merchant": "Revlon",
+    "affiliateUrl": "",
+    "productUrl": "https://www.revlonhairtools.com/dryers/one-step-volumizer-plus/",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty",
+    "image": "https://www.ibeautypanama.com/cdn/shop/products/1193875_R_SET_1200x.jpg?v=1680974868"
+  },
+  {
+    "id": "foreo-luna-4",
+    "name": "FOREO LUNA 4 Facial Cleansing Device",
+    "category": "Facial Care Tools",
+    "markets": [
+      "USA"
+    ],
+    "description": "A rechargeable silicone facial cleansing device with app-connected routines. Review the model-specific features, skin-care guidance and replacement or warranty terms.",
+    "price": "",
+    "merchant": "FOREO",
+    "affiliateUrl": "",
+    "productUrl": "https://www.foreo.com/luna-4",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty",
+    "image": "https://i5.walmartimages.com/asr/91ec1805-fc40-419f-beaa-3c23c1500735.7278f08582bf27bf3d722619deff8835.jpeg"
+  },
+  {
+    "id": "panasonic-nanoe-hair-dryer",
+    "name": "Panasonic nanoe Hair Dryer",
+    "category": "Hair Dryers",
+    "markets": [
+      "USA"
+    ],
+    "description": "A hair dryer from Panasonic's nanoe range, designed for everyday drying and styling. Confirm the exact model, voltage and plug type for your country before ordering.",
+    "price": "",
+    "merchant": "Panasonic",
+    "affiliateUrl": "",
+    "productUrl": "https://shop.panasonic.com/collections/hair-dryers",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Beauty",
+    "image": "https://media.flixcar.com/webp/synd-asset/Panasonic-110236662-ast-1622037.jpg"
+  },
+  {
+    "id": "levis-501-original-jeans",
+    "name": "Levi's 501 Original Fit Jeans",
+    "category": "Clothing",
+    "markets": [
+      "USA"
+    ],
+    "description": "The classic straight-fit denim style with a button fly. Check the size guide, inseam and wash options because fit and fabric can vary by version.",
+    "price": "",
+    "merchant": "Levi's",
+    "affiliateUrl": "",
+    "productUrl": "https://www.levi.com/US/en_US/clothing/men/jeans/501-original-fit-mens-jeans/p/005010114",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion",
+    "image": "https://lscoglobal.scene7.com/is/image/lscoglobal/MB_00501-0114_GLO_CM_DA?fit=crop%2C1&fmt=jpeg&hei=1200&op_usm=0.6%2C0.6%2C8&qlt=80&resMode=sharp2&wid=960"
+  },
+  {
+    "id": "adidas-classic-3-stripes-backpack",
+    "name": "Adidas Classic 3-Stripes Backpack",
+    "category": "Bags & Backpacks",
+    "markets": [
+      "USA"
+    ],
+    "description": "A practical everyday backpack with a simple sports-inspired design for commuting, study and casual use. Check capacity, laptop protection and dimensions on the selected variant.",
+    "price": "",
+    "merchant": "Adidas",
+    "affiliateUrl": "",
+    "productUrl": "https://www.adidas.com/us/classic-3-stripes-backpack",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion",
+    "image": "https://brandpresent.ru/shop/project/1000/BP_10206.30_1_1000x1000.jpg"
+  },
+  {
+    "id": "new-balance-574-core",
+    "name": "New Balance 574 Core Sneakers",
+    "category": "Footwear",
+    "markets": [
+      "USA"
+    ],
+    "description": "A versatile lifestyle sneaker with the familiar 574 silhouette for everyday casual wear. Use the brand's size guide and check width options before ordering.",
+    "price": "",
+    "merchant": "New Balance",
+    "affiliateUrl": "",
+    "productUrl": "https://www.newbalance.com/pd/574-core/ML574V3-40348.html",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Fashion",
+    "image": "https://newbalance.ua/img/photos/photo49517.jpg"
+  },
+  {
+    "id": "bowflex-selecttech-552-dumbbells",
+    "name": "BowFlex SelectTech 552 Adjustable Dumbbells",
+    "category": "Strength Training",
+    "markets": [
+      "USA"
+    ],
+    "description": "Adjustable dumbbells with multiple weight settings that can replace several pairs of fixed dumbbells. Check available model generation, weight range and shipping restrictions.",
+    "price": "",
+    "merchant": "BowFlex",
+    "affiliateUrl": "",
+    "productUrl": "https://www.bowflex.com/products/bowflex-results-series-552-selecttech-dumbbells",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness",
+    "image": "https://m.media-amazon.com/images/I/71bdxVC7-0L._AC_US1400_.jpg"
+  },
+  {
+    "id": "theragun-mini",
+    "name": "Theragun Mini Percussive Massage Device",
+    "category": "Recovery & Massage",
+    "markets": [
+      "USA"
+    ],
+    "description": "A compact percussive massage device designed for portable muscle recovery routines. Follow the manufacturer's safety guidance and avoid use on injured areas without professional advice.",
+    "price": "",
+    "merchant": "Therabody",
+    "affiliateUrl": "",
+    "productUrl": "https://www.therabody.com/products/theragun-mini-gen-3-black?redirect=false",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness",
+    "image": "https://www.therabody.com/cdn/shop/files/Mini-Gen-3-Black-PLP-Thumbnail-1.png?v=1741752124&width=1445"
+  },
+  {
+    "id": "trx-all-in-one-suspension-trainer",
+    "name": "TRX All-in-One Suspension Training System",
+    "category": "Home Workout Equipment",
+    "markets": [
+      "USA"
+    ],
+    "description": "A suspension training kit for bodyweight exercises at home or while travelling. Check the anchor requirements and installation instructions for your intended setup.",
+    "price": "",
+    "merchant": "TRX Training",
+    "affiliateUrl": "",
+    "productUrl": "https://www.trxtraining.com/products/trx-all-in-one-suspension-training-system",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Health & Fitness",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/trx-suspension-training-system-1545074592.jpg?crop=1xw%3A1xh%3Bcenter%2Ctop&resize=980%3A%2A"
+  },
+  {
+    "id": "stanley-quencher-h2o-40oz",
+    "name": "Stanley Quencher H2.0 FlowState Tumbler (40 oz)",
+    "category": "Drinkware",
+    "markets": [
+      "USA"
+    ],
+    "description": "A reusable insulated stainless-steel tumbler with a handle, reusable straw and three-position lid. Check dimensions and lid care; it is designed to fit many, but not all, vehicle cup holders.",
+    "price": "",
+    "merchant": "Stanley 1913",
+    "affiliateUrl": "",
+    "productUrl": "https://www.stanley1913.com/products/adventure-quencher-travel-tumbler-40-oz",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use",
+    "image": "https://www.stanley1913.com/cdn/shop/files/B2B_Web_PNG-TheQuencherH2.OFlowStateTumbler40OZ-Black2.0-Front.png?v=1770327737&width=990"
+  },
+  {
+    "id": "tile-mate-bluetooth-tracker",
+    "name": "Tile Mate Bluetooth Item Tracker",
+    "category": "Everyday Tech",
+    "markets": [
+      "USA"
+    ],
+    "description": "A small Bluetooth tracker designed to help locate everyday items such as keys and bags using the companion app. Check phone compatibility, network limitations and subscription features.",
+    "price": "",
+    "merchant": "Tile",
+    "affiliateUrl": "",
+    "productUrl": "https://www.life360.com/en-us/tile-trackers/product/black-mate",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use",
+    "image": "https://cdn11.bigcommerce.com/s-3k9txw3o66/images/stencil/200w/products/868/87210/a8bfe0ff61db2be69ee5381e7f634122fb68874428f311e1949750a6c1c1a6a7__27885.1793396961.png"
+  },
+  {
+    "id": "simplehuman-sensor-pump",
+    "name": "simplehuman Rechargeable Sensor Pump",
+    "category": "Home & Personal Essentials",
+    "markets": [
+      "USA"
+    ],
+    "description": "A touch-free soap dispenser designed for kitchen or bathroom counters. Confirm the selected size, soap compatibility and charging method before purchase.",
+    "price": "",
+    "merchant": "simplehuman",
+    "affiliateUrl": "",
+    "productUrl": "https://www.simplehuman.com/collections/sensor-pumps",
+    "isAffiliate": false,
+    "status": "published",
+    "department": "Daily Use",
+    "image": "https://www.simplehuman.co.uk/cdn/shop/files/ECOM_9oz_PUMP_ANGLED_POLISHED_2_e9087ef6-6aa7-4897-85f3-fb0064376f1f_900x900.png?v=1779403085"
+  }
+]

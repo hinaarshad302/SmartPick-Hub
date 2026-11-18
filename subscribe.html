@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Manage your SmartPick Hub account and profile.">
+    <meta name="description" content="Sign up for SmartPick Hub updates, practical buying guides and product comparisons.">
     <title>Subscribe | SmartPick Hub</title>
+<meta name="robots" content="noindex, nofollow">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -287,14 +288,14 @@
                 grid-template-columns: 1fr;
             }
         }
-    </style>
+    .logo-mark { width:48px;height:48px;display:block;flex:0 0 48px;object-fit:contain;border-radius:0;box-shadow:none; }</style>
 </head>
 <body>
 
 <header class="header">
     <div class="navbar">
         <a class="logo" href="index.html">
-            <span class="logo-mark">SH</span>
+            <img class="logo-mark" src="assets/smartpick-hub-sh-logo.webp" alt="" width="42" height="42">
             <span class="logo-text">
                 <strong>SmartPick Hub</strong>
                 <small>SMART CHOICES. BETTER LIVING.</small>
@@ -311,6 +312,7 @@
             <a href="index.html">Home</a>
             <a href="technology.html">Technology</a>
             <a href="featured.html">Featured</a>
+<a href="products.html">Shop Products</a>
             <a href="guides.html">Buying Guides</a>
             <a href="about.html">About</a>
             <a href="auth.html" id="login-nav-link">Login / Sign Up</a>
@@ -356,8 +358,8 @@
             <h2>Stay in the Loop</h2>
 
             <p>
-                Our newsletter signup is being connected.
-                Subscription will be available soon.
+                Join for practical buying guides, product comparisons and useful updates.
+                Please confirm your email address before your subscription becomes active.
             </p>
 
             <form id="newsletter-form">
@@ -365,12 +367,25 @@
 
                 <input type="email"
                        id="newsletter-email"
+                       name="email"
                        placeholder="Enter your email address"
-                       disabled>
+                       autocomplete="email"
+                       maxlength="254"
+                       required>
 
-                <button type="button" disabled>
-                    Newsletter Signup Coming Soon
+                <label class="newsletter-consent" for="newsletter-consent">
+                    <input type="checkbox" id="newsletter-consent" name="newsletter_consent" required>
+                    <span>I agree to receive SmartPick Hub newsletter emails. I understand I can unsubscribe at any time. See the <a href="privacy.html">Privacy Policy</a>.</span>
+                </label>
+
+                <button type="submit" id="newsletter-submit">
+                    Subscribe
                 </button>
+
+                <p id="newsletter-message"
+                   class="newsletter-message"
+                   role="status"
+                   aria-live="polite"></p>
             </form>
         </div>
 
@@ -384,12 +399,14 @@
 <footer class="footer">
     <div class="footer-bottom">
         <p>© 2026 SmartPick Hub. All rights reserved.</p>
-        <p>Smart Choices. Better Living.</p>
+        <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="affiliate-disclosure.html">Affiliate Disclosure</a></p>
     </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
+<script src="api-config.js"></script>
+<script src="newsletter.js"></script>
 <script src="auth-nav.js"></script>
 <script src="script.js"></script>
 
@@ -470,10 +487,48 @@
     border: none;
 }
 
-.subscribe-form-card button:disabled,
-.subscribe-form-card input:disabled {
+.subscribe-form-card button:disabled {
     opacity: 0.65;
-    cursor: not-allowed;
+    cursor: wait;
+}
+
+.newsletter-message {
+    min-height: 24px;
+    margin: 14px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.newsletter-message[data-state="success"] {
+    color: #27633b;
+}
+
+.newsletter-message[data-state="error"] {
+    color: #963b32;
+}
+
+.subscribe-form-card .newsletter-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 16px 0 8px;
+    text-align: left;
+    color: #58665f;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.subscribe-form-card .newsletter-consent input {
+    width: auto;
+    flex: 0 0 auto;
+    margin: 3px 0 0;
+    padding: 0;
+    accent-color: #1D493D;
+}
+
+.subscribe-form-card .newsletter-consent a {
+    color: #1D493D;
+    text-decoration: underline;
 }
 
 .subscribe-privacy {
