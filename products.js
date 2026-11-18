@@ -96,7 +96,7 @@ function renderProducts(products) {
     grid.appendChild(empty);
     return;
   }
-  filtered.forEach(product => {
+  filtered.forEach((product, index) => {
     const card = document.createElement("article");
     card.className = "shop-card";
     const body = document.createElement("div");
@@ -111,7 +111,8 @@ function renderProducts(products) {
     if (product.image) {
       const image = document.createElement("img");
       image.alt = product.name;
-      image.loading = filtered.indexOf(product) < 4 ? "eager" : "lazy";
+      image.loading = index === 0 ? "eager" : "lazy";
+      if (index === 0) image.fetchPriority = "high";
       image.decoding = "async";
       image.width = 320;
       image.height = 180;

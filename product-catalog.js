@@ -87,7 +87,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           const image = document.createElement("img");
           image.src = product.image;
           image.alt = product.name;
-          image.loading = "lazy";
+          image.loading = index === 0 ? "eager" : "lazy";
+          if (index === 0) image.fetchPriority = "high";
           image.decoding = "async";
           image.width = 320;
           image.height = 180;
