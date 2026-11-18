@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the selected branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Prepare a public-only static site folder
         shell: bash
