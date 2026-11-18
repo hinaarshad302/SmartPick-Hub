@@ -33,8 +33,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     })();
 
-    const localRecords = await localPromise;
-    return { records: localRecords, databasePromise };
+    try {
+      const localRecords = await localPromise;
+      return { records: localRecords, databasePromise };
+    } catch (localError) {
+      const databaseRecords = await databasePromise;
+      if (databaseRecords.length) {
+        return { records: databaseRecords, databasePromise: Promise.resolve([]) };
+      }
+      throw localError;
+    }
   }
 
   try {
