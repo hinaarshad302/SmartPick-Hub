@@ -111,6 +111,25 @@ function renderProducts(products) {
     link.target = "_blank";
     link.rel = isAffiliate ? "sponsored nofollow noopener" : "noopener";
     link.textContent = isAffiliate ? "View Product" : "View on Manufacturer Site";
+    // Apply the hover effect directly to every dynamically created product link.
+    // Inline important styles ensure the shared page-wide link rules cannot override it.
+    const applyProductLinkHover = () => {
+      link.style.setProperty("background-color", "#244638", "important");
+      link.style.setProperty("color", "#ffffff", "important");
+      link.style.setProperty("-webkit-text-fill-color", "#ffffff", "important");
+      link.style.setProperty("transform", "translateY(-3px)", "important");
+      link.style.setProperty("box-shadow", "0 8px 18px rgba(36,70,56,.24)", "important");
+      link.style.setProperty("outline", "2px solid #bd974d", "important");
+      link.style.setProperty("outline-offset", "3px", "important");
+    };
+    const resetProductLinkHover = () => {
+      ["background-color", "color", "-webkit-text-fill-color", "transform",
+       "box-shadow", "outline", "outline-offset"].forEach(property => link.style.removeProperty(property));
+    };
+    link.addEventListener("pointerenter", applyProductLinkHover);
+    link.addEventListener("pointerleave", resetProductLinkHover);
+    link.addEventListener("focus", applyProductLinkHover);
+    link.addEventListener("blur", resetProductLinkHover);
     body.append(categoryLabel, title, description, meta, link);
     card.appendChild(body);
     grid.appendChild(card);
