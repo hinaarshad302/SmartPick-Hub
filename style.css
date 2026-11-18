@@ -67,7 +67,7 @@ nav a:hover{color:var(--gold)}
 .about-highlight p{color:#d3ded7;font-size:13px}
 .disclosure{padding:65px 7%;background:var(--cream)}
 .disclosure-content{max-width:850px;margin:auto}
-.disclosure h2{font-size:32px}
+.disclosure h1{font-family:'Playfair Display',serif;font-size:32px;line-height:1.2;margin:10px 0}
 .disclosure p{color:var(--muted);font-size:13px}
 .footer{background:#0b211c;color:#e9eee9;padding:48px 7% 18px}
 .footer-main{max-width:1120px;margin:auto}
