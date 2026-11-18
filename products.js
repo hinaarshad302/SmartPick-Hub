@@ -4,50 +4,77 @@ const categoryFilter = document.getElementById("category-filter");
 const marketFilter = document.getElementById("market-filter");
 document.getElementById("year").textContent = new Date().getFullYear();
 
-async function loadProducts() {
+async function fetchDatabaseProducts() {
+  if (!window.supabase || typeof window.supabase.createClient !== "function") return [];
   try {
     const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
     const { data, error } = await client.from("products")
       .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
       .eq("status", "published")
       .order("name");
-    const databaseRecords = (data || []).map(p => ({
-      ...p, affiliateUrl: p.affiliate_url || p.affiliateUrl || "",
+    if (error) throw error;
+    return (data || []).map(p => ({
+      ...p,
+      affiliateUrl: p.affiliate_url || p.affiliateUrl || "",
       productUrl: p.product_url || p.productUrl || ""
     }));
-    let records = databaseRecords;
-    try {
-      const fallback = await fetch("products.json", { cache: "no-store" });
-      if (!fallback.ok) throw new Error("Could not load the JSON catalogue.");
-      const jsonRecords = await fallback.json();
-      const byId = new Map(jsonRecords.map(product => [product.id, product]));
-      databaseRecords.forEach(product => {
-        const curated = byId.get(product.id) || {};
-        byId.set(product.id, {
-          ...curated,
-          ...product,
-          image: curated.image || product.image || ""
-        });
-      });
-      records = [...byId.values()];
-    } catch (fallbackError) {
-      if (!databaseRecords.length) throw error || fallbackError;
-      console.warn("Using the available database products; JSON catalogue could not be loaded.", fallbackError);
-    }
-    if (error) console.warn("Supabase catalogue unavailable; using JSON products where available.", error);
-    const liveProducts = records.filter(p =>
-      p.status === "published" && p.name && (p.affiliateUrl || p.productUrl)
-    );
-    [...new Set(liveProducts.map(p => p.category).filter(Boolean))].sort().forEach(category => {
-      categoryFilter.appendChild(new Option(category, category));
+  } catch (error) {
+    console.warn("Using the fast local product catalogue; database refresh unavailable.", error);
+    return [];
+  }
+}
+
+function mergeProductSources(localProducts, databaseProducts) {
+  const byId = new Map(localProducts.map(product => [product.id, product]));
+  databaseProducts.forEach(product => {
+    const local = byId.get(product.id) || {};
+    byId.set(product.id, {
+      ...local,
+      ...product,
+      image: local.image || product.image || ""
     });
-    renderProducts(liveProducts);
-    [searchInput, categoryFilter, marketFilter].forEach(control =>
-      control.addEventListener("input", () => renderProducts(liveProducts))
-    );
+  });
+  return [...byId.values()];
+}
+
+async function loadProducts() {
+  try {
+    // Show the bundled catalogue first instead of making visitors wait for Supabase.
+    const localPromise = fetch("products.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Could not load the local product catalogue.");
+        return response.json();
+      });
+    const databasePromise = fetchDatabaseProducts();
+
+    let localProducts = [];
+    try {
+      localProducts = await localPromise;
+      const initialProducts = localProducts.filter(p =>
+        p.status === "published" && p.name && (p.affiliateUrl || p.productUrl)
+      );
+      renderProducts(initialProducts);
+    } catch (localError) {
+      const databaseProducts = await databasePromise;
+      if (!databaseProducts.length) throw localError;
+      localProducts = databaseProducts;
+      renderProducts(localProducts.filter(p =>
+        p.status === "published" && p.name && (p.affiliateUrl || p.productUrl)
+      ));
+      return;
+    }
+
+    // Refresh from the database in the background; never block the first render.
+    databasePromise.then(databaseProducts => {
+      if (!databaseProducts.length) return;
+      const updated = mergeProductSources(localProducts, databaseProducts).filter(p =>
+        p.status === "published" && p.name && (p.affiliateUrl || p.productUrl)
+      );
+      renderProducts(updated);
+    });
   } catch (error) {
     console.error("Shop Products load failed:", error);
-    grid.innerHTML = '<div class="shop-empty">The product catalogue is not available yet. The administrator may need to complete the database setup.</div>';
+    grid.innerHTML = '<div class="shop-empty">The product catalogue is temporarily unavailable. Please refresh the page shortly.</div>';
   }
 }
 
@@ -84,7 +111,10 @@ function renderProducts(products) {
     if (product.image) {
       const image = document.createElement("img");
       image.alt = product.name;
-      image.loading = "lazy";
+      image.loading = filtered.indexOf(product) < 4 ? "eager" : "lazy";
+      image.decoding = "async";
+      image.width = 320;
+      image.height = 180;
       image.src = product.image;
       image.onerror = showImageFallback;
       imageFrame.appendChild(image);
