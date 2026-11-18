@@ -7,53 +7,48 @@ document.addEventListener("DOMContentLoaded", async () => {
   const normalize = value => String(value || "").trim().toLowerCase().replace(/\\s+/g, " ");
 
   async function loadProducts() {
-    let databaseRecords = [];
-    let databaseError = null;
-
-    try {
-      const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-      const { data, error } = await client.from("products")
-        .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
-        .eq("status", "published")
-        .order("name");
-      if (error) databaseError = error;
-      else databaseRecords = (data || []).map(product => ({
-        ...product,
-        affiliateUrl: product.affiliate_url || product.affiliateUrl || "",
-        productUrl: product.product_url || product.productUrl || ""
-      }));
-    } catch (error) {
-      databaseError = error;
-    }
-
-    // Merge the JSON catalogue with Supabase so new curated picks are not
-    // hidden when the database already contains older products. Database rows
-    // take priority when the same product ID exists in both sources.
-    try {
-      const response = await fetch("products.json", { cache: "no-store" });
-      if (!response.ok) throw new Error("Could not load the product catalogue.");
-      const jsonRecords = await response.json();
-      const byId = new Map(jsonRecords.map(product => [product.id, product]));
-      databaseRecords.forEach(product => {
-        const curated = byId.get(product.id) || {};
-        // Keep the curated catalogue photo when an older database row has
-        // an empty image field; otherwise use the newer database photo.
-        byId.set(product.id, {
-          ...curated,
-          ...product,
-          image: curated.image || product.image || ""
-        });
+    // Start both sources together, but return the local JSON catalogue first.
+    const localPromise = fetch("products.json")
+      .then(response => {
+        if (!response.ok) throw new Error("Could not load the product catalogue.");
+        return response.json();
       });
-      return [...byId.values()];
-    } catch (fallbackError) {
-      if (databaseRecords.length) return databaseRecords;
-      throw databaseError || fallbackError;
+    const databasePromise = (async () => {
+      try {
+        if (!window.supabase || typeof window.supabase.createClient !== "function") return [];
+        const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+        const { data, error } = await client.from("products")
+          .select("id,name,category,department,markets,description,image,price,merchant,affiliate_url,product_url,status")
+          .eq("status", "published")
+          .order("name");
+        if (error) throw error;
+        return (data || []).map(product => ({
+          ...product,
+          affiliateUrl: product.affiliate_url || product.affiliateUrl || "",
+          productUrl: product.product_url || product.productUrl || ""
+        }));
+      } catch (error) {
+        console.warn("Using local products; database refresh unavailable.", error);
+        return [];
+      }
+    })();
+
+    try {
+      const localRecords = await localPromise;
+      return { records: localRecords, databasePromise };
+    } catch (localError) {
+      const databaseRecords = await databasePromise;
+      if (databaseRecords.length) {
+        return { records: databaseRecords, databasePromise: Promise.resolve([]) };
+      }
+      throw localError;
     }
   }
 
   try {
-    const records = await loadProducts();
-    const published = records.filter(product =>
+    const { records, databasePromise } = await loadProducts();
+    const renderCatalog = sourceRecords => {
+    const published = sourceRecords.filter(product =>
       product.status === "published" &&
       product.name &&
       (product.affiliateUrl || product.productUrl || product.affiliate_url || product.product_url)
@@ -93,6 +88,9 @@ document.addEventListener("DOMContentLoaded", async () => {
           image.src = product.image;
           image.alt = product.name;
           image.loading = "lazy";
+          image.decoding = "async";
+          image.width = 320;
+          image.height = 180;
           image.onerror = showImageFallback;
           imageFrame.appendChild(image);
         } else {
@@ -133,6 +131,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         card.appendChild(body);
         grid.appendChild(card);
       });
+    });
+    };
+    renderCatalog(records);
+    databasePromise.then(databaseRecords => {
+      if (!databaseRecords.length) return;
+      const byId = new Map(records.map(product => [product.id, product]));
+      databaseRecords.forEach(product => {
+        const local = byId.get(product.id) || {};
+        byId.set(product.id, { ...local, ...product, image: local.image || product.image || "" });
+      });
+      renderCatalog([...byId.values()]);
     });
   } catch (error) {
     console.error("SmartPick catalogue load failed:", error);
