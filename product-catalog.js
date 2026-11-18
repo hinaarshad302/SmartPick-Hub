@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
       }
 
-      matching.forEach(product => {
+      matching.forEach((product, index) => {
         const card = document.createElement("article");
         card.className = "catalog-product-card";
 
@@ -119,6 +119,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           affiliateUrl ? "Affiliate link" : "Direct retailer link"
         ].filter(Boolean).join(" · ");
 
+        const detailsLink = document.createElement("a");
+        detailsLink.className = "catalog-details-link";
+        detailsLink.href = "products/" + encodeURIComponent(product.id) + ".html";
+        detailsLink.textContent = "View product details";
         const link = document.createElement("a");
         link.className = "catalog-buy";
         link.href = window.smartPickOutboundUrl
@@ -128,7 +132,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         link.rel = affiliateUrl ? "sponsored nofollow noopener" : "noopener";
         link.textContent = affiliateUrl ? "View Product" : "View on Manufacturer Site";
 
-        body.append(category, title, description, meta, link);
+        body.append(category, title, description, meta, detailsLink, link);
         card.appendChild(body);
         grid.appendChild(card);
       });
