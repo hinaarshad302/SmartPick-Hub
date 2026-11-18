@@ -90,6 +90,25 @@
       -webkit-text-fill-color: #ffffff !important;
       transform: translateY(0);
     }
+
+    /* Guaranteed hover styling for every dynamically rendered Shop Products card. */
+    #product-grid a.shop-buy,
+    #product-grid a.shop-buy:link,
+    #product-grid a.shop-buy:visited {
+      transition: background-color .2s ease, color .2s ease,
+                  transform .2s ease, box-shadow .2s ease !important;
+    }
+    #product-grid a.shop-buy:hover,
+    #product-grid a.shop-buy:focus,
+    #product-grid a.shop-buy:focus-visible {
+      background-color: #244638 !important;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 18px rgba(36,70,56,.24) !important;
+      outline: 2px solid #bd974d !important;
+      outline-offset: 3px !important;
+    }
   </style>
 </head>
 <body>
