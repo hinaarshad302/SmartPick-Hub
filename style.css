@@ -3651,3 +3651,7 @@ body:not(:has(section.hero#home)) main .btn:hover {
   visibility: visible !important;
   text-shadow: 0 1px 1px rgba(0,0,0,.18);
 }
+
+
+/* Internal links to SEO product detail pages */
+.catalog-details-link,.shop-details-link{display:inline-block;align-self:flex-start;margin:2px 0 12px;color:#244638;font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:3px}.catalog-details-link:hover,.shop-details-link:hover{color:#8a6a2f}

@@ -133,6 +133,10 @@ function renderProducts(products) {
     const meta = document.createElement("div");
     meta.className = "shop-meta";
     meta.textContent = [product.price, product.merchant, (product.markets || []).join(", "), product.affiliateUrl ? "Affiliate link" : "Direct retailer link"].filter(Boolean).join(" · ");
+    const detailsLink = document.createElement("a");
+    detailsLink.className = "shop-details-link";
+    detailsLink.href = "products/" + encodeURIComponent(product.id) + ".html";
+    detailsLink.textContent = "View product details";
     const link = document.createElement("a");
     const isAffiliate = Boolean(product.affiliateUrl);
     link.className = "shop-buy";
@@ -161,7 +165,7 @@ function renderProducts(products) {
     link.addEventListener("pointerleave", resetProductLinkHover);
     link.addEventListener("focus", applyProductLinkHover);
     link.addEventListener("blur", resetProductLinkHover);
-    body.append(categoryLabel, title, description, meta, link);
+    body.append(categoryLabel, title, description, meta, detailsLink, link);
     card.appendChild(body);
     grid.appendChild(card);
   });
