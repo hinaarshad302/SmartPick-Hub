@@ -69,9 +69,9 @@
       -webkit-text-fill-color: #111111 !important;
       transition: background-color .22s ease, color .22s ease, transform .22s ease, box-shadow .22s ease;
     }
-    body:not(:has(section.hero#home)) main#main-content .shop-wrap .shop-card a.shop-buy:hover,
-    body:not(:has(section.hero#home)) main#main-content .shop-wrap .shop-card a.shop-buy:focus,
-    body:not(:has(section.hero#home)) main#main-content .shop-wrap .shop-card a.shop-buy:focus-visible {
+    body:not(:has(section.hero#home)) main.shop-wrap .shop-card a.shop-buy:hover,
+    body:not(:has(section.hero#home)) main.shop-wrap .shop-card a.shop-buy:focus,
+    body:not(:has(section.hero#home)) main.shop-wrap .shop-card a.shop-buy:focus-visible {
       background: #244638 !important;
       color: #ffffff !important;
       -webkit-text-fill-color: #ffffff !important;
@@ -89,6 +89,39 @@
       color: #ffffff !important;
       -webkit-text-fill-color: #ffffff !important;
       transform: translateY(0);
+    }
+
+    /* Guaranteed hover styling for every dynamically rendered Shop Products card. */
+    #product-grid a.shop-buy,
+    #product-grid a.shop-buy:link,
+    #product-grid a.shop-buy:visited {
+      transition: background-color .2s ease, color .2s ease,
+                  transform .2s ease, box-shadow .2s ease !important;
+    }
+    #product-grid a.shop-buy:hover,
+    #product-grid a.shop-buy:focus,
+    #product-grid a.shop-buy:focus-visible {
+      background-color: #244638 !important;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 18px rgba(36,70,56,.24) !important;
+      outline: 2px solid #bd974d !important;
+      outline-offset: 3px !important;
+    }
+    /* Final override: beat the shared inner-page main-link !important rule. */
+    body:not(:has(section.hero#home)) main.shop-wrap #product-grid a.shop-buy:hover,
+    body:not(:has(section.hero#home)) main.shop-wrap #product-grid a.shop-buy:focus,
+    body:not(:has(section.hero#home)) main.shop-wrap #product-grid a.shop-buy:focus-visible {
+      background: #244638 !important;
+      background-color: #244638 !important;
+      color: #ffffff !important;
+      -webkit-text-fill-color: #ffffff !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 8px 18px rgba(36,70,56,.24) !important;
+      outline: 2px solid #bd974d !important;
+      outline-offset: 3px !important;
+      text-decoration: none !important;
     }
   </style>
 </head>
@@ -155,7 +188,7 @@
   <script src="auth-nav.js"></script>
   <script src="script.js"></script>
   <script src="outbound-config.js"></script>
-  <script src="products.js"></script>
+  <script src="products.js?v=20261117-hoverfix2"></script>
 
 </body>
 </html>
